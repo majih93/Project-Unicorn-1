@@ -13,15 +13,19 @@ git remote add upstream <원본 repository주소>
 
 명령어를 통해 upstream 연결
 
-#### 코드를 로컬에서 수정하고, 이를 원본에 반영하는 과정
+---
 
-1. 원본 repo와 로컬 프로젝트 폴더 동기화
+### 코드를 로컬에서 수정하고, 이를 원본에 반영하는 과정
+
+<br>
+
+**1. 원본 repo와 로컬 프로젝트 폴더 동기화**
 
 ```bash
 git pull upstream
 ```
 
-2. 로컬에서 브랜치 생성 후 코딩
+**2. 로컬에서 브랜치 생성 후 코딩**
 
 ```bash
 git branch <브랜치명>
@@ -29,11 +33,33 @@ git branch <브랜치명>
 git checkout <브랜치명>
 ```
 
-3. 코딩 완료 후 commit 및 push
-   git add, git commit 을 통한 로컬 커밋 작업 후
+**3. 코딩 완료 후 commit 및 push**
+git add, git commit 을 통한 로컬 커밋 작업 후
 
 ```bash
 git push origin <브랜치명>
 ```
 
 로컬에서, fork해온 repository 에 변경사항을 먼저 push하는 것
+
+**4. 깃허브 본인 계정에 fork 해둔 repo에서 pull request 만들기**
+
+상단에 노란색으로 방금 push한 브랜치에서 push 가 있었다는 알림 및 pull request를 생성하는 버튼이 생김
+
+눌러서 pull request 제목 및 내용을 작성하고 create 해주면 됨(이를 메인에서 확인하고 confirm하면 원본 repo에 변경사항이 반영됨)
+
+**5. 원본 저장소 변경 사항 각자 계정 repo로 당겨오기**
+
+가장 최신 내용이 반영된 upstream 으로 부터 fetch
+
+```bash
+git fetch upstream
+```
+
+그 다음, 로컬 저장소 main 브랜치로 checkout 한 후에 merge 해줍니다.
+
+```bash
+git merge upstream/main
+```
+
+그리고 업데이트된 로컬 환경의 main 브랜치에 있는 내용을 본인의 깃허브 계정에 있는 origin repository에 push
