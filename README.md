@@ -47,10 +47,10 @@ git add, git commit 을 통한 로컬 커밋 작업 후
 git push origin <브랜치명>
 ```
 
-<br>
-<br>
-
 로컬에서, fork해온 repository 에 변경사항을 먼저 push하는 것
+
+<br>
+<br>
 
 **4. 깃허브 본인 계정에 fork 해둔 repo에서 pull request 만들기**
 <br>
