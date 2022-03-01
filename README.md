@@ -21,7 +21,6 @@ git remote add upstream <원본 repository주소>
 
 **1. 원본 repo와 로컬 프로젝트 폴더 동기화**
 
-
 ```bash
 git pull upstream
 ```
@@ -29,7 +28,6 @@ git pull upstream
 <br>
 
 **2. 로컬에서 브랜치 생성 후 코딩**
-
 
 <br>
 
@@ -107,3 +105,5 @@ git branch -d <삭제하려는 브랜치명>
 ```bash
 git push origin --delete <삭제하려는 브랜치명>
 ```
+
+THankYou!!!!!
