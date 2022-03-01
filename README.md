@@ -20,7 +20,7 @@ git remote add upstream <원본 repository주소>
 <br>
 
 **1. 원본 repo와 로컬 프로젝트 폴더 동기화**
-<br>
+
 
 ```bash
 git pull upstream
@@ -42,6 +42,7 @@ git checkout <브랜치명>
 <br><br>
 
 **3. 코딩 완료 후 commit 및 push**
+
 <br>
 git add, git commit 을 통한 로컬 커밋 작업 후
 
@@ -55,6 +56,7 @@ git push origin <브랜치명>
 <br>
 
 **4. 깃허브 본인 계정에 fork 해둔 repo에서 pull request 만들기**
+
 <br>
 
 상단에 노란색으로 방금 push한 브랜치에서 push 가 있었다는 알림 및 pull request를 생성하는 버튼이 생김
@@ -64,6 +66,7 @@ git push origin <브랜치명>
 <br>
 
 **5. 원본 저장소 변경 사항 각자 계정 repo로 당겨오기**
+
 <br>
 
 가장 최신 내용이 반영된 upstream 으로 부터 fetch
@@ -88,6 +91,7 @@ git push
 <br>
 
 **6. 사용한 브랜치 삭제하기**
+
 <br>
 
 원래는 각자 브랜치 생성 후 삭제가 번거로울 듯 해서 삭제하지 말고 업데이트하면서 작업하자고 말씀을 드렸었습니다. 근데 조사하다보니 이게 git을 사용하는 의미 자체에 좀 안맞는 생각이었습니다ㅠㅠㅠ 조금 번거로우시더라도, 브랜치 생성해서 특정 작업 단위가 완료된 후에는, 해당 브랜치를 삭제하고 다음 작업에 다시 또 브랜치를 파서 작업하는 방식으로 진행하는게 어떨까 합니다.
