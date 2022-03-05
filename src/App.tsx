@@ -1,9 +1,12 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import GlobalStyle from "./styles/globalStyle";
 
 function App() {
-  return <div className="App">TK branch</div>;
+  return (
+    <div className="App">
+      <GlobalStyle />
+    </div>
+  );
 }
 
 export default App;
