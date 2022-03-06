@@ -8,7 +8,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    button {
+      border:0;
+      outline: 0;
+      font-family: "Spoqa Han Sans", sans-serif;
+    }
   }
+
 `;
 
 export default GlobalStyle;

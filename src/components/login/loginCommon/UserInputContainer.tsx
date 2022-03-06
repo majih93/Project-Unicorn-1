@@ -1,5 +1,11 @@
+// 입력칸 format
+
 import React from "react";
 import styled from "styled-components";
+
+interface inputProps {
+  inputType: string;
+}
 
 // 입력 칸 전체
 const InputContainer = styled.div`
@@ -9,7 +15,7 @@ const InputContainer = styled.div`
   height: 65px;
   border: 2px solid #f5f5f5;
   border-left: 3px solid #4a73f3;
-  margin-bottom: 16px;
+  margin-top: 16px;
 `;
 
 // 입력 칸 안내 문구(이메일, 비밀번호)
@@ -33,12 +39,16 @@ const UserInput = styled.input`
   :-ms-input-placeholder {
     color: #4a73f3;
   }
+  &:focus {
+    outline: none;
+  }
+  letter-spacing: 0.5px;
 `;
 
-const UserInputContainer = () => {
+const UserInputContainer = ({ inputType }: inputProps) => {
   return (
     <InputContainer>
-      <InputPlaceholder>이메일</InputPlaceholder>
+      <InputPlaceholder>{inputType}</InputPlaceholder>
       <UserInput placeholder="abcd@abcd.com" />
     </InputContainer>
   );
