@@ -3,24 +3,20 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import MainButton from "../components/login/loginCommon/MainButton";
 import UnicornIcon from "../components/login/loginCommon/UnicornIcon";
-import UserInputContainer from "../components/login/loginCommon/UserInputContainer";
 import loginNaver from "../assets/icons/Login_Naver.svg";
 import loginKakao from "../assets/icons/Login_Kakao.svg";
 import loginGoogle_logo from "../assets/icons/loginGoogle_logo.svg";
 import loginGoogle_letter from "../assets/icons/loginGoogle_letter.svg";
-import loginPageImage from "../assets/images/loginImage.svg";
-import RightImagePart from "../components/login/loginCommon/RightImagePart";
+import UserInputContainer from "../components/login/loginCommon/UserInputContainer";
 
-// 로그인 페이지 전체 컨테이너
-const LoginPageContainer = styled.div`
+const JoinPageContainer = styled.div`
   width: 1440px;
   height: 820px;
   display: flex;
   background-color: slateblue;
 `;
 
-// 로그인 페이지 왼쪽 유저 입력부분 컨테이너
-const LoginUserInputPart = styled.div`
+const JoinUserInputPart = styled.div`
   width: 630px;
   background: #ffffff;
   padding-top: 99px;
@@ -32,19 +28,10 @@ const LoginUserInputPart = styled.div`
   flex-direction: column;
 `;
 
-// // 로그인 페이지 상단 소개문구 담는 컨테이너
-// const LoginGreetingCotainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   left: 130px;
-//   top: 186px;
-//   margin-top: 69px;
-// `;
-
-//소개문구 윗부분
 const GreetingTop = styled.span`
   display: block;
   margin-top: 69px;
+  margin-bottom: 32px;
   width: 81%;
   font-size: 30px;
   font-weight: 700;
@@ -55,40 +42,8 @@ const GreetingTop = styled.span`
   white-space: nowrap;
 `;
 
-//소개문구 아랫부분
-const GreetingBottom = styled.span`
-  display: block;
-  margin-top: 4px;
-  margin-bottom: 32px;
-  width: 100%;
-  height: 27px;
-  font-size: 18px;
-  white-space: nowrap;
-  color: rgba(0, 0, 0, 0.6);
-  // letter-spacing: -1px;
-  // word-spacing: -2px;
-  padding-top: 4px;
-`;
-
-// 로그인 유지 & 회원가입 컨테이너
-const KeepLoggedIn = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 3px;
-  margin-bottom: 22px;
-  height: 24px;
-  padding-top: 3px;
-
-  label {
-    font-size: 16px;
-    color: #999999;
-  }
-
-  span {
-    font-size: 16px;
-    color: #999999;
-  }
+const MainButtonContainer = styled.div`
+  margin-top: 22px;
 `;
 
 // 로그인 가운데 분리선
@@ -156,9 +111,7 @@ const SNSLoginButton = styled.div`
   }
 `;
 
-// 처음이면 회원가입 안내문구 컨테이너
-
-const AskJoin = styled.div`
+const AskLogin = styled.div`
   width: 100%;
   display: flex;
   font-size: 15px;
@@ -170,37 +123,21 @@ const AskJoin = styled.div`
   }
 `;
 
-// 로그인 페이지 오른쪽 이미지 부분 컨테이너
-// -> 따로 컴포넌트화 했음
-// const LoginPageImagePart = styled.div`
-//   width: 810px;
-//   height: 820px;
-// `;
-
-const LoginPage = () => {
+const JoinPage = () => {
   return (
-    <LoginPageContainer>
-      <LoginUserInputPart>
+    <JoinPageContainer>
+      <JoinUserInputPart>
         <UnicornIcon />
-        {/* <LoginGreetingCotainer> */}
         <GreetingTop>
           데이터를 기반으로 한<br />
           프로젝트 지속 가능성 확인
         </GreetingTop>
-        <GreetingBottom>
-          안녕하세요! 로그인을 위해 계정 정보를 입력해주세요.
-        </GreetingBottom>
-        {/* </LoginGreetingCotainer> */}
-        <UserInputContainer inputType="이메일" />
-        <UserInputContainer inputType="비밀번호" />
-        <KeepLoggedIn>
-          <label>
-            <input type="checkbox" />
-            로그인 유지
-          </label>
-          <span>비밀번호 찾기</span>
-        </KeepLoggedIn>
-        <MainButton buttonType="로그인" />
+        <UserInputContainer inputType={"이메일"} />
+        <UserInputContainer inputType={"비밀번호"} />
+        <UserInputContainer inputType={"비밀번호확인"} />
+        <MainButtonContainer>
+          <MainButton buttonType={"생성하기"} />
+        </MainButtonContainer>
         <DividingPart>
           <DividingLine />
           <SnsLogin>SNS 계정으로 로그인</SnsLogin>
@@ -218,17 +155,15 @@ const LoginPage = () => {
             <img src={loginGoogle_letter} alt="g_letter" className="g_letter" />
           </SNSLoginButton>
         </SnsContainer>
-        <AskJoin>
-          <span>유니콘이 처음이신가요?</span>
-
+        <AskLogin>
+          <span>이미 가입하셨나요?</span>
           <a href="*">
-            <Link to="/join">회원가입</Link>
+            <Link to="/login">로그인</Link>
           </a>
-        </AskJoin>
-      </LoginUserInputPart>
-      <RightImagePart imageSrc="loginPageImage" />
-    </LoginPageContainer>
+        </AskLogin>
+      </JoinUserInputPart>
+    </JoinPageContainer>
   );
 };
 
-export default LoginPage;
+export default JoinPage;
