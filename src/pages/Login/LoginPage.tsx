@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import MainButton from "../components/login/loginCommon/MainButton";
-import UnicornIcon from "../components/login/loginCommon/UnicornIcon";
-import UserInputContainer from "../components/login/loginCommon/UserInputContainer";
-import loginNaver from "../assets/icons/Login_Naver.svg";
-import loginKakao from "../assets/icons/Login_Kakao.svg";
-import loginGoogle_logo from "../assets/icons/loginGoogle_logo.svg";
-import loginGoogle_letter from "../assets/icons/loginGoogle_letter.svg";
-import loginPageImage from "../assets/images/loginImage.svg";
-import RightImagePart from "../components/login/loginCommon/RightImagePart";
+import MainButton from "../../components/Login/loginCommon/MainButton";
+import UnicornIcon from "../../components/Login/loginCommon/UnicornIcon";
+import UserInputContainer from "../../components/Login/loginCommon/UserInputContainer";
+import loginNaver from "../../assets/icons/Login_Naver.svg";
+import loginKakao from "../../assets/icons/Login_Kakao.svg";
+import loginGoogle_logo from "../../assets/icons/loginGoogle_logo.svg";
+import loginGoogle_letter from "../../assets/icons/loginGoogle_letter.svg";
+import loginPageImage from "../../assets/images/loginImage.svg";
+import RightImagePart from "../../components/Login/loginCommon/RightImagePart";
 
 // 로그인 페이지 전체 컨테이너
 const LoginPageContainer = styled.div`
@@ -70,7 +70,7 @@ const GreetingBottom = styled.span`
   padding-top: 4px;
 `;
 
-// 로그인 유지 & 회원가입 컨테이너
+// 로그인 유지 & 비밀번호 찾기
 const KeepLoggedIn = styled.div`
   width: 100%;
   display: flex;
@@ -85,9 +85,13 @@ const KeepLoggedIn = styled.div`
     color: #999999;
   }
 
-  span {
+  a {
     font-size: 16px;
     color: #999999;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -198,7 +202,9 @@ const LoginPage = () => {
             <input type="checkbox" />
             로그인 유지
           </label>
-          <span>비밀번호 찾기</span>
+          <Link to="/findpw">
+            <a>비밀번호 찾기</a>
+          </Link>
         </KeepLoggedIn>
         <MainButton buttonType="로그인" />
         <DividingPart>

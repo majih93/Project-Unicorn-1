@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import MainButton from "../components/login/loginCommon/MainButton";
-import UnicornIcon from "../components/login/loginCommon/UnicornIcon";
-import loginNaver from "../assets/icons/Login_Naver.svg";
-import loginKakao from "../assets/icons/Login_Kakao.svg";
-import loginGoogle_logo from "../assets/icons/loginGoogle_logo.svg";
-import loginGoogle_letter from "../assets/icons/loginGoogle_letter.svg";
-import UserInputContainer from "../components/login/loginCommon/UserInputContainer";
+import MainButton from "../../components/Login/loginCommon/MainButton";
+import UnicornIcon from "../../components/Login/loginCommon/UnicornIcon";
+import loginNaver from "../../assets/icons/Login_Naver.svg";
+import loginKakao from "../../assets/icons/Login_Kakao.svg";
+import loginGoogle_logo from "../../assets/icons/loginGoogle_logo.svg";
+import loginGoogle_letter from "../../assets/icons/loginGoogle_letter.svg";
+import UserInputContainer from "../../components/Login/loginCommon/UserInputContainer";
 
 const JoinPageContainer = styled.div`
   width: 1440px;

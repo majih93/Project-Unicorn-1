@@ -2,9 +2,9 @@ import React from "react";
 import GlobalStyle from "./styles/GlobalStyle";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
-import JoinPage from "./pages/JoinPage";
-import FindPW from "./pages/FindPW";
+import LoginPage from "./pages/Login/LoginPage";
+import JoinPage from "./pages/Login/JoinPage";
+import FindPW from "./pages/Login/FindPW";
 
 function App() {
   return (
