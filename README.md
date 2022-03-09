@@ -106,4 +106,23 @@ git branch -d <삭제하려는 브랜치명>
 git push origin --delete <삭제하려는 브랜치명>
 ```
 
-THankYou!!!!!
+## src
+├─**assets** - 이미지, 폰트 아이콘 등
+│  ├─fonts
+│  ├─icons
+│  └─images
+├─**components** - 각 페이지 관련 컴포넌트 정리
+│  ├─Home - 첫 소개 페이지 관련 컴포넌트
+│  │  └─각자 필요한 만큼 폴더구조 생성
+│  ├─Login - 로그인&회원가입 관련 컴포넌트
+│  │  └─각자 필요한 만큼 폴더구조 생성
+│  └─LtvCalculate - LTV 계산 관련 컴포넌트
+│      └─각자 필요한 만큼 폴더구조 생성
+├─**hooks** - 커스텀 hook 관리
+├─**pages** - 라우팅 페이지 목록
+│  ├─HomeRouter
+│  ├─LoginRouter
+│  └─LtvRouter
+├─**store** - 전역 상태관리
+├─**styles** - 글로벌 스타일 등 특정 스타일 관리
+└─**types** - 타입 관리
