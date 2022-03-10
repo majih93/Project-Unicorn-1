@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/Login/LoginPage";
 import JoinPage from "./pages/Login/JoinPage";
 import FindPW from "./pages/Login/FindPW";
+import HomePage from "./pages/Home/HomePage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/join" element={<JoinPage />} />
           <Route path="/findpw" element={<FindPW />} />
+          <Route path="/home" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
     </div>

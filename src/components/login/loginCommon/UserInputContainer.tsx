@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 interface inputProps {
   inputType: string;
+  type: string;
 }
 
 // 입력 칸 전체
@@ -57,9 +58,9 @@ const InputContainer = styled.input`
 //   letter-spacing: 0.5px;
 // `;
 
-const UserInputContainer = ({ inputType }: inputProps) => {
+const UserInputContainer = ({ inputType, type }: inputProps) => {
   return (
-    <InputContainer placeholder={inputType}>
+    <InputContainer placeholder={inputType} type={type}>
       {/* <InputPlaceholder>{inputType}</InputPlaceholder>
       <UserInput placeholder="abcd@abcd.com" /> */}
     </InputContainer>

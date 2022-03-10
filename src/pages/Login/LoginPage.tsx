@@ -120,6 +120,7 @@ const SnsLogin = styled.span`
   color: #c0c0c0;
   font-size: 12px;
   letter-spacing: -0.7px;
+  margin-left: 6px;
 `;
 
 // SNS 로그인 부분
@@ -195,8 +196,8 @@ const LoginPage = () => {
           안녕하세요! 로그인을 위해 계정 정보를 입력해주세요.
         </GreetingBottom>
         {/* </LoginGreetingCotainer> */}
-        <UserInputContainer inputType="이메일" />
-        <UserInputContainer inputType="비밀번호" />
+        <UserInputContainer inputType="이메일" type={"email"} />
+        <UserInputContainer inputType="비밀번호" type={"password"} />
         <KeepLoggedIn>
           <label>
             <input type="checkbox" />

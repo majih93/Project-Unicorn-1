@@ -70,7 +70,7 @@ const FindPW = () => {
         <UnicornIcon />
         <FindPWTitle>비밀번호 찾기</FindPWTitle>
         <FindPWInfo>이메일 입력 시, 비밀번호 변경 URL이 전송됩니다.</FindPWInfo>
-        <UserInputContainer inputType={"이메일 주소 입력"} />
+        <UserInputContainer inputType={"이메일 주소 입력"} type={"email"} />
         <ButtonContainer>
           <MainButton buttonType={"전송하기"} />
         </ButtonContainer>

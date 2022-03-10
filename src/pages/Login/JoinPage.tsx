@@ -132,9 +132,9 @@ const JoinPage = () => {
           데이터를 기반으로 한<br />
           프로젝트 지속 가능성 확인
         </GreetingTop>
-        <UserInputContainer inputType={"이메일"} />
-        <UserInputContainer inputType={"비밀번호"} />
-        <UserInputContainer inputType={"비밀번호확인"} />
+        <UserInputContainer inputType={"이메일"} type={"email"} />
+        <UserInputContainer inputType={"비밀번호"} type={"password"} />
+        <UserInputContainer inputType={"비밀번호확인"} type={"password"} />
         <MainButtonContainer>
           <MainButton buttonType={"생성하기"} />
         </MainButtonContainer>
