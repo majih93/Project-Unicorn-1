@@ -8,7 +8,7 @@ interface inputProps {
 }
 
 // 입력 칸 전체
-const InputContainer = styled.div`
+const InputContainer = styled.input`
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -16,40 +16,52 @@ const InputContainer = styled.div`
   border: 2px solid #f5f5f5;
   border-left: 3px solid #4a73f3;
   margin-top: 16px;
-`;
-
-// 입력 칸 안내 문구(이메일, 비밀번호)
-const InputPlaceholder = styled.span`
-  display: block;
-  width: 358px;
-  height: 18px;
-  margin-top: 11px;
-  margin-left: 20px;
-`;
-
-// 유저가 실제로 입력하는 칸
-const UserInput = styled.input`
-  border: none;
-  margin-top: 5px;
-  margin-left: 20px;
-  ::placeholder,
-  ::-webkit-input-placeholder {
-    color: #4a73f3;
-  }
-  :-ms-input-placeholder {
-    color: #4a73f3;
-  }
+  padding-left: 20px;
   &:focus {
     outline: none;
   }
-  letter-spacing: 0.5px;
+  font-size: 18px;
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: #999999;
+  }
+  :-ms-input-placeholder {
+    color: #999999;
+  }
 `;
+
+// // 입력 칸 안내 문구(이메일, 비밀번호)
+// const InputPlaceholder = styled.span`
+//   display: block;
+//   width: 358px;
+//   height: 18px;
+//   margin-top: 11px;
+//   margin-left: 20px;
+// `;
+
+// // 유저가 실제로 입력하는 칸
+// const UserInput = styled.input`
+//   border: none;
+//   margin-top: 5px;
+//   margin-left: 20px;
+//   ::placeholder,
+//   ::-webkit-input-placeholder {
+//     color: #4a73f3;
+//   }
+//   :-ms-input-placeholder {
+//     color: #4a73f3;
+//   }
+//   &:focus {
+//     outline: none;
+//   }
+//   letter-spacing: 0.5px;
+// `;
 
 const UserInputContainer = ({ inputType }: inputProps) => {
   return (
-    <InputContainer>
-      <InputPlaceholder>{inputType}</InputPlaceholder>
-      <UserInput placeholder="abcd@abcd.com" />
+    <InputContainer placeholder={inputType}>
+      {/* <InputPlaceholder>{inputType}</InputPlaceholder>
+      <UserInput placeholder="abcd@abcd.com" /> */}
     </InputContainer>
   );
 };
