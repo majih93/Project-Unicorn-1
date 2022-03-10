@@ -6,6 +6,7 @@ import styled from "styled-components";
 interface inputProps {
   inputType: string;
   type: string;
+  onChange?: any;
 }
 
 // 입력 칸 전체
@@ -14,17 +15,20 @@ const InputContainer = styled.input`
   flex-direction: column;
   width: 400px;
   height: 65px;
+  font-size: 18px;
   border: 2px solid #f5f5f5;
   border-left: 3px solid #4a73f3;
   margin-top: 16px;
   padding-left: 20px;
+  color: #4a73f3;
   &:focus {
     outline: none;
   }
-  font-size: 18px;
+
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #999999;
+    font-family: "Spoqa Han Sans", sans-serif;
   }
   :-ms-input-placeholder {
     color: #999999;
@@ -58,9 +62,9 @@ const InputContainer = styled.input`
 //   letter-spacing: 0.5px;
 // `;
 
-const UserInputContainer = ({ inputType, type }: inputProps) => {
+const UserInputContainer = ({ inputType, type, onChange }: inputProps) => {
   return (
-    <InputContainer placeholder={inputType} type={type}>
+    <InputContainer placeholder={inputType} type={type} onChange={onChange}>
       {/* <InputPlaceholder>{inputType}</InputPlaceholder>
       <UserInput placeholder="abcd@abcd.com" /> */}
     </InputContainer>

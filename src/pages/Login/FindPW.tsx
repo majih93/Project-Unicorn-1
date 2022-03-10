@@ -76,9 +76,7 @@ const FindPW = () => {
         </ButtonContainer>
         <AskLogin>
           <span>비밀번호를 찾으셨나요?</span>
-          <a href="*">
-            <Link to="/login">로그인</Link>
-          </a>
+          <Link to="/login">로그인</Link>
         </AskLogin>
       </FindPWUserInputPart>
     </FindPWContainer>

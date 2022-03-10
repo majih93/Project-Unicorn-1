@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 interface buttonType {
   buttonType: string;
+  onClick?: any;
 }
 
 const Button = styled.button`
@@ -20,8 +21,8 @@ const Button = styled.button`
   }
 `;
 
-const MainButton = ({ buttonType }: buttonType) => {
-  return <Button>{buttonType}</Button>;
+const MainButton = ({ buttonType, onClick }: buttonType) => {
+  return <Button onClick={onClick}>{buttonType}</Button>;
 };
 
 export default MainButton;

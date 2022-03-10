@@ -1,5 +1,7 @@
-import React from "react";
+import React, { FC, useState } from "react";
 import styled from "styled-components";
+import { createUserWithEmailAndPassword } from "@firebase/auth";
+import { auth } from "../../firebase-config";
 import { Link } from "react-router-dom";
 import MainButton from "../../components/Login/loginCommon/MainButton";
 import UnicornIcon from "../../components/Login/loginCommon/UnicornIcon";
@@ -70,6 +72,7 @@ const SnsLogin = styled.span`
   height: 14px;
   color: #c0c0c0;
   font-size: 12px;
+  margin-left: 6px;
   letter-spacing: -0.7px;
 `;
 
@@ -123,7 +126,44 @@ const AskLogin = styled.div`
   }
 `;
 
-const JoinPage = () => {
+const JoinPage: FC = () => {
+  // 회원가입 로직 구현 관련 코드
+  // 사용자가 입력하는 이메일, 비밀번호 값 받아오기
+  const [joinEmail, setJoinEmail] = useState("");
+  const [joinPassword, setJoinPassword] = useState("");
+
+  // input에 onChange로 해당 값 받아서 setState해주면됨
+  // 하위 컴포넌트로 구성되어 있으니까 해당 부분 props로 주고 받아야함
+  // onChange 관리 함수
+
+  const emailHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setJoinEmail(e.target.value);
+  };
+  const passwordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setJoinPassword(e.target.value);
+  };
+
+  // 회원가입 함수
+  // error 타입 정의
+  interface ReturnError {
+    code: string;
+    message: string;
+  }
+
+  const join = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        joinEmail,
+        joinPassword
+      );
+    } catch (error) {
+      const err = error as ReturnError;
+      console.log(err.message);
+    }
+  };
   return (
     <JoinPageContainer>
       <JoinUserInputPart>
@@ -132,11 +172,19 @@ const JoinPage = () => {
           데이터를 기반으로 한<br />
           프로젝트 지속 가능성 확인
         </GreetingTop>
-        <UserInputContainer inputType={"이메일"} type={"email"} />
-        <UserInputContainer inputType={"비밀번호"} type={"password"} />
+        <UserInputContainer
+          inputType={"이메일"}
+          type={"email"}
+          onChange={emailHandler}
+        />
+        <UserInputContainer
+          inputType={"비밀번호"}
+          type={"password"}
+          onChange={passwordHandler}
+        />
         <UserInputContainer inputType={"비밀번호확인"} type={"password"} />
         <MainButtonContainer>
-          <MainButton buttonType={"생성하기"} />
+          <MainButton buttonType={"생성하기"} onClick={join} />
         </MainButtonContainer>
         <DividingPart>
           <DividingLine />
@@ -157,9 +205,7 @@ const JoinPage = () => {
         </SnsContainer>
         <AskLogin>
           <span>이미 가입하셨나요?</span>
-          <a href="*">
-            <Link to="/login">로그인</Link>
-          </a>
+          <Link to="/login">로그인</Link>
         </AskLogin>
       </JoinUserInputPart>
     </JoinPageContainer>

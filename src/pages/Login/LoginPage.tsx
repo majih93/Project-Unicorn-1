@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { auth } from "../../firebase-config";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { User } from "@firebase/auth";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import MainButton from "../../components/Login/loginCommon/MainButton";
@@ -183,6 +186,47 @@ const AskJoin = styled.div`
 // `;
 
 const LoginPage = () => {
+  // 로그인 로직 구현
+  // 로그인 유저 입력 받을 state
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [user, setUser] = useState<User | null>(null);
+
+  // user 인증 시, user를 currentuser로 설정
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  const emailHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setLoginEmail(e.target.value);
+  };
+  const passwordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setLoginPassword(e.target.value);
+  };
+
+  // 로그인 담당 함수
+  // error 타입 정의
+  interface ReturnError {
+    code: string;
+    message: string;
+  }
+  //함수
+  const login = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginEmail,
+        loginPassword
+      );
+      console.log(user);
+    } catch (error) {
+      const err = error as ReturnError;
+      console.log(err.message);
+    }
+  };
+
   return (
     <LoginPageContainer>
       <LoginUserInputPart>
@@ -196,18 +240,24 @@ const LoginPage = () => {
           안녕하세요! 로그인을 위해 계정 정보를 입력해주세요.
         </GreetingBottom>
         {/* </LoginGreetingCotainer> */}
-        <UserInputContainer inputType="이메일" type={"email"} />
-        <UserInputContainer inputType="비밀번호" type={"password"} />
+        <UserInputContainer
+          inputType="이메일"
+          type={"email"}
+          onChange={emailHandler}
+        />
+        <UserInputContainer
+          inputType="비밀번호"
+          type={"password"}
+          onChange={passwordHandler}
+        />
         <KeepLoggedIn>
           <label>
             <input type="checkbox" />
             로그인 유지
           </label>
-          <Link to="/findpw">
-            <a>비밀번호 찾기</a>
-          </Link>
+          <Link to="/findpw">비밀번호 찾기</Link>
         </KeepLoggedIn>
-        <MainButton buttonType="로그인" />
+        <MainButton buttonType="로그인" onClick={login} />
         <DividingPart>
           <DividingLine />
           <SnsLogin>SNS 계정으로 로그인</SnsLogin>
@@ -227,10 +277,7 @@ const LoginPage = () => {
         </SnsContainer>
         <AskJoin>
           <span>유니콘이 처음이신가요?</span>
-
-          <a href="*">
-            <Link to="/join">회원가입</Link>
-          </a>
+          <Link to="/join">회원가입</Link>
         </AskJoin>
       </LoginUserInputPart>
       <RightImagePart imageSrc="loginPageImage" />
