@@ -1,12 +1,16 @@
 import React from "react";
-import { auth } from "../../firebase-config";
-import { signOut } from "firebase/auth";
+import { ReactDOM } from "react";
+import HeadMenu from "../../components/Home/common/HeadMenu";
+import HomeContents from "../../components/Home/Main/HomeContents";
+import Navigation from "../../components/Home/common/Navigation";
 
 const HomePage = () => {
-  const logout = async () => {
-    await signOut(auth);
-  };
-  return <button onClick={logout}>logout</button>;
+  return (
+    <>
+      <HomeContents></HomeContents>
+      <Navigation></Navigation>
+    </>
+  );
 };
 
 export default HomePage;

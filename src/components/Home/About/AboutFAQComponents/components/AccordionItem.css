@@ -1,0 +1,57 @@
+.accordion-item {
+  border: 1px solid #c0c0c0;
+  border-left: none;
+  border-right: none;
+}
+
+.accordion-item:not(:first-of-type) {
+  border-top: none;
+}
+
+.accordion-item:first-of-type {
+  border-top: 3px solid #424242;
+}
+
+.accordion-item-title {
+  width: 100%;
+  margin: 0;
+}
+
+.accordion-item-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #fafafa;
+  border: 0;
+  padding: 39px 25px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+}
+
+.accordion-item-btn::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: #f5f5f5;
+  margin-left: auto;
+  background-image: url(../../../../../assets/images/FAQArrow.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease-in-out;
+}
+
+.accordion-item.active .accordion-item-btn:after {
+  transform: rotate(-180deg);
+}
+
+.accordion-item-container {
+  transition: height 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+.accordion-item-content {
+  padding: 22px 25px 39px;
+  background: #f5f5f5;
+}
