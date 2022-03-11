@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-// import MainButton from "../../components/Login/loginCommon/MainButton";
 import MainButton from "../../components/login/loginCommon/MainButton";
 import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
 import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
