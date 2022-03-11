@@ -41,7 +41,8 @@ const LogoutBtn = styled.button`
   line-height: 20px;
   text-align: center;
   color: #0420bf;
-  background-color: red;
+  background-color: #fafafa;
+  white-space: nowrap;
 `;
 
 const Main = styled.div`
