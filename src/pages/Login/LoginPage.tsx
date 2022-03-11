@@ -73,6 +73,9 @@ const GreetingBottom = styled.span`
   padding-top: 4px;
 `;
 
+// 로그인 form
+const LoginForm = styled.form``;
+
 // 로그인 유지 & 비밀번호 찾기
 const KeepLoggedIn = styled.div`
   width: 100%;
@@ -231,7 +234,8 @@ const LoginPage = () => {
     <LoginPageContainer>
       <LoginUserInputPart>
         <UnicornIcon />
-        {/* <LoginGreetingCotainer> */}
+
+        {/* 상단 소개문구 */}
         <GreetingTop>
           데이터를 기반으로 한<br />
           프로젝트 지속 가능성 확인
@@ -239,25 +243,30 @@ const LoginPage = () => {
         <GreetingBottom>
           안녕하세요! 로그인을 위해 계정 정보를 입력해주세요.
         </GreetingBottom>
-        {/* </LoginGreetingCotainer> */}
-        <UserInputContainer
-          inputType="이메일"
-          type={"email"}
-          onChange={emailHandler}
-        />
-        <UserInputContainer
-          inputType="비밀번호"
-          type={"password"}
-          onChange={passwordHandler}
-        />
-        <KeepLoggedIn>
-          <label>
-            <input type="checkbox" />
-            로그인 유지
-          </label>
-          <Link to="/findpw">비밀번호 찾기</Link>
-        </KeepLoggedIn>
-        <MainButton buttonType="로그인" onClick={login} />
+
+        {/* 로그인 FORM */}
+        <LoginForm>
+          <UserInputContainer
+            inputType="이메일"
+            type={"email"}
+            onChange={emailHandler}
+          />
+          <UserInputContainer
+            inputType="비밀번호"
+            type={"password"}
+            onChange={passwordHandler}
+          />
+          <KeepLoggedIn>
+            <label>
+              <input type="checkbox" />
+              로그인 유지
+            </label>
+            <Link to="/findpw">비밀번호 찾기</Link>
+          </KeepLoggedIn>
+          <MainButton buttonType="로그인" onClick={login} />
+        </LoginForm>
+
+        {/* SNS 계정 로그인 */}
         <DividingPart>
           <DividingLine />
           <SnsLogin>SNS 계정으로 로그인</SnsLogin>
@@ -275,6 +284,8 @@ const LoginPage = () => {
             <img src={loginGoogle_letter} alt="g_letter" className="g_letter" />
           </SNSLoginButton>
         </SnsContainer>
+
+        {/* 처음이면 회원가입 */}
         <AskJoin>
           <span>유니콘이 처음이신가요?</span>
           <Link to="/join">회원가입</Link>
