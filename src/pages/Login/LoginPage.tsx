@@ -4,15 +4,15 @@ import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { User } from "@firebase/auth";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import MainButton from "../../components/Login/loginCommon/MainButton";
-import UnicornIcon from "../../components/Login/loginCommon/UnicornIcon";
-import UserInputContainer from "../../components/Login/loginCommon/UserInputContainer";
+import MainButton from "../../components/login/loginCommon/MainButton";
+import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
+import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
 import loginNaver from "../../assets/icons/Login_Naver.svg";
 import loginKakao from "../../assets/icons/Login_Kakao.svg";
 import loginGoogle_logo from "../../assets/icons/loginGoogle_logo.svg";
 import loginGoogle_letter from "../../assets/icons/loginGoogle_letter.svg";
 import loginPageImage from "../../assets/images/loginImage.svg";
-import RightImagePart from "../../components/Login/loginCommon/RightImagePart";
+import RightImagePart from "../../components/login/loginCommon/RightImagePart";
 
 // 로그인 페이지 전체 컨테이너
 const LoginPageContainer = styled.div`

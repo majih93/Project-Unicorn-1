@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import MainButton from "../../components/Login/loginCommon/MainButton";
-import UnicornIcon from "../../components/Login/loginCommon/UnicornIcon";
-import UserInputContainer from "../../components/Login/loginCommon/UserInputContainer";
+// import MainButton from "../../components/Login/loginCommon/MainButton";
+import MainButton from "../../components/login/loginCommon/MainButton";
+import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
+import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
 import { Link } from "react-router-dom";
 import LoginPage from "./LoginPage";
 
