@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
@@ -12,16 +12,18 @@ import DataInput from "./forms/DataInput";
 import CategorySelect from "./forms/CategorySelect";
 import OsEnvButton from "./forms/OsEnvButton";
 import ModalShow from "../stepCommon/modal/ModalShow";
+import BottomMoveButton from "../stepCommon/BottomMoveButton";
 
 const Container = styled.div`
+  position: relative;
   width: 880px;
   height: 745px;
 `;
 
 const BackgroundImage = styled.div`
   width: 681px;
-  height: 201px;
-  margin-top: 68px;
+  height: 185px;
+  margin-top: 55px;
   margin-left: 100px;
 `;
 
@@ -74,14 +76,18 @@ const ErrorSpan = styled.span`
   margin-left: 5px;
 `;
 
+const LocationButton = styled.div`
+  position: absolute;
+  top: 615px;
+  left: 235px;
+`;
+
 const LtvStep2: React.FC = () => {
   const [userInput, setUserInput] = useRecoilState(userInputState);
   const [displayState, setDisplaySatete] = useRecoilState(StepBtnState);
   const errorCheck = useRecoilValue(isShowError);
-  console.log(errorCheck);
 
   const errorList = useRecoilValue(whichIsError);
-  console.log(errorList);
 
   let errorCompare;
   errorList.map((error: any) => {
@@ -98,18 +104,14 @@ const LtvStep2: React.FC = () => {
       setDisplaySatete(
         displayState?.map((display) => {
           if (display.step === "2") {
-            console.log("진입2");
             return {
               ...display,
               done: true,
             };
           }
-          console.log(display);
           return display;
         })
       );
-      console.log("true인경우: ", userInput);
-      console.log("true인경우: ", displayState);
     }
   }, [inputComplete, setDisplaySatete]);
 
@@ -188,6 +190,9 @@ const LtvStep2: React.FC = () => {
           </InputField>
         </GridContainer>
       </GridBox>
+      <LocationButton>
+        <BottomMoveButton display={displayState[1]} />
+      </LocationButton>
     </Container>
   );
 };
