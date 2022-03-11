@@ -11,14 +11,26 @@ import AboutPage from "./pages/Home/AboutPage";
 import LtvResult from "./pages/LtvCalculation/LtvResult";
 import LtvInput from "./pages/LtvCalculation/LtvInput";
 import LtvCalculator from "./pages/LtvCalculation/LtvCalculator";
-import Footer from "./components/Home/common/Footer"
+import Footer from "./components/Home/common/Footer";
 import HeadMenu from "./components/Home/common/HeadMenu";
-
 
 function App() {
   return (
     <div className="App">
-      <AboutPage/>
+      <GlobalStyle />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/join" element={<JoinPage />} />
+          <Route path="/findpw" element={<FindPW />} />
+          <Route path="/home" element={<HomePages />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/*" element={<HomePage />} />
+          <Route path="/ltvCal/result" element={<LtvResult />} />
+          <Route path="/ltvCal/input" element={<LtvInput />} />
+          <Route path="/ltvCal/*" element={<LtvCalculator />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
