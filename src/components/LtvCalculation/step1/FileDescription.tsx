@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { DisplayDesc } from "../../../types";
+
+type tabProps = {
+  readonly isActive?: boolean;
+};
 
 const Container = styled.div`
   position: relative;
@@ -8,7 +13,7 @@ const Container = styled.div`
 const DescTitle = styled.div`
   width: 275px;
   height: 29px;
-  margin-top: 33px;
+  margin-top: 50px;
   margin-left: 303px;
   font-family: "Noto Sans Thai Looped", sans-serif;
   font-weight: bold;
@@ -20,61 +25,43 @@ const DescTitle = styled.div`
 
 const TopicContainer = styled.div`
   display: flex;
-  padding-top: 16px;
+  padding-top: 25px;
   padding-left: 76px;
   padding-right: 76px;
-  justify-content: space-between;
   box-sizing: border-box;
 `;
 
-const TopicList = styled.div`
-  position: relative;
-  /* width: 184px; */
-`;
-
-const Topic = styled.div`
-  width: 184px;
-  height: 44px;
-  padding-top: 13px;
-  padding-left: 6px;
+const Topic = styled.div<tabProps>`
+  width: 245px;
+  height: 50px;
+  padding-top: 10px;
+  border: 1px solid #f5f5f5;
+  box-sizing: border-box;
+  border-radius: 8px 8px 0px 0px;
+  cursor: pointer;
   font-family: "Spoqa Han Sans Neo", sans-serif;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #000000;
-  box-sizing: border-box;
-`;
-
-const Dot = styled.div`
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  left: 85px;
-  background: #4a73f3;
-  border-radius: 50%;
-`;
-
-const Line = styled.div`
-  position: absolute;
-  width: 809px;
-  height: 7px;
-  top: 86px;
-  margin-left: 36px;
-  margin-right: 36px;
-  border-bottom: 1px dashed #999999;
+  background: ${(props) => (props.isActive ? "#4A73F3" : "#fff")};
+  color: ${(props) => (props.isActive ? "#fff" : "#000")};
 `;
 
 const Card = styled.div`
-  width: 189px;
-  height: 216px;
-  margin-top: 23px;
-  padding: 18px 15px;
+  position: absolute;
+  top: 100px;
+  left: 75px;
+  width: 735px;
+  height: 172px;
+  padding: 20px 20px;
   background: #f5f5f5;
-  border-radius: 10px;
+  border-radius: 0px 0px 10px 10px;
   box-sizing: border-box;
 `;
 
 const FileDescription: React.FC = () => {
+  const [clicked, setClicked] = useState([true, false, false]);
+
   const [displayDesc, setDisplayDesc] = useState([
     {
       step: "1",
@@ -93,18 +80,35 @@ const FileDescription: React.FC = () => {
     },
   ]);
 
+  const clickBtnHandler = (e: any, clickedIndex: number) => {
+    const newClicked = clicked.map((c, index) => {
+      return index === clickedIndex ? !c : false;
+    });
+    setClicked(newClicked);
+  };
+
   return (
     <Container>
-      <Line />
       <DescTitle>CSV 파일은 어떻게 구성해야 할까요?</DescTitle>
       <TopicContainer>
-        {displayDesc.map((display) => (
-          <TopicList key={display.step}>
-            <Topic>{display.title}</Topic>
-            <Dot />
-            <Card>{display.desc}</Card>
-          </TopicList>
-        ))}
+        {clicked.map((c, index) =>
+          clicked[index] ? (
+            <>
+              <Topic
+                key={index}
+                isActive
+                onClick={(e) => clickBtnHandler(e, index)}
+              >
+                <span>{displayDesc[index].title}</span>
+              </Topic>
+              <Card>{displayDesc[index].desc}</Card>
+            </>
+          ) : (
+            <Topic key={index} onClick={(e) => clickBtnHandler(e, index)}>
+              <span>{displayDesc[index].title}</span>
+            </Topic>
+          )
+        )}
       </TopicContainer>
     </Container>
   );
