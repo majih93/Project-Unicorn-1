@@ -8,6 +8,9 @@ import FindPW from "./pages/Login/FindPW";
 import HomePage from "./pages/Home/HomePage";
 import HomePages from "./pages/Home/HomePages";
 import AboutPage from "./pages/Home/AboutPage";
+import LtvResult from "./pages/LtvCalculation/LtvResult";
+import LtvInput from "./pages/LtvCalculation/LtvInput";
+import LtvCalculator from "./pages/LtvCalculation/LtvCalculator";
 
 function App() {
   return (
@@ -20,7 +23,10 @@ function App() {
           <Route path="/findpw" element={<FindPW />} />
           <Route path="/home" element={<HomePages />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/*" element={<HomePage />} />
+          <Route path="/ltvCal/result" element={<LtvResult />} />
+          <Route path="/ltvCal/input" element={<LtvInput />} />
+          <Route path="/ltvCal/*" element={<LtvCalculator />} />
         </Routes>
       </BrowserRouter>
     </div>
