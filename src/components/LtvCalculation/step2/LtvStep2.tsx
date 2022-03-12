@@ -119,7 +119,7 @@ const LtvStep2: React.FC = () => {
     <Container>
       <BackgroundImage>
         <img
-          src={require("../../../assets/images/backgroundImg.svg")}
+          src={require("../../../assets/images/backgroundImg.png")}
           alt="City landscape"
         />
       </BackgroundImage>
