@@ -13,24 +13,27 @@ import LtvInput from "./pages/LtvCalculation/LtvInput";
 import LtvCalculator from "./pages/LtvCalculation/LtvCalculator";
 import Footer from "./components/Home/common/Footer";
 import HeadMenu from "./components/Home/common/HeadMenu";
+import { AuthContextProvider } from "./context/loginAuthentication/AuthContext";
 
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/join" element={<JoinPage />} />
-          <Route path="/findpw" element={<FindPW />} />
-          <Route path="/home" element={<HomePages />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/*" element={<HomePage />} />
-          <Route path="/ltvCal/result" element={<LtvResult />} />
-          <Route path="/ltvCal/input" element={<LtvInput />} />
-          <Route path="/ltvCal/*" element={<LtvCalculator />} />
-        </Routes>
-      </BrowserRouter>
+      <AuthContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/join" element={<JoinPage />} />
+            <Route path="/findpw" element={<FindPW />} />
+            <Route path="/home" element={<HomePages />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/*" element={<HomePage />} />
+            <Route path="/ltvCal/result" element={<LtvResult />} />
+            <Route path="/ltvCal/input" element={<LtvInput />} />
+            <Route path="/ltvCal/*" element={<LtvCalculator />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthContextProvider>
     </div>
   );
 }

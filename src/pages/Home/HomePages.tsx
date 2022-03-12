@@ -1,5 +1,5 @@
 import React from "react";
-import { auth } from "../../firebase-config";
+import { auth } from "../../utils/firebase-config";
 import { signOut } from "firebase/auth";
 
 const HomePages = () => {

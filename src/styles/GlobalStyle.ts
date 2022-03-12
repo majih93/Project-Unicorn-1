@@ -15,6 +15,9 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  input {
+    font-family: "Spoqa Han Sans", sans-serif;
+  }
 `;
 
 export default GlobalStyle;
