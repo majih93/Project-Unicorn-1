@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { auth } from "../../firebase-config";
+import { auth } from "../../utils/firebase-config";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { User } from "@firebase/auth";
 import styled from "styled-components";
@@ -13,6 +13,7 @@ import loginGoogle_logo from "../../assets/icons/loginGoogle_logo.svg";
 import loginGoogle_letter from "../../assets/icons/loginGoogle_letter.svg";
 import loginPageImage from "../../assets/images/loginImage.svg";
 import RightImagePart from "../../components/login/loginCommon/RightImagePart";
+import { useAuth } from "../../context/loginAuthentication/AuthContext";
 
 // 로그인 페이지 전체 컨테이너
 const LoginPageContainer = styled.div`
@@ -189,6 +190,9 @@ const AskJoin = styled.div`
 // `;
 
 const LoginPage = () => {
+  // 현재 로그인되어있는 user인 currentUser 변수 useAuth 훅을 통해서 가져오기
+  const { currentUser } = useAuth();
+  console.log(currentUser);
   // 로그인 로직 구현
   // 로그인 유저 입력 받을 state
   const [loginEmail, setLoginEmail] = useState("");
