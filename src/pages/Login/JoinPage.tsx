@@ -1,7 +1,5 @@
 import React, { FC, useState } from "react";
 import styled from "styled-components";
-import { createUserWithEmailAndPassword } from "@firebase/auth";
-import { auth } from "../../utils/firebase-config";
 import { Link } from "react-router-dom";
 import MainButton from "../../components/login/loginCommon/MainButton";
 import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
@@ -137,7 +135,7 @@ const JoinPage: FC = () => {
   const [joinPassword, setJoinPassword] = useState<string>("");
 
   // useAuth 활용해서 context에 선언된 join 함수 불러오기
-  const { join } = useAuth();
+  const { join, signInWithGoogle } = useAuth();
 
   return (
     <JoinPageContainer>
@@ -147,10 +145,11 @@ const JoinPage: FC = () => {
           데이터를 기반으로 한<br />
           프로젝트 지속 가능성 확인
         </GreetingTop>
+        {/* 회원가입 form */}
         <JoinForm
           onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
-            //  회원가입 로직
+            //  회원가입 로직 에러처리 추가로 되어야함
             console.log(joinEmail, joinPassword);
             join(joinEmail, joinPassword)
               .then((response: any) => console.log(response))
@@ -188,7 +187,11 @@ const JoinPage: FC = () => {
           <SNSLoginButton>
             <img src={loginKakao} alt="kakao" />
           </SNSLoginButton>
-          <SNSLoginButton>
+          <SNSLoginButton
+            onClick={() => {
+              signInWithGoogle();
+            }}
+          >
             <img src={loginGoogle_logo} alt="g_logo" />
             <img src={loginGoogle_letter} alt="g_letter" className="g_letter" />
           </SNSLoginButton>
