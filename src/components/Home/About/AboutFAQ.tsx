@@ -5,16 +5,11 @@ import AboutLTV from "./AboutComponentsContents/About-LTV-Component";
 import AboutUnicorn from "./AboutComponentsContents/About-Unicorn";
 import AboutFAQContainer from "./AboutFAQComponents/AboutFAQContainer"
 
-
-const AboutFAQ = styled.div`
-  background-color: #F5F5F5;
-`
-
 const Base = styled.div`
-  /* border: 1px solid black; */
-  background: #F5F5F5;
+  border: 1px solid black;
+  background: #FAFAFA;
   width: 1440px;
-  height: 1050px;
+  height: auto;
   margin: 0 auto;
   position: relative;
 `;
@@ -79,6 +74,7 @@ const AboutContents = () => {
           <NavContents>유니콘이란?</NavContents>
           <NavContents>고객생애가치(LTV)란?</NavContents>
           <Clicked>FAQ</Clicked>
+          <NavContents>Contact</NavContents>
         </Nav>
         <Contents>
           <ContentsSpan>

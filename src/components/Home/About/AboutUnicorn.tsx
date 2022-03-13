@@ -76,6 +76,7 @@ const AboutContents = () => {
           <Clicked>유니콘이란?</Clicked>
           <NavContents>고객생애가치(LTV)란?</NavContents>
           <NavContents>FAQ</NavContents>
+          <NavContents>Contact</NavContents>
         </Nav>
         <Contents>
           <ContentsSpan>
