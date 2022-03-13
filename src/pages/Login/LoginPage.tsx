@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../utils/firebase-config";
-import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import { User } from "@firebase/auth";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import MainButton from "../../components/login/loginCommon/MainButton";
@@ -201,6 +198,9 @@ const LoginPage = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
+  // 에러 메세지 보여주기 위한 에러 변수
+  const [error, setError] = useState("");
+
   return (
     <LoginPageContainer>
       <LoginUserInputPart>
@@ -225,7 +225,9 @@ const LoginPage = () => {
                 console.log(response);
                 navigate("/home");
               })
-              .catch((error: any) => console.log(error.message));
+              .catch((e: any) => {
+                setError("this");
+              });
           }}
         >
           <UserInputContainer
