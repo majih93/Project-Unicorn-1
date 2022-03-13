@@ -1,7 +1,17 @@
 // 로그인 구현하는 context 파일
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { auth } from "../../utils/firebase-config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  confirmPasswordReset,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import { stringify } from "querystring";
 
 // 필요한 타입 미리 선언
 // auth context 에서 제공하는 데이터 관련 타입 선언
@@ -28,16 +38,60 @@ export function AuthContextProvider({
   children: React.ReactNode;
 }) {
   // 현재 로그인 되어있는 유저 저장하는 변수
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<any | null>(null);
+
+  // 로그인 여부 확인하기 위한 함수
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+    return () => {
+      //component unmount 시애 user정보 제거해주는 cleanup func
+      unsubscribe();
+    };
+  }, []);
 
   // 회원가입 구현 로직 담은 함수(createUserWithEmailAndPassword는 userCredential을 담은 promise를 반환)
   const join = (email: string, password: string) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  // 로그인 구현 로직 함수
+  const login = (email: string, password: string) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // 구글 로그인 구현
+  const signInWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
+  // 로그아웃함수
+  const logout = () => {
+    return signOut(auth);
+  };
+
+  // 비밀번호 초기화 메일 전송 함수
+  const findPassword = (email: string) => {
+    return sendPasswordResetEmail(auth, email, {
+      url: "https://localhost:300/login",
+    });
+  };
+
+  // 비밀번호 초기화 함수
+  const resetPassword = (oobCode: any, newPassword: string) => {
+    return confirmPasswordReset(auth, oobCode, newPassword);
+  };
+
   const value = {
     currentUser,
     join,
+    login,
+    logout,
+    signInWithGoogle,
+    findPassword,
+    resetPassword,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
