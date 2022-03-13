@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MainButton from "../../components/login/loginCommon/MainButton";
 import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
 import loginNaver from "../../assets/icons/Login_Naver.svg";
@@ -133,9 +133,13 @@ const JoinPage: FC = () => {
   // 사용자가 입력하는 이메일, 비밀번호 값 받아오기
   const [joinEmail, setJoinEmail] = useState<string>("");
   const [joinPassword, setJoinPassword] = useState<string>("");
+  const [error, setError] = useState("");
 
   // useAuth 활용해서 context에 선언된 join 함수 불러오기
   const { join, signInWithGoogle } = useAuth();
+
+  // 회원가입 완료 시 라우팅 위한 navigate
+  const navigate = useNavigate();
 
   return (
     <JoinPageContainer>
@@ -152,7 +156,10 @@ const JoinPage: FC = () => {
             //  회원가입 로직 에러처리 추가로 되어야함
             console.log(joinEmail, joinPassword);
             join(joinEmail, joinPassword)
-              .then((response: any) => console.log(response))
+              .then((response: any) => {
+                console.log(response);
+                navigate("/login");
+              })
               .catch((error: any) => console.log(error.message));
           }}
         >

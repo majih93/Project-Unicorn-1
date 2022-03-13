@@ -1,20 +1,43 @@
 import React from "react";
-import { auth } from "../../utils/firebase-config";
-import { signOut } from "firebase/auth";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import { Link } from "react-router-dom";
-import LoginPage from "../Login/LoginPage";
-import JoinPage from "../Login/JoinPage";
 
 const HomePages = () => {
-  const { currentUser, logout, signInWithGoogle } = useAuth();
+  const { currentUser, logout } = useAuth();
   console.log(currentUser);
   return (
     <div>
       {currentUser ? (
-        <Link to="/homes">logout</Link>
+        <Link
+          to="/login"
+          style={{
+            padding: "10px 70px",
+            display: "block",
+            width: "200px",
+            height: "50px",
+            border: "4px solid slateblue",
+            marginTop: "100px",
+            marginLeft: "100px",
+          }}
+          onClick={logout}
+        >
+          logout
+        </Link>
       ) : (
-        <Link to="/login">login</Link>
+        <Link
+          to="/login"
+          style={{
+            padding: "10px 70px",
+            display: "block",
+            width: "200px",
+            height: "50px",
+            border: "4px solid slateblue",
+            marginTop: "100px",
+            marginLeft: "100px",
+          }}
+        >
+          login
+        </Link>
       )}
     </div>
   );
