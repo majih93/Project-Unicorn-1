@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Rocket from "../../../assets/images/FileUploadImage.svg";
-import Complete from "../../../assets/icons/stepComplete.svg";
+import Complete from "../../../assets/icons/stepComplete.png";
 import Cancel from "../../../assets/icons/fileUploadCancel.svg";
 import DragDropInput from "./DragDropInput";
 import { StepBtnState } from "../../../store/StepBtnAtom";
@@ -68,8 +67,6 @@ const FileCancel = styled.div`
 `;
 
 const FileUpload = () => {
-  const navigate = useNavigate();
-
   const [file, setFile] = useState<File | null>(null);
   const [displayState, setDone] = useRecoilState(StepBtnState);
 
