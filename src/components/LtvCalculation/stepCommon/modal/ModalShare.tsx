@@ -1,6 +1,19 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Modal from "./Modal";
+import Share from "../../../../assets/icons/shareBtn.svg";
+import Google from "../../../../assets/icons/Share_Google.svg";
+import Google_T from "../../../../assets/icons/Share_Google_text.svg";
+import Kakao from "../../../../assets/icons/Share_Kakao.svg";
+import Kakao_T from "../../../../assets/icons/Share_Kakao_text.svg";
+import Line from "../../../../assets/icons/Share_Line.svg";
+import Line_T from "../../../../assets/icons/Share_Line_text.svg";
+import Facebook from "../../../../assets/icons/Share_Facebook.svg";
+import Facebook_T from "../../../../assets/icons/Share_Facebook_text.svg";
+import Twitter from "../../../../assets/icons/Share_Twitter.svg";
+import Twitter_T from "../../../../assets/icons/Share_Twitter_text.svg";
+import URL from "../../../../assets/icons/Share_URL.svg";
+import URL_T from "../../../../assets/icons/Share_URL_text.svg";
 
 const Button = styled.button`
   border: none;
@@ -26,8 +39,7 @@ const ModalBody = styled.div`
 const ShareTitle = styled.div`
   width: 236px;
   height: 21px;
-  margin-top: 15px;
-  margin-left: 15px;
+  margin: 15px auto;
   font-family: "Spoqa Han Sans Neo", sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -39,8 +51,7 @@ const ShareTitle = styled.div`
 const FlexContainer = styled.div`
   display: flex;
   width: 200px;
-  margin-top: 15px;
-  margin-left: 40px;
+  margin: 15px auto;
   justify-content: space-between;
 `;
 
@@ -58,10 +69,7 @@ const ModalShare = () => {
   return (
     <>
       <Button onClick={handleOpen}>
-        <img
-          src={require("../../../../assets/icons/shareBtn.svg")}
-          alt="Share"
-        />
+        <img src={Share} alt="Share" />
       </Button>
       <Modal isOpen={isOpen} onClose={handleClose} selector="1266px">
         <ModalBody>
@@ -69,88 +77,52 @@ const ModalShare = () => {
           <FlexContainer>
             <div>
               <div>
-                <img
-                  src={require("../../../../assets/icons/Share_Google.svg")}
-                  alt="Google"
-                />
+                <img src={Google} alt="Google" />
               </div>
               <div>
-                <img
-                  src={require("../../../../assets/icons/Share_Google_text.svg")}
-                  alt="Google"
-                />
+                <img src={Google_T} alt="Google" />
               </div>
             </div>
             <div>
               <div>
-                <img
-                  src={require("../../../../assets/icons/Share_Kakao.svg")}
-                  alt="Kakao"
-                />
+                <img src={Kakao} alt="Kakao" />
               </div>
               <div>
-                <img
-                  src={require("../../../../assets/icons/Share_Kakao_text.svg")}
-                  alt="Kakao"
-                />
+                <img src={Kakao_T} alt="Kakao" />
               </div>
             </div>
             <div>
               <div>
-                <img
-                  src={require("../../../../assets/icons/Share_Line.svg")}
-                  alt="Line"
-                />
+                <img src={Line} alt="Line" />
               </div>
               <div style={{ marginLeft: "5px" }}>
-                <img
-                  src={require("../../../../assets/icons/Share_Line_text.svg")}
-                  alt="Line"
-                />
+                <img src={Line_T} alt="Line" />
               </div>
             </div>
           </FlexContainer>
           <FlexContainer>
             <div>
               <div>
-                <img
-                  src={require("../../../../assets/icons/Share_Facebook.svg")}
-                  alt="Facebook"
-                />
+                <img src={Facebook} alt="Facebook" />
               </div>
               <div>
-                <img
-                  src={require("../../../../assets/icons/Share_Facebook_text.svg")}
-                  alt="Facebook"
-                />
+                <img src={Facebook_T} alt="Facebook" />
               </div>
             </div>
             <div>
               <div>
-                <img
-                  src={require("../../../../assets/icons/Share_Twitter.svg")}
-                  alt="Twitter"
-                />
+                <img src={Twitter} alt="Twitter" />
               </div>
               <div>
-                <img
-                  src={require("../../../../assets/icons/Share_Twitter_text.svg")}
-                  alt="Twitter"
-                />
+                <img src={Twitter_T} alt="Twitter" />
               </div>
             </div>
             <div>
               <div>
-                <img
-                  src={require("../../../../assets/icons/Share_URL.svg")}
-                  alt="URL"
-                />
+                <img src={URL} alt="URL" />
               </div>
               <div style={{ marginLeft: "5px" }}>
-                <img
-                  src={require("../../../../assets/icons/Share_URL_text.svg")}
-                  alt="URL"
-                />
+                <img src={URL_T} alt="URL" />
               </div>
             </div>
           </FlexContainer>
