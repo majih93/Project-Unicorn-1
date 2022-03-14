@@ -29,7 +29,7 @@ const PointStyleChart: React.FC = () => {
 
   return (
     <Container>
-      <Line data={data} style={{ height: "212px" }} />
+      <Line data={data} options={{ maintainAspectRatio: false }} />
     </Container>
   );
 };
