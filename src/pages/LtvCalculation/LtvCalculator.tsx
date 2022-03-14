@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Logo from "../../assets/icons/Logo.svg";
 import LeftSection from "../../components/LtvCalculation/stepCommon/LeftSection";
 import LtvStep1 from "../../components/LtvCalculation/step1/LtvStep1";
+import { useAuth } from "../../context/loginAuthentication/AuthContext";
 
 const Base = styled.div`
   width: 1440px;
@@ -50,13 +51,14 @@ const Main = styled.div`
 `;
 
 const LtvCalculator = () => {
+  const { signout } = useAuth();
   return (
     <Base>
       <Header>
         <LogoContianer>
           <img src={Logo} alt="logo" />
         </LogoContianer>
-        <LogoutBtn>로그아웃</LogoutBtn>
+        <LogoutBtn onClick={signout}>로그아웃</LogoutBtn>
       </Header>
       <Main>
         <LeftSection />

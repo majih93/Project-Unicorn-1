@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Logo from "../../assets/icons/Logo.svg";
 import LeftSection from "../../components/LtvCalculation/stepCommon/LeftSection";
 import LtvStep3 from "../../components/LtvCalculation/step3/LtvStep3";
+import { useAuth } from "../../context/loginAuthentication/AuthContext";
 
 const Base = styled.div`
   width: 1440px;
@@ -41,6 +42,9 @@ const LogoutBtn = styled.button`
   line-height: 20px;
   text-align: center;
   color: #0420bf;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Main = styled.div`
@@ -48,13 +52,15 @@ const Main = styled.div`
 `;
 
 const LtvResult = () => {
+  const { logout, currentUser } = useAuth();
+  console.log(currentUser);
   return (
     <Base>
       <Header>
         <LogoContianer>
           <img src={Logo} alt="logo" />
         </LogoContianer>
-        <LogoutBtn>로그아웃</LogoutBtn>
+        <LogoutBtn onClick={logout}>로그아웃</LogoutBtn>
       </Header>
       <Main>
         <LeftSection />
