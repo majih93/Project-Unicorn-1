@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import ImgAbout from "../../../assets/images/About_img.svg";
-import AboutLTV from "./AboutComponentsContents/About-LTV-Component";
 import AboutUnicorn from "./AboutComponentsContents/About-Unicorn";
 
-const AboutFAQ = styled.div`
-  background-color: #f5f5f5;
-`;
 
 const Base = styled.div`
   /* border: 1px solid black; */
