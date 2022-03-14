@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import ModalShow from "../stepCommon/modal/ModalShow";
 
 const Container = styled.div`
   position: relative;
@@ -37,6 +36,8 @@ const DescriptionTitle = styled.span`
   display: block;
   margin-top: 17px;
   margin-left: 20px;
+  margin-bottom: 25px;
+  padding-top: 17px;
   width: 140px;
   height: 27px;
   font-family: "Spoqa Han Sans Neo", sans-serif;
@@ -44,6 +45,7 @@ const DescriptionTitle = styled.span`
   font-size: 18px;
   line-height: 27px;
   color: #f3694c;
+  box-sizing: border-box;
 `;
 
 const Description = styled.span`
