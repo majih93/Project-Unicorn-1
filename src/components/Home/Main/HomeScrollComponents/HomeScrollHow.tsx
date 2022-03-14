@@ -74,8 +74,7 @@ const HowSpanText = styled.div`
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
-  `;
-
+`;
 
 function HomeScrollHow() {
   return (
@@ -90,9 +89,28 @@ function HomeScrollHow() {
         </Header>
         <Main>
           <InfoContainer>
-            <img src={ImgScroll_1} alt="" style={{width: "1110px",position: "absolute",height: "618.98px",left: "708px",top: "259px",}}/>
+            <img
+              src={ImgScroll_1}
+              alt=""
+              style={{
+                width: "1110px",
+                position: "absolute",
+                height: "618.98px",
+                left: "708px",
+                top: "259px",
+              }}
+            />
             <SpanContainer style={{ top: "658px" }}>
-              <img src={IconScroll_1} alt="" style={{position: "absolute",height: "80px",marginTop: "-2%",marginLeft: "-22%",}}/>
+              <img
+                src={IconScroll_1}
+                alt=""
+                style={{
+                  position: "absolute",
+                  height: "80px",
+                  marginTop: "-2%",
+                  marginLeft: "-22%",
+                }}
+              />
               <HowSpanTitle>CSV 파일 업로드</HowSpanTitle>
               <HowSpanText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -100,9 +118,27 @@ function HomeScrollHow() {
             </SpanContainer>
           </InfoContainer>
           <InfoContainer>
-            <img src={ImgScroll_2} alt="" style={{position: "absolute",height: "618.98px",left: "708px",top: "1051px",}}/>
-            <SpanContainer style={{ top: "1433px", }} >
-              <img src={IconScroll_2} alt="" style={{ position: "absolute", height: "80px", marginTop: "-2%", marginLeft: "-22%", }} />
+            <img
+              src={ImgScroll_2}
+              alt=""
+              style={{
+                position: "absolute",
+                height: "618.98px",
+                left: "708px",
+                top: "1051px",
+              }}
+            />
+            <SpanContainer style={{ top: "1433px" }}>
+              <img
+                src={IconScroll_2}
+                alt=""
+                style={{
+                  position: "absolute",
+                  height: "80px",
+                  marginTop: "-2%",
+                  marginLeft: "-22%",
+                }}
+              />
               <HowSpanTitle>기본 정보 입력</HowSpanTitle>
               <HowSpanText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -110,9 +146,27 @@ function HomeScrollHow() {
             </SpanContainer>
           </InfoContainer>
           <InfoContainer>
-            <img src={ImgScroll_3} alt="" style={{ position: "absolute", height: "618.98px", left: "708px", top: "1843px", }} />
+            <img
+              src={ImgScroll_3}
+              alt=""
+              style={{
+                position: "absolute",
+                height: "618.98px",
+                left: "708px",
+                top: "1843px",
+              }}
+            />
             <SpanContainer style={{ top: "2236px" }}>
-              <img src={IconScroll_3} alt="" style={{ position: "absolute", height: "80px", marginTop: "-2%", marginLeft: "-22%", }} />
+              <img
+                src={IconScroll_3}
+                alt=""
+                style={{
+                  position: "absolute",
+                  height: "80px",
+                  marginTop: "-2%",
+                  marginLeft: "-22%",
+                }}
+              />
               <HowSpanTitle>LTV 결과 확인</HowSpanTitle>
               <HowSpanText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit

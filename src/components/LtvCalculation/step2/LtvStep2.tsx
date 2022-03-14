@@ -14,6 +14,7 @@ import OsEnvButton from "./forms/OsEnvButton";
 import ModalShow from "../stepCommon/modal/ModalShow";
 import BottomMoveButton from "../stepCommon/BottomMoveButton";
 import TopImage from "../../../assets/images/backgroundImg.svg";
+import { useAuth } from "../../../context/loginAuthentication/AuthContext";
 
 const Container = styled.div`
   position: relative;
@@ -84,6 +85,9 @@ const LocationButton = styled.div`
 `;
 
 const LtvStep2: React.FC = () => {
+  const { currenUser } = useAuth();
+  console.log(currenUser.auth.email);
+
   const [userInput, setUserInput] = useRecoilState(userInputState);
   const [displayState, setDisplaySatete] = useRecoilState(StepBtnState);
   const errorCheck = useRecoilValue(isShowError);
@@ -119,9 +123,7 @@ const LtvStep2: React.FC = () => {
   return (
     <Container>
       <BackgroundImage>
-
         <img src={TopImage} alt="City landscape" />
-
       </BackgroundImage>
       <GridBox>
         <GridContainer>

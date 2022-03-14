@@ -136,7 +136,7 @@ function HomeScrollWhy() {
         <TextWrap>
           <SpanTitle>왜 유니콘 판별기를 사용해야 할까요?</SpanTitle>
           <SpanContent>
-            내가 이들 중 한 명이라면! 누구나 사용할 수 있습니다!!s
+            내가 이들 중 한 명이라면! 누구나 사용할 수 있습니다!!
           </SpanContent>
         </TextWrap>
         <UnicornBtn>유니콘 판별기 사용하기</UnicornBtn>
