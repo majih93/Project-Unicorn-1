@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ReactDOM } from "react";
-import LogoImg from "../../../assets/img/Logo.svg";
+import LogoImg from "../../../assets/images/Logo.svg";
 import styled from "styled-components";
 
 const HeadMenu = (props:any) => {

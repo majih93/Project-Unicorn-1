@@ -1,39 +1,6 @@
 import React from "react";
-import { ReactDOM } from "react";
 import imgHome from "../../../assets/images/Home_img.svg";
 import styled from "styled-components";
-
-const HomeContents = (props: any) => {
-  return (
-    <Base>
-      <Container>
-        <SpanA>당신의 유니콘은 어디쯤입니까?</SpanA>
-        <SpanB>
-          내 사업이 잘 되고 있는지 확인하고 싶다면, 유니콘 판별기를
-          사용해보세요.
-        </SpanB>
-        <Btn>유니콘 판별기 사용하기</Btn>
-        <SubInfo>
-          <div>
-            <SpanC1>53+million</SpanC1>
-            <SpanC2>Company</SpanC2>
-          </div>
-          <div>
-            <SpanC1>53+million</SpanC1>
-            <SpanC2>Company</SpanC2>
-          </div>
-          <div>
-            <SpanC1>53+million</SpanC1>
-            <SpanC2>Company</SpanC2>
-          </div>
-        </SubInfo>
-        <MainImg>
-          <img src={imgHome} alt="Main" />
-        </MainImg>
-      </Container>
-    </Base>
-  );
-};
 
 const Base = styled.div`
   background: #4a73f3;
@@ -52,7 +19,7 @@ const Container = styled.div`
   transform: translate(-50%);
 `;
 
-const SpanA = styled.div`
+const SpanA = styled.span`
   color: #fff;
   width: 580px;
   line-height: 59.2px;
@@ -86,9 +53,12 @@ const Btn = styled.div`
 `;
 
 const MainImg = styled.div`
+  border: 1px solid black;
   position: absolute;
-  left: 51.5%;
-  top: 0;
+  width: 685px;
+  height: 670px;
+  left: 55%;
+  top: 0px;
 `;
 
 const SubInfo = styled.div`
@@ -114,5 +84,37 @@ const SpanC2 = styled.div`
   line-height: 29.6px;
   font-size: 20px;
 `;
+
+const HomeContents = (props: any) => {
+  return (
+    <Base>
+      <Container>
+        <SpanA>당신의 유니콘은 어디쯤입니까?</SpanA>
+        <SpanB>
+          내 사업이 잘 되고 있는지 확인하고 싶다면, 유니콘 판별기를
+          사용해보세요.
+        </SpanB>
+        <Btn>유니콘 판별기 사용하기</Btn>
+        <SubInfo>
+          <div>
+            <SpanC1>53+million</SpanC1>
+            <SpanC2>Company</SpanC2>
+          </div>
+          <div>
+            <SpanC1>53+million</SpanC1>
+            <SpanC2>Company</SpanC2>
+          </div>
+          <div>
+            <SpanC1>53+million</SpanC1>
+            <SpanC2>Company</SpanC2>
+          </div>
+        </SubInfo>
+        <MainImg>
+          <img src={imgHome} alt="Main" />
+        </MainImg>
+      </Container>
+    </Base>
+  );
+};
 
 export default HomeContents;
