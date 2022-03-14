@@ -1,8 +1,6 @@
 import React, { FC, useState } from "react";
 import styled from "styled-components";
-import { createUserWithEmailAndPassword } from "@firebase/auth";
-import { auth } from "../../firebase-config";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MainButton from "../../components/login/loginCommon/MainButton";
 import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
 import loginNaver from "../../assets/icons/Login_Naver.svg";
@@ -10,6 +8,7 @@ import loginKakao from "../../assets/icons/Login_Kakao.svg";
 import loginGoogle_logo from "../../assets/icons/loginGoogle_logo.svg";
 import loginGoogle_letter from "../../assets/icons/loginGoogle_letter.svg";
 import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
+import { useAuth } from "../../context/loginAuthentication/AuthContext";
 
 const JoinPageContainer = styled.div`
   width: 1440px;
@@ -47,6 +46,9 @@ const GreetingTop = styled.span`
 const MainButtonContainer = styled.div`
   margin-top: 22px;
 `;
+
+// 회원가입 form
+const JoinForm = styled.form``;
 
 // 로그인 가운데 분리선
 const DividingPart = styled.div`
@@ -129,41 +131,16 @@ const AskLogin = styled.div`
 const JoinPage: FC = () => {
   // 회원가입 로직 구현 관련 코드
   // 사용자가 입력하는 이메일, 비밀번호 값 받아오기
-  const [joinEmail, setJoinEmail] = useState("");
-  const [joinPassword, setJoinPassword] = useState("");
+  const [joinEmail, setJoinEmail] = useState<string>("");
+  const [joinPassword, setJoinPassword] = useState<string>("");
+  const [error, setError] = useState("");
 
-  // input에 onChange로 해당 값 받아서 setState해주면됨
-  // 하위 컴포넌트로 구성되어 있으니까 해당 부분 props로 주고 받아야함
-  // onChange 관리 함수
+  // useAuth 활용해서 context에 선언된 join 함수 불러오기
+  const { join, signInWithGoogle } = useAuth();
 
-  const emailHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    setJoinEmail(e.target.value);
-  };
-  const passwordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    setJoinPassword(e.target.value);
-  };
+  // 회원가입 완료 시 라우팅 위한 navigate
+  const navigate = useNavigate();
 
-  // 회원가입 함수
-  // error 타입 정의
-  interface ReturnError {
-    code: string;
-    message: string;
-  }
-
-  const join = async () => {
-    try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        joinEmail,
-        joinPassword
-      );
-    } catch (error) {
-      const err = error as ReturnError;
-      console.log(err.message);
-    }
-  };
   return (
     <JoinPageContainer>
       <JoinUserInputPart>
@@ -172,20 +149,39 @@ const JoinPage: FC = () => {
           데이터를 기반으로 한<br />
           프로젝트 지속 가능성 확인
         </GreetingTop>
-        <UserInputContainer
-          inputType={"이메일"}
-          type={"email"}
-          onChange={emailHandler}
-        />
-        <UserInputContainer
-          inputType={"비밀번호"}
-          type={"password"}
-          onChange={passwordHandler}
-        />
-        <UserInputContainer inputType={"비밀번호확인"} type={"password"} />
-        <MainButtonContainer>
-          <MainButton buttonType={"생성하기"} onClick={join} />
-        </MainButtonContainer>
+        {/* 회원가입 form */}
+        <JoinForm
+          onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            //  회원가입 로직 에러처리 추가로 되어야함
+            console.log(joinEmail, joinPassword);
+            join(joinEmail, joinPassword)
+              .then((response: any) => {
+                console.log(response);
+                navigate("/login");
+              })
+              .catch((error: any) => console.log(error.message));
+          }}
+        >
+          <UserInputContainer
+            inputType={"이메일"}
+            type={"email"}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setJoinEmail(e.target.value);
+            }}
+          />
+          <UserInputContainer
+            inputType={"비밀번호"}
+            type={"password"}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setJoinPassword(e.target.value)
+            }
+          />
+          {/* <UserInputContainer inputType={"비밀번호확인"} type={"password"} /> */}
+          <MainButtonContainer>
+            <MainButton buttonType={"생성하기"} />
+          </MainButtonContainer>
+        </JoinForm>
         <DividingPart>
           <DividingLine />
           <SnsLogin>SNS 계정으로 로그인</SnsLogin>
@@ -198,7 +194,11 @@ const JoinPage: FC = () => {
           <SNSLoginButton>
             <img src={loginKakao} alt="kakao" />
           </SNSLoginButton>
-          <SNSLoginButton>
+          <SNSLoginButton
+            onClick={() => {
+              signInWithGoogle();
+            }}
+          >
             <img src={loginGoogle_logo} alt="g_logo" />
             <img src={loginGoogle_letter} alt="g_letter" className="g_letter" />
           </SNSLoginButton>

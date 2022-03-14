@@ -119,7 +119,9 @@ const LtvStep2: React.FC = () => {
   return (
     <Container>
       <BackgroundImage>
+
         <img src={TopImage} alt="City landscape" />
+
       </BackgroundImage>
       <GridBox>
         <GridContainer>

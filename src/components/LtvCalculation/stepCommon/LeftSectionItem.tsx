@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { LeftSectionDisplay } from "../../../types";
 import Step1 from "../../../assets/images/step1.png";
@@ -46,7 +46,6 @@ const StepDesc = styled.span`
   line-height: 17px;
   color: #000000;
 `;
-
 const Line = styled.div`
   margin: 20px 20px;
   width: 1px;
@@ -82,13 +81,18 @@ function LeftSectionItem({ display }: displayProps) {
         <StepLogo color={setColor()}>
           {display.done ? (
             <img
+
               src={StepComplete}
+
               alt={`step${display.step}`}
               style={{ top: "0", left: "0" }}
             />
           ) : (
             <img
+
               src={stepImage[parseInt(display.step) - 1]}
+
+          
               alt={`step${display.step}`}
             />
           )}

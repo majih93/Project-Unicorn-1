@@ -12,7 +12,6 @@ const RightImageContainer = styled.div`
 `;
 
 const RightImagePart = ({ imageSrc }: imageSrc) => {
-  console.log(imageSrc);
   return (
     <RightImageContainer>
       <img src={imageSrc} alt="Image1" />

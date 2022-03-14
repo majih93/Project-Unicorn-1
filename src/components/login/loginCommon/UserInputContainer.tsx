@@ -20,7 +20,9 @@ const InputContainer = styled.input`
   border-left: 3px solid #4a73f3;
   margin-top: 16px;
   padding-left: 20px;
+  padding-right: 20px;
   color: #4a73f3;
+  letter-spacing: 1px;
   &:focus {
     outline: none;
   }
