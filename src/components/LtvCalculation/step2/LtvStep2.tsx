@@ -13,6 +13,7 @@ import CategorySelect from "./forms/CategorySelect";
 import OsEnvButton from "./forms/OsEnvButton";
 import ModalShow from "../stepCommon/modal/ModalShow";
 import BottomMoveButton from "../stepCommon/BottomMoveButton";
+import TopImage from "../../../assets/images/backgroundImg.svg";
 
 const Container = styled.div`
   position: relative;
@@ -118,10 +119,9 @@ const LtvStep2: React.FC = () => {
   return (
     <Container>
       <BackgroundImage>
-        <img
-          src={require("../../../assets/images/backgroundImg.png")}
-          alt="City landscape"
-        />
+
+        <img src={TopImage} alt="City landscape" />
+
       </BackgroundImage>
       <GridBox>
         <GridContainer>
