@@ -11,7 +11,6 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { stringify } from "querystring";
 
 // 필요한 타입 미리 선언
 // auth context 에서 제공하는 데이터 관련 타입 선언
@@ -39,11 +38,15 @@ export function AuthContextProvider({
 }) {
   // 현재 로그인 되어있는 유저 저장하는 변수
   const [currentUser, setCurrentUser] = useState<any | null>(null);
+  const [userEmail, setUserEmail] = useState<string | null>("");
 
   // 로그인 여부 확인하기 위한 함수
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
+      if (user) {
+        setCurrentUser(user);
+        setUserEmail(user.email);
+      }
     });
     return () => {
       //component unmount 시애 user정보 제거해주는 cleanup func
@@ -88,6 +91,7 @@ export function AuthContextProvider({
 
   const value = {
     currentUser,
+    userEmail,
     join,
     login,
     logout,
