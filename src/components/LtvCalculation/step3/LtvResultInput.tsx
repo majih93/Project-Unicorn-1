@@ -88,10 +88,10 @@ const Button = styled.input`
 
 const LtvResultInput: React.FC = () => {
   const [resultState, setResultState] = useRecoilState(resultInputState);
-  const [input, setInput] = useState({ arpu: "", cac: "", users: "" });
 
   const initialClick = () => {
     setResultState({ arpu: 0, cac: 0, users: 0 });
+    window.location.replace("/ltvCal/result");
   };
 
   return (
