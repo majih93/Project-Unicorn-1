@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -191,6 +191,18 @@ const LoginPage = () => {
   // 조건부 라우팅 관련 hook
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const authToken = sessionStorage.getItem("Auth Token");
+    console.log(authToken);
+
+    if (authToken === null) {
+      navigate("/login");
+    }
+    if (authToken) {
+      navigate("/home");
+    }
+  }, []);
+
   // 로그인 함수 가져오기
   const { login, signInWithGoogle } = useAuth();
 
@@ -200,6 +212,7 @@ const LoginPage = () => {
 
   // 에러 메세지 보여주기 위한 에러 변수
   const [error, setError] = useState("");
+  console.log();
 
   return (
     <LoginPageContainer>
@@ -223,6 +236,10 @@ const LoginPage = () => {
             login(loginEmail, loginPassword)
               .then((response: any) => {
                 console.log(response);
+                sessionStorage.setItem(
+                  "Auth Token",
+                  response._tokenResponse.refreshToken
+                );
                 navigate("/home");
               })
               .catch((e: any) => {
@@ -271,7 +288,11 @@ const LoginPage = () => {
             onClick={() =>
               signInWithGoogle()
                 .then((response: any) => {
-                  console.log(response);
+                  sessionStorage.setItem(
+                    "Auth Token",
+                    response._tokenResponse.refreshToken
+                  );
+                  navigate("/home");
                 })
                 .catch((error: any) => console.log(error.message))
             }
