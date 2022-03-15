@@ -1,6 +1,7 @@
 import React from "react";
 import imgHome from "../../../assets/images/Home_img.svg";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Base = styled.div`
   background: #4a73f3;
@@ -50,6 +51,9 @@ const Btn = styled.div`
   font-size: 20px;
   font-weight: 700;
   position: relative;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const MainImg = styled.div`
@@ -86,6 +90,8 @@ const SpanC2 = styled.div`
 `;
 
 const HomeContents = (props: any) => {
+  const navigate = useNavigate();
+  const authToken = sessionStorage.getItem("Auth Token");
   return (
     <Base>
       <Container>
@@ -94,7 +100,16 @@ const HomeContents = (props: any) => {
           내 사업이 잘 되고 있는지 확인하고 싶다면, 유니콘 판별기를
           사용해보세요.
         </SpanB>
-        <Btn>유니콘 판별기 사용하기</Btn>
+        <Btn
+          onClick={() => {
+            // eslint-disable-next-line no-lone-blocks
+            {
+              authToken ? navigate("/ltvCal") : navigate("/login");
+            }
+          }}
+        >
+          유니콘 판별기 사용하기
+        </Btn>
         <SubInfo>
           <div>
             <SpanC1>53+million</SpanC1>

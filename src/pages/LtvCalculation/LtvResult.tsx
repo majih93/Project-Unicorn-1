@@ -43,6 +43,7 @@ const LogoutBtn = styled.button`
   line-height: 20px;
   text-align: center;
   color: #0420bf;
+  background: #fafafa;
   &:hover {
     cursor: pointer;
   }
@@ -60,7 +61,7 @@ const LtvResult = () => {
     console.log(authToken);
 
     if (authToken) {
-      navigate("/ltvCal");
+      navigate("/ltvCal/result");
     }
     if (!authToken) {
       navigate("/login");
@@ -73,7 +74,14 @@ const LtvResult = () => {
         <LogoContianer>
           <img src={Logo} alt="logo" />
         </LogoContianer>
-        <LogoutBtn onClick={logout}>로그아웃</LogoutBtn>
+        <LogoutBtn
+          onClick={() => {
+            logout();
+            navigate("/");
+          }}
+        >
+          로그아웃
+        </LogoutBtn>
       </Header>
       <Main>
         <LeftSection />

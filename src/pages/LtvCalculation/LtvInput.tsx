@@ -44,6 +44,9 @@ const LogoutBtn = styled.button`
   color: #0420bf;
   background-color: #fafafa;
   white-space: nowrap;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Main = styled.div`
@@ -58,7 +61,7 @@ const LtvInput = () => {
     console.log(authToken);
 
     if (authToken) {
-      navigate("/ltvCal");
+      navigate("/ltvCal/input");
     }
     if (!authToken) {
       navigate("/login");
@@ -71,7 +74,14 @@ const LtvInput = () => {
         <LogoContianer>
           <img src={Logo} alt="logo" />
         </LogoContianer>
-        <LogoutBtn onClick={logout}>로그아웃</LogoutBtn>
+        <LogoutBtn
+          onClick={() => {
+            logout();
+            navigate("/");
+          }}
+        >
+          로그아웃
+        </LogoutBtn>
       </Header>
       <Main>
         <LeftSection />

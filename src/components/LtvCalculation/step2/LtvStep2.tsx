@@ -85,9 +85,6 @@ const LocationButton = styled.div`
 `;
 
 const LtvStep2: React.FC = () => {
-  const { currenUser } = useAuth();
-  console.log(currenUser.auth.email);
-
   const [userInput, setUserInput] = useRecoilState(userInputState);
   const [displayState, setDisplaySatete] = useRecoilState(StepBtnState);
   const errorCheck = useRecoilValue(isShowError);
