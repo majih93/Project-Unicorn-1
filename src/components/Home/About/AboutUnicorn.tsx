@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import ImgAbout from "../../../assets/images/About_img.svg";
-import AboutLTV from "./AboutComponentsContents/About-LTV-Component";
 import AboutUnicorn from "./AboutComponentsContents/About-Unicorn";
 
-const AboutFAQ = styled.div`
-  background-color: #f5f5f5;
-`;
 
 const Base = styled.div`
   /* border: 1px solid black; */
@@ -76,6 +72,7 @@ const AboutContents = () => {
           <Clicked>유니콘이란?</Clicked>
           <NavContents>고객생애가치(LTV)란?</NavContents>
           <NavContents>FAQ</NavContents>
+          <NavContents>Contact</NavContents>
         </Nav>
         <Contents>
           <ContentsSpan>

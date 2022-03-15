@@ -3,18 +3,13 @@ import styled from "styled-components";
 import ImgAbout from "./asset/img/About_img.svg";
 import AboutLTV from "./AboutComponentsContents/About-LTV-Component";
 import AboutUnicorn from "./AboutComponentsContents/About-Unicorn";
-import AboutFAQContainer from "./AboutFAQComponents/AboutFAQContainer"
-
-
-const AboutFAQ = styled.div`
-  background-color: #F5F5F5;
-`
+import AboutFAQContainer from "./AboutFAQComponents/AboutFAQContainer";
 
 const Base = styled.div`
   /* border: 1px solid black; */
-  background: #F5F5F5;
+  background: #fafafa;
   width: 1440px;
-  height: 1050px;
+  height: 800px;
   margin: 0 auto;
   position: relative;
 `;
@@ -71,6 +66,26 @@ const Clicked = styled.div`
   line-height: 40px;
 `;
 
+const LoadBtn = styled.div`
+  width: 250px;
+  height: 44px;
+  background-color: #4a73f4;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 80px;
+`;
+const BtnText = styled.div`
+  /* border: 1px solid black; */
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  margin: 10px 84px;
+  line-height: 23.68px;
+`;
+
 const AboutContents = () => {
   return (
     <Base>
@@ -79,13 +94,17 @@ const AboutContents = () => {
           <NavContents>유니콘이란?</NavContents>
           <NavContents>고객생애가치(LTV)란?</NavContents>
           <Clicked>FAQ</Clicked>
+          <NavContents>Contact</NavContents>
         </Nav>
         <Contents>
           <ContentsSpan>
-            <AboutFAQContainer/>
+            <AboutFAQContainer />
           </ContentsSpan>
         </Contents>
       </Container>
+      <LoadBtn>
+        <BtnText>5개 더보기</BtnText>
+      </LoadBtn>
     </Base>
   );
 };

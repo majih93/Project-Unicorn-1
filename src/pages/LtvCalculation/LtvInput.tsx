@@ -10,14 +10,13 @@ const Base = styled.div`
   width: 1440px;
   height: 803px;
   margin: 0 auto;
-  border: 1px solid black;
+  background: #fafafa;
 `;
 
 const Header = styled.div`
   width: 100%;
   height: 56px;
   padding: 0 130px;
-  border-bottom: 2px solid #4a73f3;
   display: flex;
   box-sizing: border-box;
 `;

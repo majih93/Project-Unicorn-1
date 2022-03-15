@@ -13,6 +13,7 @@ import CategorySelect from "./forms/CategorySelect";
 import OsEnvButton from "./forms/OsEnvButton";
 import ModalShow from "../stepCommon/modal/ModalShow";
 import BottomMoveButton from "../stepCommon/BottomMoveButton";
+import TopImage from "../../../assets/images/backgroundImg.svg";
 
 const Container = styled.div`
   position: relative;
@@ -118,10 +119,9 @@ const LtvStep2: React.FC = () => {
   return (
     <Container>
       <BackgroundImage>
-        <img
-          src={require("../../../assets/images/backgroundImg.png")}
-          alt="City landscape"
-        />
+
+        <img src={TopImage} alt="City landscape" />
+
       </BackgroundImage>
       <GridBox>
         <GridContainer>
@@ -173,8 +173,9 @@ const LtvStep2: React.FC = () => {
             <span>
               최장유지일
               <ModalShow
-                modalTitle={"최장유지일(retention days)이란?"}
-                descripton={
+                type="single"
+                modalTitle1={"최장유지일(retention days)이란?"}
+                descripton1={
                   "한번 유입된 고객이 자사의 고객으로 머무는 시간을 의미한다."
                 }
                 top={"260px"}

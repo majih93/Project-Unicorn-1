@@ -3,21 +3,20 @@ import styled from "styled-components";
 import Logo from "../../assets/icons/Logo.svg";
 import LeftSection from "../../components/LtvCalculation/stepCommon/LeftSection";
 import LtvStep1 from "../../components/LtvCalculation/step1/LtvStep1";
+
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/loginAuthentication/AuthContext";
 
 const Base = styled.div`
   width: 1440px;
   height: 803px;
   margin: 0 auto;
-  border: 1px solid black;
+  background: #fafafa;
 `;
 
 const Header = styled.div`
   width: 100%;
   height: 56px;
   padding: 0 130px;
-  border-bottom: 2px solid #4a73f3;
   display: flex;
   box-sizing: border-box;
 `;
@@ -52,6 +51,7 @@ const Main = styled.div`
 `;
 
 const LtvCalculator = () => {
+
   const { logout } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
@@ -66,13 +66,16 @@ const LtvCalculator = () => {
     }
   }, []);
 
+
   return (
     <Base>
       <Header>
         <LogoContianer>
           <img src={Logo} alt="logo" />
         </LogoContianer>
+
         <LogoutBtn onClick={logout}>로그아웃</LogoutBtn>
+
       </Header>
       <Main>
         <LeftSection />

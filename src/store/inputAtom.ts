@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import { UserInputType } from "../types";
+import { UserInputType, ResultInputType } from "../types";
 
 export const userInputState = atom<UserInputType>({
   key: "userInputState",
@@ -8,18 +8,18 @@ export const userInputState = atom<UserInputType>({
     serviceName: "",
     os: "",
     serviceUrl: "",
-    retentionDays: ""
-  }
+    retentionDays: "",
+  },
 });
 
 export const isShowError = atom({
   key: "isShowError",
-  default: false
+  default: false,
 });
 
 export const isFileError = atom({
   key: "isFileError",
-  default: false
+  default: false,
 });
 
 export const inputIsComplete = selector({
@@ -32,7 +32,7 @@ export const inputIsComplete = selector({
       if (obj[keys] === "") objTotal = false;
     }
     return objTotal;
-  }
+  },
 });
 
 export const whichIsError = selector({
@@ -44,5 +44,14 @@ export const whichIsError = selector({
       if (obj[keys] === "") errorObj.push(keys);
     }
     return errorObj;
-  }
+  },
+});
+
+export const resultInputState = atom<ResultInputType>({
+  key: "resultInputState",
+  default: {
+    arpu: 0,
+    cac: 0,
+    users: 0,
+  },
 });
