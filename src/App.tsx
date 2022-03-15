@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import GlobalStyle from "./styles/GlobalStyle";
 import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/Login/LoginPage";
 import JoinPage from "./pages/Login/JoinPage";
 import FindPW from "./pages/Login/FindPW";
@@ -11,8 +11,6 @@ import AboutPage from "./pages/Home/AboutPage";
 import LtvResult from "./pages/LtvCalculation/LtvResult";
 import LtvInput from "./pages/LtvCalculation/LtvInput";
 import LtvCalculator from "./pages/LtvCalculation/LtvCalculator";
-import Footer from "./components/Home/common/Footer";
-import HeadMenu from "./components/Home/common/HeadMenu";
 import { AuthContextProvider } from "./context/loginAuthentication/AuthContext";
 
 function App() {
