@@ -2,15 +2,28 @@ import React, { Component } from "react";
 import { ReactDOM } from "react";
 import LogoImg from "../../../assets/images/Logo.svg";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../context/loginAuthentication/AuthContext";
 
-const HeadMenu = (props:any) => {
+const HeadMenu = (props: any) => {
+  const navigate = useNavigate();
+  const authToken = sessionStorage.getItem("Auth Token");
+  const { logout } = useAuth();
+  console.log(authToken);
+
   return (
     <Container>
       <HeaderImg></HeaderImg>
       <Menu>
-        <AboutBtn>About us</AboutBtn>
-        <LoginBtn>로그인</LoginBtn>
-        <JoinBtn>회원가입</JoinBtn>
+        <AboutBtn onClick={() => navigate("/about")}>About us</AboutBtn>
+        {authToken ? (
+          <LoginBtn onClick={logout}>로그아웃</LoginBtn>
+        ) : (
+          <>
+            <LoginBtn onClick={() => navigate("/login")}>로그인</LoginBtn>
+            <JoinBtn onClick={() => navigate("/join")}>회원가입</JoinBtn>
+          </>
+        )}
       </Menu>
     </Container>
   );
@@ -53,6 +66,9 @@ const Menu = styled.div`
 const AboutBtn = styled.div`
   color: #999;
   font-size: 14px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const LoginBtn = styled.div`
@@ -61,6 +77,9 @@ const LoginBtn = styled.div`
   border: 3px solid #0420bf;
   border-radius: 6px;
   padding: 6px 9px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const JoinBtn = styled.div`
@@ -69,6 +88,9 @@ const JoinBtn = styled.div`
   border: 3px solid #0420bf;
   border-radius: 6px;
   padding: 6px 9px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export default HeadMenu;

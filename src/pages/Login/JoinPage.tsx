@@ -146,7 +146,7 @@ const JoinPage: FC = () => {
     console.log(authToken);
 
     if (authToken === null) {
-      navigate("/findpw");
+      navigate("/join");
     }
     if (authToken) {
       navigate("/home");

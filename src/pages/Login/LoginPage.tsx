@@ -10,25 +10,28 @@ import loginKakao from "../../assets/icons/Login_Kakao.svg";
 import loginGoogle_logo from "../../assets/icons/loginGoogle_logo.svg";
 import loginGoogle_letter from "../../assets/icons/loginGoogle_letter.svg";
 import loginPageImage from "../../assets/images/loginImage.svg";
-import RightImagePart from "../../components/login/loginCommon/RightImagePart";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
 
 // 로그인 페이지 전체 컨테이너
 const LoginPageContainer = styled.div`
-  width: 1440px;
-  height: 820px;
   display: flex;
-  background-color: slateblue;
+  // background-color: slateblue;
+  height: 100vh;
+  // margin-left: 10vw;
+  position: relative;
+  margin: 0 auto @media (max-height: 630px;) {
+    height: 630px;
+  }
 `;
 
 // 로그인 페이지 왼쪽 유저 입력부분 컨테이너
 const LoginUserInputPart = styled.div`
-  width: 630px;
+  height: 100%;
   background: #ffffff;
-  padding-top: 99px;
+  padding-top: 12.19vh;
   padding-left: 130px;
   padding-right: 100px;
-  padding-bottom: 97px;
+  padding-bottom: 11.58vh;
   padding
   display: flex;
   flex-direction: column;
@@ -180,12 +183,22 @@ const AskJoin = styled.div`
   }
 `;
 
-// 로그인 페이지 오른쪽 이미지 부분 컨테이너
-// -> 따로 컴포넌트화 했음
-// const LoginPageImagePart = styled.div`
-//   width: 810px;
-//   height: 820px;
-// `;
+const RightImagePart = styled.div`
+  width: 56.25%;
+  height: 100vh;
+  img {
+    width: 100%;
+    height: 100vh:
+  }
+
+  @media (max-width: 1440px) {
+    img {
+      width: 810px;
+      height: 820px;
+    }
+    
+  }
+`;
 
 const LoginPage = () => {
   // 조건부 라우팅 관련 hook
@@ -308,7 +321,9 @@ const LoginPage = () => {
           <Link to="/join">회원가입</Link>
         </AskJoin>
       </LoginUserInputPart>
-      <RightImagePart imageSrc="loginPageImage" />
+      <RightImagePart>
+        <img src={loginPageImage} alt="loginImage" />
+      </RightImagePart>
     </LoginPageContainer>
   );
 };
