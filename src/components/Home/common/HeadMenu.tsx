@@ -13,7 +13,7 @@ const HeadMenu = (props: any) => {
 
   return (
     <Container>
-      <HeaderImg></HeaderImg>
+      <HeaderImg onClick={() => navigate("/")}></HeaderImg>
       <Menu>
         <AboutBtn onClick={() => navigate("/about")}>About us</AboutBtn>
         {authToken ? (
@@ -48,6 +48,9 @@ const HeaderImg = styled.img.attrs({
   margin: auto 0;
   padding: 130px;
   /* height: 18.23px; */
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Menu = styled.div`

@@ -22,11 +22,13 @@ const LoginPageContainer = styled.div`
   margin: 0 auto @media (max-height: 630px;) {
     height: 630px;
   }
+  width: 100vw;
 `;
 
 // 로그인 페이지 왼쪽 유저 입력부분 컨테이너
 const LoginUserInputPart = styled.div`
   height: 100%;
+  width: 50%:
   background: #ffffff;
   padding-top: 12.19vh;
   padding-left: 130px;
@@ -185,10 +187,10 @@ const AskJoin = styled.div`
 
 const RightImagePart = styled.div`
   width: 56.25%;
-  height: 100vh;
+  height: 100%;
   img {
     width: 100%;
-    height: 100vh:
+    height: 100%:
   }
 
   @media (max-width: 1440px) {
@@ -212,7 +214,7 @@ const LoginPage = () => {
       navigate("/login");
     }
     if (authToken) {
-      navigate("/home");
+      navigate("/");
     }
   }, []);
 
@@ -253,7 +255,7 @@ const LoginPage = () => {
                   "Auth Token",
                   response._tokenResponse.refreshToken
                 );
-                navigate("/home");
+                navigate("/");
               })
               .catch((e: any) => {
                 setError("this");
@@ -305,7 +307,7 @@ const LoginPage = () => {
                     "Auth Token",
                     response._tokenResponse.refreshToken
                   );
-                  navigate("/home");
+                  navigate("/");
                 })
                 .catch((error: any) => console.log(error.message))
             }

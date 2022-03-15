@@ -7,7 +7,6 @@ import JoinPage from "./pages/Login/JoinPage";
 import FindPW from "./pages/Login/FindPW";
 import ResetPassword from "./pages/Login/ResetPassword";
 import HomePage from "./pages/Home/HomePage";
-import HomePages from "./pages/Home/HomePages";
 import AboutPage from "./pages/Home/AboutPage";
 import LtvResult from "./pages/LtvCalculation/LtvResult";
 import LtvInput from "./pages/LtvCalculation/LtvInput";
@@ -26,7 +25,6 @@ function App() {
           <Route path="/join" element={<JoinPage />} />
           <Route path="/findpw" element={<FindPW />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/home" element={<HomePages />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/*" element={<HomePage />} />
           <Route path="/ltvCal/result" element={<LtvResult />} />
