@@ -15,6 +15,7 @@ import ModalShow from "../stepCommon/modal/ModalShow";
 import BottomMoveButton from "../stepCommon/BottomMoveButton";
 import TopImage from "../../../assets/images/backgroundImg.svg";
 import { useAuth } from "../../../context/loginAuthentication/AuthContext";
+import { auth } from "../../../utils/firebase-config";
 
 const Container = styled.div`
   position: relative;
@@ -47,7 +48,7 @@ const GridContainer = styled.div`
 const Title = styled.div`
   span {
     display: inline;
-    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-family: "Spoqa Han Sans", sans-serif;
     font-weight: 700;
     font-size: 18px;
     line-height: 27px;
@@ -64,14 +65,14 @@ const InputField = styled.div`
   width: 272px;
   height: 54px;
   background: #ffffff;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05), 0px 4px 6px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
 `;
 
 const ErrorSpan = styled.span`
   position: relative;
   top: 0px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-size: 12px;
   line-height: 18px;
   color: #f3694c;
@@ -117,6 +118,9 @@ const LtvStep2: React.FC = () => {
     }
   }, [inputComplete, setDisplaySatete]);
 
+  const { userEmail } = useAuth();
+  console.log(userEmail);
+
   return (
     <Container>
       <BackgroundImage>
@@ -131,7 +135,7 @@ const LtvStep2: React.FC = () => {
             <span>카테고리</span>
           </Title>
           <div>
-            <EmailText>로그인한 이메일이 출력될 예정</EmailText>
+            <EmailText>{userEmail}</EmailText>
           </div>
           <InputField>
             <CategorySelect />
