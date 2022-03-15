@@ -9,6 +9,8 @@ import IconHome_2 from "../../../../assets/icons/Icon-Home-2.svg";
 import IconHome_3 from "../../../../assets/icons/Icon-Home-3.svg";
 import IconHome_4 from "../../../../assets/icons/Icon-Home-4.svg";
 import IconBoxCheck from "../../../../assets/icons/Icon-BoxCheck.svg";
+import { useAuth } from "../../../../context/loginAuthentication/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Base = styled.div`
   /* border: 1px solid black; */
@@ -58,6 +60,9 @@ const UnicornBtn = styled.div`
   font-weight: 700;
   top: 152px;
   z-index: 1;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -130,6 +135,9 @@ const ContentInfo = styled.span`
 `;
 
 function HomeScrollWhy() {
+  const navigate = useNavigate();
+  const authToken = sessionStorage.getItem("Auth Token");
+
   return (
     <>
       <Base>
@@ -139,7 +147,16 @@ function HomeScrollWhy() {
             내가 이들 중 한 명이라면! 누구나 사용할 수 있습니다!!
           </SpanContent>
         </TextWrap>
-        <UnicornBtn>유니콘 판별기 사용하기</UnicornBtn>
+        <UnicornBtn
+          onClick={() => {
+            // eslint-disable-next-line no-lone-blocks
+            {
+              authToken ? navigate("/ltvCal") : navigate("/login");
+            }
+          }}
+        >
+          유니콘 판별기 사용하기
+        </UnicornBtn>
         <ContentContainer>
           <ContentWrap>
             <Top>

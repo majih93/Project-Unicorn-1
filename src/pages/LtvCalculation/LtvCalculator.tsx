@@ -9,7 +9,7 @@ import { useAuth } from "../../context/loginAuthentication/AuthContext";
 
 const Base = styled.div`
   width: 1440px;
-  height: 803px;
+  height: 100vh;
   margin: 0 auto;
   background: #fafafa;
 `;

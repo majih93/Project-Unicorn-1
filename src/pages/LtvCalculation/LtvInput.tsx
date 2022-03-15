@@ -58,7 +58,7 @@ const LtvInput = () => {
     console.log(authToken);
 
     if (authToken) {
-      navigate("/ltvCal");
+      navigate("/ltvCal/input");
     }
     if (!authToken) {
       navigate("/login");

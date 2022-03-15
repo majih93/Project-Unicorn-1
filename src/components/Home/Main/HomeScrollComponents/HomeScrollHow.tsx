@@ -7,6 +7,7 @@ import ImgScroll_3 from "../../../../assets/images/Img-Scroll-3.svg";
 import IconScroll_1 from "../../../../assets/icons/Icon-Scroll-1.svg";
 import IconScroll_2 from "../../../../assets/icons/Icon-Scroll-2.svg";
 import IconScroll_3 from "../../../../assets/icons/Icon-Scroll-3.svg";
+import { useNavigate } from "react-router-dom";
 
 const Base = styled.div`
   border: 1px solid black;
@@ -51,6 +52,9 @@ const Btn = styled.div`
   font-size: 20px;
   font-weight: 700;
   top: 152px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Main = styled.div``;
@@ -77,6 +81,8 @@ const HowSpanText = styled.div`
 `;
 
 function HomeScrollHow() {
+  const navigate = useNavigate();
+  const authToken = sessionStorage.getItem("Auth Token");
   return (
     <>
       <Base>
@@ -85,7 +91,16 @@ function HomeScrollHow() {
           <SpanInfo>
             내가 이들 중 한 명이라면! 누구나 사용할 수 있습니다!!
           </SpanInfo>
-          <Btn>유니콘 판별기 사용하기</Btn>
+          <Btn
+            onClick={() => {
+              // eslint-disable-next-line no-lone-blocks
+              {
+                authToken ? navigate("/ltvCal") : navigate("/login");
+              }
+            }}
+          >
+            유니콘 판별기 사용하기
+          </Btn>
         </Header>
         <Main>
           <InfoContainer>
