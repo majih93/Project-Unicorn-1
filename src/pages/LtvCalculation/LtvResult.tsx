@@ -43,6 +43,7 @@ const LogoutBtn = styled.button`
   line-height: 20px;
   text-align: center;
   color: #0420bf;
+  background: #fafafa;
   &:hover {
     cursor: pointer;
   }
