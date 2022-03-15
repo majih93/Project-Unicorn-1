@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import MainButton from "../../components/login/loginCommon/MainButton";
@@ -140,6 +140,18 @@ const JoinPage: FC = () => {
 
   // 회원가입 완료 시 라우팅 위한 navigate
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const authToken = sessionStorage.getItem("Auth Token");
+    console.log(authToken);
+
+    if (authToken === null) {
+      navigate("/findpw");
+    }
+    if (authToken) {
+      navigate("/home");
+    }
+  }, []);
 
   return (
     <JoinPageContainer>

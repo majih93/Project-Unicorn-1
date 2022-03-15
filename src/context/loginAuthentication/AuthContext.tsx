@@ -69,13 +69,15 @@ export function AuthContextProvider({
 
   // 로그아웃함수
   const logout = () => {
+    sessionStorage.clear();
     return signOut(auth);
+    // .then(() => sessionStorage.clear());
   };
 
   // 비밀번호 초기화 메일 전송 함수
   const findPassword = (email: string) => {
     return sendPasswordResetEmail(auth, email, {
-      url: "https://localhost:300/login",
+      url: "https://localhost:3000/login",
     });
   };
 

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Logo from "../../assets/icons/Logo.svg";
 import LeftSection from "../../components/LtvCalculation/stepCommon/LeftSection";
 import LtvStep1 from "../../components/LtvCalculation/step1/LtvStep1";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/loginAuthentication/AuthContext";
 
 const Base = styled.div`
   width: 1440px;
@@ -50,13 +52,27 @@ const Main = styled.div`
 `;
 
 const LtvCalculator = () => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const authToken = sessionStorage.getItem("Auth Token");
+    console.log(authToken);
+
+    if (authToken) {
+      navigate("/ltvCal");
+    }
+    if (!authToken) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <Base>
       <Header>
         <LogoContianer>
           <img src={Logo} alt="logo" />
         </LogoContianer>
-        <LogoutBtn>로그아웃</LogoutBtn>
+        <LogoutBtn onClick={logout}>로그아웃</LogoutBtn>
       </Header>
       <Main>
         <LeftSection />

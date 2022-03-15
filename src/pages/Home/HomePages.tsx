@@ -3,11 +3,13 @@ import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import { Link } from "react-router-dom";
 
 const HomePages = () => {
-  const { currentUser, logout } = useAuth();
-  console.log(currentUser);
+  const { logout } = useAuth();
+  const authToken = sessionStorage.getItem("Auth Token");
+  console.log(authToken);
+
   return (
     <div>
-      {currentUser ? (
+      {authToken ? (
         <Link
           to="/login"
           style={{

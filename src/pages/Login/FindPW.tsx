@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import MainButton from "../../components/login/loginCommon/MainButton";
 import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
 import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
 
@@ -69,6 +69,19 @@ const AskLogin = styled.div`
 const FindPW = () => {
   const [findEmail, setFindEmail] = useState("");
   const { findPassword } = useAuth();
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const authToken = sessionStorage.getItem("Auth Token");
+    console.log(authToken);
+
+    if (authToken === null) {
+      navigate("/findpw");
+    }
+    if (authToken) {
+      navigate("/home");
+    }
+  }, []);
 
   return (
     <FindPWContainer>
