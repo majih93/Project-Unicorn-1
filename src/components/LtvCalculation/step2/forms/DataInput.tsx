@@ -37,7 +37,7 @@ const DataInput: React.FC<{ id: string }> = ({ id }) => {
   const errorCheck = useRecoilValue(isShowError);
 
   const errorList = useRecoilValue(whichIsError);
-  console.log(errorList);
+  // console.log(errorList);
 
   let errorCompare;
   errorList.map((error: any) => {
@@ -59,7 +59,7 @@ const DataInput: React.FC<{ id: string }> = ({ id }) => {
       [id]: e.target.value,
     });
   };
-  console.log(userInput[id]);
+  // console.log(userInput[id]);
 
   return (
     <form>

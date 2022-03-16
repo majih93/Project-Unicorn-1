@@ -38,7 +38,7 @@ const CategorySelect: React.FC = () => {
   const errorCheck = useRecoilValue(isShowError);
 
   const errorList = useRecoilValue(whichIsError);
-  console.log(errorList);
+  // console.log(errorList);
 
   let errorCompare;
   errorList.map((error: any) => {

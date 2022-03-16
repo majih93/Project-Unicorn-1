@@ -15,6 +15,7 @@ import ModalShow from "../stepCommon/modal/ModalShow";
 import BottomMoveButton from "../stepCommon/BottomMoveButton";
 import TopImage from "../../../assets/images/backgroundImg.svg";
 import { useAuth } from "../../../context/loginAuthentication/AuthContext";
+import { useFirestore } from "../../../context/firestore/FirestoreContext";
 
 const Container = styled.div`
   position: relative;
@@ -96,13 +97,13 @@ const LtvStep2: React.FC = () => {
 
   let errorCompare;
   errorList.map((error: any) => {
-    if (error === "os") {
+    if (error === "OS") {
       errorCompare = true;
     }
   });
 
   const inputComplete = useRecoilValue(inputIsComplete);
-  console.log(inputComplete);
+  // console.log(inputComplete);
 
   useEffect(() => {
     if (inputComplete) {
@@ -119,6 +120,9 @@ const LtvStep2: React.FC = () => {
       );
     }
   }, [inputComplete, setDisplaySatete]);
+
+  const { fileName } = useFirestore();
+  console.log(fileName);
 
   return (
     <Container>
@@ -149,7 +153,7 @@ const LtvStep2: React.FC = () => {
             <span>구동환경</span>
           </Title>
           <InputField>
-            <DataInput id="serviceName" />
+            <DataInput id="service_name" />
           </InputField>
           {errorCheck && errorCompare ? (
             <div style={{ width: "272px" }}>
@@ -186,7 +190,7 @@ const LtvStep2: React.FC = () => {
             </span>
           </Title>
           <InputField>
-            <DataInput id="serviceUrl" />
+            <DataInput id="service_url" />
           </InputField>
           <InputField>
             <DataInput id="retentionDays" />

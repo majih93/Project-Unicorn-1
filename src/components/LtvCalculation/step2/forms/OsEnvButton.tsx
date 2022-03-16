@@ -46,7 +46,7 @@ const OsEnvButton = () => {
 
     setUserInput({
       ...userInput,
-      os: e.target.value,
+      OS: e.target.value,
     });
     setClickedName(e.target.value);
   };

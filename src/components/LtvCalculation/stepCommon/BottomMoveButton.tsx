@@ -3,7 +3,11 @@ import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LeftSectionDisplay } from "../../../types";
 import { useRecoilState } from "recoil";
-import { isShowError, isFileError } from "../../../store/inputAtom";
+import {
+  isShowError,
+  isFileError,
+  userInputState,
+} from "../../../store/inputAtom";
 import { StepBtnState } from "../../../store/StepBtnAtom";
 import { useFirestore } from "../../../context/firestore/FirestoreContext";
 import { useAuth } from "../../../context/loginAuthentication/AuthContext";
@@ -66,6 +70,9 @@ function BottomMoveButton({ display }: displayProps) {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // step2 에서 유저가 입력하는 값 저장되는 변수
+  const inputData = useRecoilState(userInputState);
+
   const [stepBtn, setStepBtn] = useRecoilState(StepBtnState);
   const [errorStep1, setErrorStep1] = useRecoilState(isFileError);
   const [errorStep2, setErrorStep2] = useRecoilState(isShowError);
@@ -75,6 +82,8 @@ function BottomMoveButton({ display }: displayProps) {
 
   // 1페이지에서 다음 버튼 클릭 시, 특정 정보관련 문서 DB 에 생성해주는 함수
   const { createUserInputData } = useFirestore();
+  // 2페이지에서 다음 버튼 클릭 시, 특정 정보관련 문서 DB 에 생성해주는 함수
+  const { createUserCalculationInfo } = useFirestore();
 
   const setColor = () => {
     if (display.step === "1" && stepBtn[0].done) {
@@ -99,9 +108,11 @@ function BottomMoveButton({ display }: displayProps) {
     } else if (display.step === "1" && !stepBtn[0].done) {
       setErrorStep1(true);
     } else if (display.step === "2" && stepBtn[1].done) {
-      console.log(display.step);
-      console.log(stepBtn[1].done);
+      // console.log(display.step);
+      // console.log(stepBtn[1].done);
       setErrorStep2(false);
+      console.log({ ...inputData });
+      createUserCalculationInfo();
       navigate("/ltvCal/result");
     } else setErrorStep2(true);
   };
