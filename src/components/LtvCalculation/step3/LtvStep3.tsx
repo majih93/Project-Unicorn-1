@@ -68,7 +68,7 @@ const TabBtn = styled.button<tabProps>`
   box-sizing: border-box;
   border-radius: 8px 8px 0px 0px;
   cursor: pointer;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
@@ -85,6 +85,7 @@ const ShareBtn = styled.div`
   left: -200px;
   margin-top: 95px;
   margin-left: -5px;
+  background: white;
 `;
 
 type tabProps = {

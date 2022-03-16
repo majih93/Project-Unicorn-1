@@ -8,7 +8,7 @@ const Input = styled.input`
   height: 44px;
   margin-right: 20px;
   padding-left: 10px;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: "Spoqa Han Sans", "sans-serif";
   font-weight: 700;
   font-size: 30px;
   line-height: 44px;
@@ -34,7 +34,7 @@ const DataInput: React.FC<{ id: string }> = ({ id }) => {
 
   let placeholderT = "";
 
-  if (id === "arpu") placeholderT = "10,000원";
+  if (id === "arpu") placeholderT = "0원";
   else if (id === "cac") placeholderT = "0원";
   else placeholderT = "0명";
 

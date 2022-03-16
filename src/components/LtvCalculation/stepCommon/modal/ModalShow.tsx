@@ -11,6 +11,7 @@ const Button = styled.button`
   &:active {
     opacity: 0.8;
   }
+  background: white;
 `;
 
 const ModalTitle = styled.div`

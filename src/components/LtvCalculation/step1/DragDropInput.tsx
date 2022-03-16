@@ -45,8 +45,8 @@ const DragDropInput: FunctionComponent<{ setFile: Dispatch<any> }> = ({
   const onDrop = useCallback(
     (acceptedFiles) => {
       console.log(acceptedFiles[0]);
+      // 업로드된 파일 이름
       setFileName(acceptedFiles[0].name);
-
       setFile(acceptedFiles[0]);
     },
     [setFile]

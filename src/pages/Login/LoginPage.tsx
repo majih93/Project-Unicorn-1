@@ -19,16 +19,16 @@ const LoginPageContainer = styled.div`
   height: 100vh;
   // margin-left: 10vw;
   position: relative;
+  // background: slateblue;
   margin: 0 auto @media (max-height: 630px;) {
     height: 630px;
   }
-  width: 100vw;
 `;
 
 // 로그인 페이지 왼쪽 유저 입력부분 컨테이너
 const LoginUserInputPart = styled.div`
   height: 100%;
-  width: 50%:
+  width: 43.25%:
   background: #ffffff;
   padding-top: 12.19vh;
   padding-left: 130px;
@@ -190,7 +190,8 @@ const RightImagePart = styled.div`
   height: 100%;
   img {
     width: 100%;
-    height: 100%:
+    height: 100%;
+    object-fit: cover;
   }
 
   @media (max-width: 1440px) {
@@ -198,7 +199,6 @@ const RightImagePart = styled.div`
       width: 810px;
       height: 820px;
     }
-    
   }
 `;
 
@@ -330,3 +330,7 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+// object fit 특성
+
+// 이미지에서 빼버리면

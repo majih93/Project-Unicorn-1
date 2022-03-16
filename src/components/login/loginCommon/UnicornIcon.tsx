@@ -2,7 +2,7 @@
 
 import React from "react";
 import styled from "styled-components";
-import Logo from "../../../assets/icons/Logo.svg";
+import Logo2 from "../../../assets/icons/logo2.svg";
 
 const UnicornIconContainer = styled.div`
   width: 100%;
@@ -12,7 +12,7 @@ const UnicornIconContainer = styled.div`
 const UnicornIcon = () => {
   return (
     <UnicornIconContainer>
-      <img src={Logo} alt="Logo" />
+      <img src={Logo2} alt="Logo" />
     </UnicornIconContainer>
   );
 };

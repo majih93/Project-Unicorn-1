@@ -20,6 +20,7 @@ const Button = styled.button`
   &:active {
     opacity: 0.8;
   }
+  background: #fafafa;
 `;
 
 const ShareContainer = styled.div`

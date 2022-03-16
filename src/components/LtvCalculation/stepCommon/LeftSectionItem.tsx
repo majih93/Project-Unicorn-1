@@ -81,18 +81,13 @@ function LeftSectionItem({ display }: displayProps) {
         <StepLogo color={setColor()}>
           {display.done ? (
             <img
-
               src={StepComplete}
-
               alt={`step${display.step}`}
               style={{ top: "0", left: "0" }}
             />
           ) : (
             <img
-
               src={stepImage[parseInt(display.step) - 1]}
-
-          
               alt={`step${display.step}`}
             />
           )}

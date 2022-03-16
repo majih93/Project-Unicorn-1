@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import Logo from "../../assets/icons/Logo.svg";
+import Logo from "../../assets/icons/logo2.svg";
 import LeftSection from "../../components/LtvCalculation/stepCommon/LeftSection";
 import LtvStep1 from "../../components/LtvCalculation/step1/LtvStep1";
 

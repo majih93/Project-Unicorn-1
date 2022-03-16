@@ -65,6 +65,7 @@ const ModalDesc = styled.div`
   line-height: 20px;
   box-sizing: border-box;
   color: #fff;
+  white-space: nowrap;
 `;
 
 const FormTitle = styled.div`
@@ -92,8 +93,9 @@ const Input = styled.input`
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   &::placeholder {
-    padding-left: 8px;
+    // padding-left: 8px;
   }
+  padding-left: 10px;
 `;
 
 const Textarea = styled.textarea`
