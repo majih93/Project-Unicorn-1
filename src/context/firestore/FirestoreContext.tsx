@@ -41,7 +41,7 @@ export function FirestoreContextProvider({
   // calculation_id에 해당될 로그인 된 유저 이메일
   const { userEmail } = useAuth();
   // userCalculationInfo 에 포함될 나머지 데이터가 있는 userInputData 받아오기
-  const userInputData = useRecoilState(userInputState);
+  const [userInputData, _] = useRecoilState(userInputState);
   const createUserCalculationInfo = async () =>
     // OS: any,
     // calculation_id: any,
@@ -56,15 +56,11 @@ export function FirestoreContextProvider({
     // user_id: any
     {
       await addDoc(userCalculationInfoRef, {
-        // ...userInputData,
-        // OS: OS,
+        ...userInputData,
         calculation_id: userEmail,
-        // category: category,
         country_id: "KR",
         filename: fileName,
         ltv_value: 7.1,
-        // service_name: service_name,
-        // service_url: service_url,
         status_code: 200,
         timestamp: timeStamp,
         user_id: userEmail,
