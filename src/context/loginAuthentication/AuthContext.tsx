@@ -12,25 +12,12 @@ import {
   signOut,
 } from "firebase/auth";
 
-// 필요한 타입 미리 선언
-// auth context 에서 제공하는 데이터 관련 타입 선언
-// interface contextItems {
-//   currentUser: null;
-//   join: Function;
-// }
-// 회원가입, 로그인 함수 등에서 전달되는 인자 관련
-// interface userInfo {
-//   email: string;
-//   password: string;
-// }
-
-// createContext안에 없어도 코드 구현 자체는 되지만, 안에 무엇이 들어있는지
-// let vscode know what to expect of this context
 // 컨텍스트로 제공되는 값들이 가지는 기초값? 기초 상태를 알려주는 것
 const AuthContext = createContext<any>({});
 
 export const useAuth = () => useContext(AuthContext);
 
+// auth 관련해서 전역에서 사용하고픈 로직/변수 제공하는 provider
 export function AuthContextProvider({
   children,
 }: {

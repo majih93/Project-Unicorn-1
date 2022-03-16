@@ -154,7 +154,8 @@ git push origin --delete <삭제하려는 브랜치명>
 - 들어내기 쉽게 하려면 어떻게 짜는게 좋을까?
 - 데이터 통신이 필요한 기능 부위 flow?
 
-1. step1) 에서 유저가 csv 파일 업로드 -> user_input_data에 해당 데이터 추가.
+1. ~~step1) 에서 유저가 csv 파일 업로드 -> user_input_data에 해당 데이터 추가.~~
+   -> 구현완료
 2. step2) 유저가 정보 입력 -> step1)에서 업데이트 된 테이블에서 데이터 가져와서, 추가된 정보 포함해서 다시
    user_calculation에 입력
 3. 그로쓰 모델 관련 부분은 더 고민이 필요
@@ -168,3 +169,5 @@ git push origin --delete <삭제하려는 브랜치명>
   -> 이용약관 동의시, data base에 uid를 termsAgreed 목록에 추가
   -> 사용 안할래요 클릭시, 홈으로 라우팅
   사용할래요 클릭시 ltvCal로 이동
+
+createUserInputData 관련해서 고민중..

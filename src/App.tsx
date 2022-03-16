@@ -12,23 +12,26 @@ import LtvResult from "./pages/LtvCalculation/LtvResult";
 import LtvInput from "./pages/LtvCalculation/LtvInput";
 import LtvCalculator from "./pages/LtvCalculation/LtvCalculator";
 import { AuthContextProvider } from "./context/loginAuthentication/AuthContext";
+import { FirestoreContextProvider } from "./context/firestore/FirestoreContext";
 
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
       <AuthContextProvider>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/join" element={<JoinPage />} />
-          <Route path="/findpw" element={<FindPW />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/*" element={<HomePage />} />
-          <Route path="/ltvCal/result" element={<LtvResult />} />
-          <Route path="/ltvCal/input" element={<LtvInput />} />
-          <Route path="/ltvCal/*" element={<LtvCalculator />} />
-        </Routes>
+        <FirestoreContextProvider>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/join" element={<JoinPage />} />
+            <Route path="/findpw" element={<FindPW />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/*" element={<HomePage />} />
+            <Route path="/ltvCal/result" element={<LtvResult />} />
+            <Route path="/ltvCal/input" element={<LtvInput />} />
+            <Route path="/ltvCal/*" element={<LtvCalculator />} />
+          </Routes>
+        </FirestoreContextProvider>
       </AuthContextProvider>
     </div>
   );

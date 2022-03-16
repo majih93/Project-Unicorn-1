@@ -8,7 +8,7 @@ import { useAuth } from "../../context/loginAuthentication/AuthContext";
 
 const Base = styled.div`
   width: 1440px;
-  height: 803px;
+  height: 100vh;
   margin: 0 auto;
   background: #fafafa;
 `;
@@ -56,6 +56,10 @@ const Main = styled.div`
 const LtvInput = () => {
   const { logout } = useAuth();
   const navigate = useNavigate();
+
+  // 유저 인증상태 확인 후, 인증 상태에 따라 다른 라우팅
+  // 로그인 요청 시에, firebase에서 돌아오는 응답 중 response._tokenResponse.refreshToken을 sessionStorage에 "Auth Token"으로 setItem 후
+  // 라우팅 시에 Auth Token 존재 여부를 확인해서 라우팅 다르게
   useEffect(() => {
     const authToken = sessionStorage.getItem("Auth Token");
     console.log(authToken);

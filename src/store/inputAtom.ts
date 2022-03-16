@@ -5,9 +5,9 @@ export const userInputState = atom<UserInputType>({
   key: "userInputState",
   default: {
     category: "",
-    serviceName: "",
-    os: "",
-    serviceUrl: "",
+    service_name: "",
+    OS: "",
+    service_url: "",
     retentionDays: "",
   },
 });
@@ -26,7 +26,7 @@ export const inputIsComplete = selector({
   key: "inputIsComplete",
   get: ({ get }) => {
     const obj = get(userInputState);
-    console.log(obj);
+    // console.log(obj);
     let objTotal = true;
     for (let keys in obj) {
       if (obj[keys] === "") objTotal = false;

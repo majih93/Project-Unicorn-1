@@ -99,7 +99,7 @@ const FileUpload = () => {
           <FileUploadImage src={Complete} alt="Upload complete" />
           <FileUploadDesc style={{ height: "20px", backgroundColor: "#fff" }}>
             {/* {URL.createObjectURL(file)} */}
-            업로드 완료!!
+            업로드 완료
             <FileField>
               <FileName>{file.name}</FileName>
               <FileCancel>

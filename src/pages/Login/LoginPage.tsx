@@ -203,12 +203,13 @@ const RightImagePart = styled.div`
 `;
 
 const LoginPage = () => {
-  // 조건부 라우팅 관련 hook
   const navigate = useNavigate();
 
+  // 유저 인증상태 확인 후, 인증 상태에 따라 다른 라우팅
+  // 로그인 요청 시에, firebase에서 돌아오는 응답 중 response._tokenResponse.refreshToken을 sessionStorage에 "Auth Token"으로 setItem 후
+  // 라우팅 시에 Auth Token 존재 여부를 확인해서 라우팅 다르게
   useEffect(() => {
     const authToken = sessionStorage.getItem("Auth Token");
-    console.log(authToken);
 
     if (authToken === null) {
       navigate("/login");
@@ -227,7 +228,6 @@ const LoginPage = () => {
 
   // 에러 메세지 보여주기 위한 에러 변수
   const [error, setError] = useState("");
-  console.log();
 
   return (
     <LoginPageContainer>
@@ -250,7 +250,6 @@ const LoginPage = () => {
             // 로그인 구현 로직
             login(loginEmail, loginPassword)
               .then((response: any) => {
-                console.log(response);
                 sessionStorage.setItem(
                   "Auth Token",
                   response._tokenResponse.refreshToken
