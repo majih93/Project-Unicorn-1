@@ -31,6 +31,7 @@ const AuthContext = createContext<any>({});
 
 export const useAuth = () => useContext(AuthContext);
 
+// auth 관련해서 전역에서 사용하고픈 로직/변수 제공하는 provider
 export function AuthContextProvider({
   children,
 }: {

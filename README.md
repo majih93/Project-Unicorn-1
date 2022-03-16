@@ -168,3 +168,5 @@ git push origin --delete <삭제하려는 브랜치명>
   -> 이용약관 동의시, data base에 uid를 termsAgreed 목록에 추가
   -> 사용 안할래요 클릭시, 홈으로 라우팅
   사용할래요 클릭시 ltvCal로 이동
+
+createUserInputData 관련해서 고민중..

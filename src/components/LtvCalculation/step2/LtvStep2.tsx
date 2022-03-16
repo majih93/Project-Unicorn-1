@@ -15,7 +15,6 @@ import ModalShow from "../stepCommon/modal/ModalShow";
 import BottomMoveButton from "../stepCommon/BottomMoveButton";
 import TopImage from "../../../assets/images/backgroundImg.svg";
 import { useAuth } from "../../../context/loginAuthentication/AuthContext";
-import { auth } from "../../../utils/firebase-config";
 
 const Container = styled.div`
   position: relative;
@@ -92,6 +91,9 @@ const LtvStep2: React.FC = () => {
 
   const errorList = useRecoilValue(whichIsError);
 
+  // 사용자 이메일을 표시하기 위한 userEmail 컨텍스트에서 가져오기
+  const { userEmail } = useAuth();
+
   let errorCompare;
   errorList.map((error: any) => {
     if (error === "os") {
@@ -117,9 +119,6 @@ const LtvStep2: React.FC = () => {
       );
     }
   }, [inputComplete, setDisplaySatete]);
-
-  const { userEmail } = useAuth();
-  console.log(userEmail);
 
   return (
     <Container>

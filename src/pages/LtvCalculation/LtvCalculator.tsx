@@ -59,7 +59,6 @@ const LtvCalculator = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const authToken = sessionStorage.getItem("Auth Token");
-    console.log(authToken);
 
     if (authToken) {
       navigate("/ltvCal");

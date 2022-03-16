@@ -5,6 +5,8 @@ import { LeftSectionDisplay } from "../../../types";
 import { useRecoilState } from "recoil";
 import { isShowError, isFileError } from "../../../store/inputAtom";
 import { StepBtnState } from "../../../store/StepBtnAtom";
+import { useFirestore } from "../../../context/firestore/FirestoreContext";
+import { useAuth } from "../../../context/loginAuthentication/AuthContext";
 
 const ButtonField = styled.div`
   display: flex;
@@ -58,6 +60,7 @@ const NextButton = styled.button`
 type displayProps = {
   display: LeftSectionDisplay;
 };
+// props로 display 값을 전달받는다..
 
 function BottomMoveButton({ display }: displayProps) {
   const location = useLocation();
@@ -66,6 +69,12 @@ function BottomMoveButton({ display }: displayProps) {
   const [stepBtn, setStepBtn] = useRecoilState(StepBtnState);
   const [errorStep1, setErrorStep1] = useRecoilState(isFileError);
   const [errorStep2, setErrorStep2] = useRecoilState(isShowError);
+
+  //현재 로그인된 이메일
+  const { userEmail } = useAuth();
+
+  // 1페이지에서 다음 버튼 클릭 시, 특정 정보관련 문서 DB 에 생성해주는 함수
+  const { createUserInputData } = useFirestore();
 
   const setColor = () => {
     if (display.step === "1" && stepBtn[0].done) {
@@ -85,6 +94,7 @@ function BottomMoveButton({ display }: displayProps) {
   const handleClick = () => {
     console.log("clicked");
     if (display.step === "1" && stepBtn[0].done) {
+      createUserInputData(userEmail, 2, 2);
       navigate("/ltvCal/input");
     } else if (display.step === "1" && !stepBtn[0].done) {
       setErrorStep1(true);
