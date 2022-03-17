@@ -13,7 +13,7 @@ const BottomBtn = styled.button`
   height: 44px;
   background: #0420bf;
   border-radius: 8px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -47,7 +47,7 @@ const ModalTitle = styled.div`
   width: 100%;
   height: 38px;
   padding: 10px 10px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 38px;
   line-height: 38px;
@@ -59,7 +59,7 @@ const ModalDesc = styled.div`
   width: 100%;
   height: 20px;
   padding: 15px 10px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 20px;
@@ -72,7 +72,7 @@ const FormTitle = styled.div`
   margin-left: 35px;
   margin-bottom: 5px;
   height: 21px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 21px;
@@ -124,7 +124,7 @@ const AskBtn = styled.button`
   height: 44px;
   background: #4a73f3;
   border-radius: 8px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;

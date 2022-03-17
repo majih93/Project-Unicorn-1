@@ -15,7 +15,7 @@ const ChartTitle = styled.span`
   display: block;
   width: 124px;
   height: 27px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;

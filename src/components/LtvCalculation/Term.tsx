@@ -67,11 +67,15 @@ const ShowArrow = styled.div<{ showDetail: boolean }>`
   width: 14px;
   margin-left: auto;
   padding-right: 29px;
+  img {
+    transition: all ease 1s;
+    // transition은 변경이 생겼을 때
+  }
 
   // 화살표 클릭시에 뒤집히는 코드
   ${({ showDetail }) => {
     if (showDetail) {
-      return "img {transform: rotateX(180deg);transition: all ease 1s;}";
+      return "img {transform: rotateX(180deg);}";
     }
   }}
 `;

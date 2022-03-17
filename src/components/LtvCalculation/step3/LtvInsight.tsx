@@ -11,7 +11,7 @@ const InsightTitle = styled.span`
   margin-left: 20px;
   width: 107px;
   height: 30px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 30px;
@@ -25,7 +25,7 @@ const InsightContainer = styled.div`
   background: #ffffff;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05), 0px 4px 6px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -41,7 +41,7 @@ const DescriptionTitle = styled.span`
   padding-top: 17px;
   width: 140px;
   height: 27px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
@@ -55,7 +55,7 @@ const Description = styled.span`
   margin-left: 20px;
   width: 896px;
   height: 43px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;

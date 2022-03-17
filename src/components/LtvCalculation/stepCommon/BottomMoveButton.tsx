@@ -30,7 +30,7 @@ const PrevButton = styled.button`
   > span {
     width: 30px;
     height: 24px;
-    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-family: "Spoqa Han Sans", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -52,7 +52,7 @@ const NextButton = styled.button`
   > span {
     width: 30px;
     height: 24px;
-    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-family: "Spoqa Han Sans", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
