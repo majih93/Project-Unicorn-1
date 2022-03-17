@@ -13,6 +13,7 @@ import LtvInput from "./pages/LtvCalculation/LtvInput";
 import LtvCalculator from "./pages/LtvCalculation/LtvCalculator";
 import { AuthContextProvider } from "./context/loginAuthentication/AuthContext";
 import { FirestoreContextProvider } from "./context/firestore/FirestoreContext";
+import CheckTermAgreement from "./pages/LtvCalculation/CheckTermAgreement";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/ltvCal/result" element={<LtvResult />} />
             <Route path="/ltvCal/input" element={<LtvInput />} />
             <Route path="/ltvCal/*" element={<LtvCalculator />} />
+            <Route path="/term-agree" element={<CheckTermAgreement />} />
           </Routes>
         </FirestoreContextProvider>
       </AuthContextProvider>

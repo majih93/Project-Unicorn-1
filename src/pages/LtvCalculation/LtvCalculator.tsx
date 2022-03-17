@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import Logo from "../../assets/icons/logo2.svg";
+import Logo2 from "../../assets/icons/logo2.svg";
 import LeftSection from "../../components/LtvCalculation/stepCommon/LeftSection";
 import LtvStep1 from "../../components/LtvCalculation/step1/LtvStep1";
 
@@ -72,7 +72,7 @@ const LtvCalculator = () => {
     <Base>
       <Header>
         <LogoContianer>
-          <img src={Logo} alt="logo" />
+          <img src={Logo2} alt="logo" />
         </LogoContianer>
 
         <LogoutBtn

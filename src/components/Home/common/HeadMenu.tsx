@@ -17,7 +17,14 @@ const HeadMenu = (props: any) => {
       <Menu>
         <AboutBtn onClick={() => navigate("/about")}>About us</AboutBtn>
         {authToken ? (
-          <LoginBtn onClick={logout}>로그아웃</LoginBtn>
+          <LoginBtn
+            onClick={() => {
+              logout();
+              navigate("/");
+            }}
+          >
+            로그아웃
+          </LoginBtn>
         ) : (
           <>
             <LoginBtn onClick={() => navigate("/login")}>로그인</LoginBtn>

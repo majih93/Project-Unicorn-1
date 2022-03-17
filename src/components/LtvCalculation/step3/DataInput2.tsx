@@ -20,7 +20,7 @@ const Input = styled.input`
   opacity: 1;
   &::placeholder {
     padding-left: 10px;
-    font-family: "Spoqa Han Sans Neo", "sans-serif";
+    font-family: "Spoqa Han Sans", "sans-serif";
     font-weight: 700;
     font-size: 30px;
     line-height: 44px;
