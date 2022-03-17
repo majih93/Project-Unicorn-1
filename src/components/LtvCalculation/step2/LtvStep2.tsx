@@ -184,8 +184,8 @@ const LtvStep2: React.FC = () => {
                 descripton1={
                   "한번 유입된 고객이 자사의 고객으로 머무는 시간을 의미한다."
                 }
-                top={"260px"}
-                left={"400px"}
+                top={"220px"}
+                left={"390px"}
               />
             </span>
           </Title>
