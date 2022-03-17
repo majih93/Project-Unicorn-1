@@ -19,7 +19,7 @@ const HeadMenu = (props: any) => {
           <>
             <AboutBtn
               onClick={() => navigate("/about")}
-              style={{ paddingLeft: "80px" }}
+              style={{ paddingLeft: "100px" }}
             >
               About us
             </AboutBtn>
@@ -90,22 +90,32 @@ const AboutBtn = styled.div`
 `;
 
 const LoginBtn = styled.div`
-  border-radius: 1px solid black;
-  color: #0420bf;
-  border: 3px solid #0420bf;
+  width: 74px;
+  height: 36px;
+  border: 2.5px solid #0420bf;
   border-radius: 6px;
-  padding: 6px 9px;
+  color: #0420bf;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
   &:hover {
     cursor: pointer;
   }
 `;
 
 const JoinBtn = styled.div`
-  border-radius: 1px solid black;
-  color: #0420bf;
-  border: 3px solid #0420bf;
+  width: 74px;
+  height: 36px;
+  border: 2.5px solid #0420bf;
   border-radius: 6px;
-  padding: 6px 9px;
+  color: #0420bf;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
   &:hover {
     cursor: pointer;
   }

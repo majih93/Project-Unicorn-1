@@ -3,30 +3,37 @@ import styled from "styled-components";
 import MainButton from "../../components/login/loginCommon/MainButton";
 import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
 import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import LoginPage from "./LoginPage";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
+import loginPageImage from "../../assets/images/loginImage.svg";
 
 const FindPWContainer = styled.div`
-  width: 1440px;
-  height: 820px;
   display: flex;
-  background-color: slateblue;
+  height: 100vh;
+  position: relative;
+  margin: 0 auto;
+  @media (max-height: 630px) {
+    height: 630px;
+  }
 `;
 
-const ResetPasswordForm = styled.form``;
-
+// 우측 유저 입력부분
 const FindPWUserInputPart = styled.div`
-width: 630px;
+  height: 100%;
   background: #ffffff;
-  padding-top: 99px;
+  padding-top: 12.19vh;
   padding-left: 130px;
   padding-right: 100px;
-  padding-bottom: 97px;
-  padding
+  padding-bottom: 11.58vh;
   display: flex;
-  flex-direction: column;`;
-
+  flex-direction: column;
+  @media (max-height: 820px) {
+    padding-top: 50px;
+    margin: 0 auto;
+    padding-right: 130px;
+  }
+`;
+// 비밀번호 변경 제목
 const FindPWTitle = styled.span`
   display: block;
   margin-top: 137px;
@@ -35,6 +42,7 @@ const FindPWTitle = styled.span`
   color: #0420bf;
 `;
 
+// 비밀번호 안내문구
 const FindPWInfo = styled.span`
   display: block;
   margin-top: 4px;
@@ -44,15 +52,16 @@ const FindPWInfo = styled.span`
   font-size: 18px;
   white-space: nowrap;
   color: rgba(0, 0, 0, 0.6);
-  // letter-spacing: -1px;
-  // word-spacing: -2px;
   padding-top: 4px;
 `;
+
+// 비밀번호 입력하는 form
+const ResetPasswordForm = styled.form``;
 
 const ButtonContainer = styled.div`
   margin-top: 28px;
 `;
-
+// 우측 이미지 부분
 const AskLogin = styled.div`
   width: 100%;
   display: flex;
@@ -65,6 +74,24 @@ const AskLogin = styled.div`
     margin-left: 5px;
   }
 `;
+
+const RightImagePart = styled.div`
+  width: 56.25%;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1440px) {
+    img {
+      width: 810px;
+      height: 820px;
+    }
+  }
+`;
+
 // 비밀번호 재설정 페이지 설정할 때 가져와야하는 값에 접근하는 함수?
 // hooks 폴더에 넣어서 글로벌하게 사용해도 됨
 // query parameter를 받기 위해서 useLocation 훅을 사용
@@ -87,10 +114,14 @@ const ResetPassword = () => {
 
   return (
     <FindPWContainer>
+      {/* 우측 유저 입력 부분 */}
       <FindPWUserInputPart>
         <UnicornIcon />
+        {/* 상단 소개문구 */}
         <FindPWTitle>비밀번호 변경하기</FindPWTitle>
         <FindPWInfo>변경할 비밀번호를 입력하세요.</FindPWInfo>
+
+        {/* 비밀번호 변경 FORM */}
         <ResetPasswordForm
           onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
@@ -114,6 +145,10 @@ const ResetPassword = () => {
           </ButtonContainer>
         </ResetPasswordForm>
       </FindPWUserInputPart>
+      {/* 우측 이미지 부분 */}
+      <RightImagePart>
+        <img src={loginPageImage} alt="loginImage" />
+      </RightImagePart>
     </FindPWContainer>
   );
 };

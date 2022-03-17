@@ -42,32 +42,18 @@ export function FirestoreContextProvider({
   const { userEmail } = useAuth();
   // userCalculationInfo 에 포함될 나머지 데이터가 있는 userInputData 받아오기
   const [userInputData, _] = useRecoilState(userInputState);
-  const createUserCalculationInfo = async () =>
-    // OS: any,
-    // calculation_id: any,
-    // category: any,
-    // country_id: any,
-    // filename: any,
-    // ltv_value: any,
-    // service_name: any,
-    // service_url: any,
-    // status_code: any,
-    // timestamp: any,
-    // user_id: any
-    {
-      await addDoc(userCalculationInfoRef, {
-        ...userInputData,
-        calculation_id: userEmail,
-        country_id: "KR",
-        filename: fileName,
-        ltv_value: 7.1,
-        status_code: 200,
-        timestamp: timeStamp,
-        user_id: userEmail,
-      });
-    };
-
-  // calculation_insight 컬렉션에서, 데이터를 불러와서 그로쓰 관련 인사이트 제공
+  const createUserCalculationInfo = async () => {
+    await addDoc(userCalculationInfoRef, {
+      ...userInputData,
+      calculation_id: userEmail,
+      country_id: "KR",
+      filename: fileName,
+      ltv_value: 7.1,
+      status_code: 200,
+      timestamp: timeStamp,
+      user_id: userEmail,
+    });
+  };
 
   const value = {
     createUserInputData,
