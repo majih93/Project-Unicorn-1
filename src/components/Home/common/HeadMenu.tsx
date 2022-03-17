@@ -15,18 +15,26 @@ const HeadMenu = (props: any) => {
     <Container>
       <HeaderImg onClick={() => navigate("/")}></HeaderImg>
       <Menu>
-        <AboutBtn onClick={() => navigate("/about")}>About us</AboutBtn>
         {authToken ? (
-          <LoginBtn
-            onClick={() => {
-              logout();
-              navigate("/");
-            }}
-          >
-            로그아웃
-          </LoginBtn>
+          <>
+            <AboutBtn
+              onClick={() => navigate("/about")}
+              style={{ paddingLeft: "80px" }}
+            >
+              About us
+            </AboutBtn>
+            <LoginBtn
+              onClick={() => {
+                logout();
+                navigate("/");
+              }}
+            >
+              로그아웃
+            </LoginBtn>
+          </>
         ) : (
           <>
+            <AboutBtn onClick={() => navigate("/about")}>About us</AboutBtn>
             <LoginBtn onClick={() => navigate("/login")}>로그인</LoginBtn>
             <JoinBtn onClick={() => navigate("/join")}>회원가입</JoinBtn>
           </>
