@@ -8,7 +8,7 @@ const Container = styled.div`
   height: 120px;
   margin: 0 auto;
   position: relative;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 `;
 
 const Logo = styled.div`
@@ -33,7 +33,7 @@ const Menu = styled.div`
   font-size: 14px;
   font-weight: 700;
   color: #999999;
-  `;
+`;
 
 const Info = styled.div`
   /* border: 1px solid black; */
@@ -42,15 +42,15 @@ const Info = styled.div`
   top: 30px;
   font-size: 14px;
   color: #999999;
-  `;
+`;
 
 const Bold = styled.div`
   font-weight: 700;
-`
+`;
 
 const Blue = styled.div`
-  color: #0420BF;
-`
+  color: #0420bf;
+`;
 
 function Footer() {
   return (
@@ -65,9 +65,11 @@ function Footer() {
           <Menu>개인정보 처리방침</Menu>
         </MenuContainer>
         <Info>
-          유니콘 판별기 | (주) 1z Labs | 대표자 : 0 0 0 | 개인정보보호책임자 :OOO <br/>
-          사업자 등록번호 : OO-OOO-OOOO | 건물 주소~~~~~~~~~~~~~~~~~~~<br/>
-          span고객상담 전화번호 OOOO-OOOO | 평일 00:00-00:00 | 점심 00:00-00:00 | 주말/공휴일 휴무
+          주식회사 1z Labs | 사업자 등록번호 : 438-88-02481 | 전화번호 :
+          070-8065-4506 <br />
+          서울 특별시 강남구 영동대로 602, 6층 엔034호(삼성동, 삼성동 미켈란
+          107)
+          <br />© 2022 1z Labs inc. ALL RIGHTS RESERVED.
         </Info>
       </Container>
     </>
