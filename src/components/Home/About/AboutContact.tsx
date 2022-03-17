@@ -99,7 +99,7 @@ const InputContainer = styled.div`
   border-radius: 10px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05), 0px 4px 6px rgba(0, 0, 0, 0.05);
   z-index: 1;
-  margin: 0 auto;
+  margin-top: 50px;
 `;
 
 const InputText = styled.span`
@@ -137,6 +137,7 @@ const Input = styled.input.attrs({
 
 const InputLong = styled.input.attrs({
   type: "input",
+  placeholder: "문의 사항을 적으세요."
 })`
   width: 413px;
   height: 140px;
@@ -203,11 +204,11 @@ const AboutContents = () => {
       <InputContainer>
         <InputWrapper>
           <InputText>이메일</InputText>
-          <Input />
+          <Input placeholder="기업 메일 또는 개인 메일을 적으세요." />
         </InputWrapper>
         <InputWrapper>
           <InputText>기업명</InputText>
-          <Input />
+          <Input placeholder="기업 명 또는 개인 성명을 적으세요."/>
         </InputWrapper>
         <InputWrapper>
           <InputText>내용</InputText>

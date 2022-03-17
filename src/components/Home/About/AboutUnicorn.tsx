@@ -3,65 +3,60 @@ import styled from "styled-components";
 import ImgAbout from "../../../assets/images/About_img.svg";
 import AboutUnicorn from "./AboutComponentsContents/About-Unicorn";
 
-
 const Base = styled.div`
   /* border: 1px solid black; */
   width: 1440px;
-  height: 1050px;
   margin: 0 auto;
-  position: relative;
 `;
 
 const Container = styled.div`
   /* border: 1px solid black; */
-  width: 80%;
-  height: 100%;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
+  width: 1180px;
+  margin: 0 auto;
+  position: relative;
 `;
 
 const Nav = styled.div`
-  /* display: none; */
   /* border: 1px solid black; */
-  top: 58px;
-  width: 200px;
-  height: 100px;
+  display: inline-block;
   position: absolute;
+  vertical-align: auto;
 `;
 
 const NavContents = styled.div`
+  /* border: 1px solid black; */
+  font-weight: 250;
   font-size: 20px;
-  font-weight: 300;
-  line-height: 40px;
-  color: #000;
+  line-height: 20px;
+  margin: 20px auto;
+  color: #000000;
 `;
 
 const Contents = styled.div`
   /* border: 1px solid black; */
-  width: 840px;
-  height: 490px;
-  position: absolute;
-  right: 0;
-  top: 48px;
 `;
 
 const Clicked = styled.div`
-  color: #0420bf;
-  font-size: 20px;
+  /* border: 1px solid black; */
   font-weight: 700;
-  line-height: 40px;
+  font-size: 20px;
+  line-height: 20px;
+  color: #0420bf;
 `;
 
 const ContentsSpan = styled.div`
-  font-size: 16px;
+  width: 840px;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  margin-left: 340px;
   font-weight: 400;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
 `;
 
 const AboutImg = styled.div`
-  position: absolute;
-  bottom: 0;
+  /* border: 1px solid black; */
 `;
 
 const AboutContents = () => {

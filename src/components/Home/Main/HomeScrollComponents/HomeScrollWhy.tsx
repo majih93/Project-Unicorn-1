@@ -83,6 +83,9 @@ const ContentWrap = styled.div`
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  &:nth-child(2n) {
+    margin-top: 70px;
+  }
 `;
 
 const Top = styled.div`

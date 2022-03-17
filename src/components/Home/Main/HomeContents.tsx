@@ -1,5 +1,5 @@
 import React from "react";
-import imgHome from "../../../assets/images/Home_img.svg";
+import imgHome from "../../../assets/images/Home_img.png";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
@@ -57,11 +57,9 @@ const Btn = styled.div`
 `;
 
 const MainImg = styled.div`
-  border: 1px solid black;
+  /* border: 1px solid black; */
   position: absolute;
-  width: 685px;
-  height: 670px;
-  left: 55%;
+  right: -145px;
   top: 0px;
 `;
 
@@ -125,7 +123,14 @@ const HomeContents = (props: any) => {
           </div>
         </SubInfo>
         <MainImg>
-          <img src={imgHome} alt="Main" />
+          <img
+            src={imgHome}
+            alt="Main"
+            style={{
+              height: "670px",
+              width: "685px",
+            }}
+          />
         </MainImg>
       </Container>
     </Base>

@@ -7,83 +7,76 @@ import AboutFAQContainer from "./AboutFAQComponents/AboutFAQContainer";
 
 const Base = styled.div`
   /* border: 1px solid black; */
-  background: #fafafa;
   width: 1440px;
-  height: 800px;
   margin: 0 auto;
-  position: relative;
 `;
 
 const Container = styled.div`
   /* border: 1px solid black; */
-  width: 80%;
-  height: 100%;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
+  width: 1180px;
+  margin: 0 auto;
+  position: relative;
 `;
 
 const Nav = styled.div`
-  /* display: none; */
   /* border: 1px solid black; */
-  top: 58px;
-  width: 200px;
-  height: 100px;
+  display: inline-block;
   position: absolute;
+  vertical-align: auto;
 `;
 
 const NavContents = styled.div`
+  /* border: 1px solid black; */
+  font-weight: 250;
   font-size: 20px;
-  font-weight: 300;
-  line-height: 40px;
-  color: #000;
+  line-height: 20px;
+  margin: 20px auto;
+  color: #000000;
 `;
 
 const Contents = styled.div`
   /* border: 1px solid black; */
-  width: 840px;
-  height: 490px;
-  position: absolute;
-  right: 0;
-  top: 48px;
-`;
-
-const ContentsSpan = styled.div`
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 28px;
-`;
-
-const AboutImg = styled.div`
-  position: absolute;
-  bottom: 0;
+  position: relative;
 `;
 
 const Clicked = styled.div`
-  color: #0420bf;
-  font-size: 20px;
+  /* border: 1px solid black; */
   font-weight: 700;
-  line-height: 40px;
+  font-size: 20px;
+  line-height: 20px;
+  color: #0420bf;
+`;
+
+const ContentsSpan = styled.div`
+  /* border: 1px solid pink; */
+  width: 855px;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  margin-left: 329px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
 `;
 
 const LoadBtn = styled.div`
+  border: 1px solid green;
   width: 250px;
-  height: 44px;
   background-color: #4a73f4;
   border-radius: 5px;
-  position: absolute;
-  bottom: 80px;
+  margin-left: 926px;
+  margin-bottom: 70px;
+  margin-top: -33px;
 `;
 const BtnText = styled.div`
-  /* border: 1px solid black; */
   font-size: 16px;
   font-weight: 400;
   color: #fff;
   justify-content: center;
-  position: absolute;
   align-items: center;
-  margin: 10px 84px;
+  padding: 10px 84px;
   line-height: 23.68px;
+  right: 353px;
 `;
 
 const AboutContents = () => {
@@ -101,10 +94,10 @@ const AboutContents = () => {
             <AboutFAQContainer />
           </ContentsSpan>
         </Contents>
+        <LoadBtn>
+          <BtnText>5개 더보기</BtnText>
+        </LoadBtn>
       </Container>
-      <LoadBtn>
-        <BtnText>5개 더보기</BtnText>
-      </LoadBtn>
     </Base>
   );
 };

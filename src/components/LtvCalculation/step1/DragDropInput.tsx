@@ -44,8 +44,6 @@ const DragDropInput: FunctionComponent<{ setFile: Dispatch<any> }> = ({
 }) => {
   const onDrop = useCallback(
     (acceptedFiles) => {
-      console.log(acceptedFiles[0]);
-      // 업로드된 파일 이름
       setFileName(acceptedFiles[0].name);
       setFile(acceptedFiles[0]);
     },
@@ -56,11 +54,10 @@ const DragDropInput: FunctionComponent<{ setFile: Dispatch<any> }> = ({
     useDropzone({
       onDrop,
       multiple: false,
-      accept: "text/csv, image/jpg, image/png, image/jpeg",
+      accept: "text/csv",
     });
 
   const errorCheck = useRecoilValue(isFileError);
-  // console.log(errorCheck);
 
   // 업로드된 파일 이름 전역에서 사용하기 위해서 setFileName 함수 가져오기
   const { fileName, setFileName } = useFirestore();

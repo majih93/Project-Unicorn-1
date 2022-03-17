@@ -34,7 +34,6 @@
   content: "";
   width: 18px;
   height: 18px;
-  background: #f5f5f5;
   margin-left: auto;
   background-image: url(../../../../../assets/images/FAQArrow.png);
   background-size: 100%;
@@ -44,6 +43,11 @@
 
 .accordion-item.active .accordion-item-btn:after {
   transform: rotate(-180deg);
+}
+
+/* 여기서 색깔 바꾸면 됨 */
+.accordion-item.active .accordion-item-content {
+  /* background: red; */
 }
 
 .accordion-item-container {
