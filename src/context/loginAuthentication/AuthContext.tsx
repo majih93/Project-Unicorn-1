@@ -61,7 +61,6 @@ export function AuthContextProvider({
   const logout = () => {
     sessionStorage.clear();
     return signOut(auth);
-    // .then(() => sessionStorage.clear());
   };
 
   // 비밀번호 초기화 메일 전송 함수

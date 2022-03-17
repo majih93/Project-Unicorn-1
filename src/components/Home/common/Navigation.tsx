@@ -1,13 +1,9 @@
-import React, { Component } from "react";
 import styled from "styled-components";
-import LogoImg from "../../../assets/images/Logo.svg";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../../context/loginAuthentication/AuthContext";
 
 const Navigation = (props: any) => {
   const navigate = useNavigate();
   const authToken = sessionStorage.getItem("Auth Token");
-  const { logout } = useAuth();
   console.log(authToken);
 
   return (
@@ -51,11 +47,18 @@ const Menu = styled.div`
 `;
 
 const JoinBtn = styled.div`
-  border-radius: 1px solid black;
-  color: #0420bf;
-  border: 3px solid #0420bf;
+  width: 74px;
+  height: 36px;
+  border: 2.5px solid #0420bf;
   border-radius: 6px;
-  padding: 6px 9px;
+  color: #0420bf;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: "Spoqa Han Sans", sans-serif;
+  letter-spacing: 1px;
   &:hover {
     cursor: pointer;
   }

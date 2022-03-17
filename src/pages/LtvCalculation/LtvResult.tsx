@@ -22,11 +22,14 @@ const Header = styled.div`
   box-sizing: border-box;
 `;
 
-const LogoContianer = styled.div`
+const LogoContainer = styled.div`
   padding-top: 16px;
   padding-bottom: 21px;
   padding-right: 948px;
   box-sizing: border-box;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const LogoutBtn = styled.button`
@@ -71,9 +74,15 @@ const LtvResult = () => {
   return (
     <Base>
       <Header>
-        <LogoContianer>
-          <img src={Logo} alt="logo" />
-        </LogoContianer>
+        <LogoContainer>
+          <img
+            src={Logo}
+            alt="logo"
+            onClick={() => {
+              navigate("/");
+            }}
+          />
+        </LogoContainer>
         <LogoutBtn
           onClick={() => {
             logout();
