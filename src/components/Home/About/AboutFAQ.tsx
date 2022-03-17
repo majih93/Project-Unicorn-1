@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ImgAbout from "./asset/img/About_img.svg";
 import AboutLTV from "./AboutComponentsContents/About-LTV-Component";
 import AboutUnicorn from "./AboutComponentsContents/About-Unicorn";
-import AboutFAQContainer from "./AboutFAQComponents/AboutFAQContainer";
+import AboutFAQContainer from "./AboutFAQComponents/AboutFAQcontainer";
 
 const Base = styled.div`
   /* border: 1px solid black; */
