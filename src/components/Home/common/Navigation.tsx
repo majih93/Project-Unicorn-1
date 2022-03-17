@@ -16,7 +16,9 @@ const Navigation = (props: any) => {
         <Menu>WHY</Menu>
         <Menu>WHO</Menu>
         <Menu>HOW</Menu>
-        <JoinBtn onClick={() => navigate("/join")}>회원가입</JoinBtn>
+        {!authToken && (
+          <JoinBtn onClick={() => navigate("/join")}>회원가입</JoinBtn>
+        )}
       </Container>
     </Base>
   );
@@ -59,4 +61,4 @@ const JoinBtn = styled.div`
   }
 `;
 
-export default Navigation
+export default Navigation;
