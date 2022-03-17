@@ -44,7 +44,7 @@ const ShareTitle = styled.div`
   width: 236px;
   height: 21px;
   margin: 15px auto;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 21px;

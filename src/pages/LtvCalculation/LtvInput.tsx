@@ -35,7 +35,7 @@ const LogoutBtn = styled.button`
   border: 2px solid #0420bf;
   margin-top: 9px;
   margin-bottom: 10px;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: "Spoqa Han Sans", "sans-serif";
   font-style: normal;
   font-weight: bold;
   font-size: 14px;

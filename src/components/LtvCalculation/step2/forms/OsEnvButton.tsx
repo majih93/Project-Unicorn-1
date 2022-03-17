@@ -21,7 +21,7 @@ const OsEnvBtn = styled.button<BtnProps>`
   filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.1))
     drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
   border-radius: 6px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: bold;
   font-size: 14px;
   line-height: 20px;

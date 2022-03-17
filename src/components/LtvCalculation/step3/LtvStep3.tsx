@@ -23,7 +23,7 @@ const PowerBtn = styled.button`
   background: #f3694c;
   border-radius: 8px;
   border: none;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: "Spoqa Han Sans", "sans-serif";
   font-style: normal;
   font-weight: 700;
   font-size: 10px;
@@ -38,7 +38,7 @@ const ExponentialBtn = styled.button`
   height: 30px;
   border-radius: 8px;
   border: 1px solid #8c8c8c;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: "Spoqa Han Sans", "sans-serif";
   font-style: normal;
   font-weight: 700;
   font-size: 10px;

@@ -17,7 +17,7 @@ const ChartTitle = styled.span`
   height: 27px;
   padding-top: 35px;
   padding-left: 24px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
@@ -41,7 +41,7 @@ const GrowthTitle = styled.span`
   display: block;
   width: 400px;
   padding-left: 20px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
@@ -53,7 +53,7 @@ const GrowthDescription = styled.span`
   display: block;
   width: 400px;
   padding-left: 20px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 30px;
   line-height: 44px;

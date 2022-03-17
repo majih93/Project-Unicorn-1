@@ -15,7 +15,7 @@ const Button = styled.button`
 `;
 
 const ModalTitle = styled.div`
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 21px;
@@ -23,7 +23,7 @@ const ModalTitle = styled.div`
 `;
 
 const ModalDesc = styled.div`
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;

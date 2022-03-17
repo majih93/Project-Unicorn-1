@@ -14,7 +14,7 @@ const InputContainer = styled.div`
   background: #ffffff;
   box-sizing: border-box;
   span {
-    font-family: "Spoqa Han Sans Neo";
+    font-family: "Spoqa Han Sans";
     font-weight: bold;
     font-size: 15px;
     line-height: 22px;
@@ -30,7 +30,7 @@ const InitialSet = styled.div`
   left: 900px;
   top: 15px;
   span {
-    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-family: "Spoqa Han Sans", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
@@ -52,7 +52,7 @@ const InputBox = styled.div`
 `;
 
 const InputTitle = styled.div`
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: "Spoqa Han Sans", "sans-serif";
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
@@ -61,7 +61,7 @@ const InputTitle = styled.div`
 
 const InputDesc = styled.div`
   margin-bottom: 5px;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: "Spoqa Han Sans", "sans-serif";
   font-weight: 300;
   font-size: 12px;
   line-height: 18px;
@@ -73,7 +73,7 @@ const Button = styled.input`
   height: 50px;
   margin-top: 42px;
   margin-left: 56px;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: "Spoqa Han Sans", "sans-serif";
   font-size: 14px;
   line-height: 21px;
   background: #2d59e3;

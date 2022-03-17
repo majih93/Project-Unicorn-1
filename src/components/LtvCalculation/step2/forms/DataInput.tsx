@@ -13,7 +13,7 @@ const Input = styled.input`
   padding-left: 10px;
   margin-bottom: 5px;
   border: none;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 21px;
@@ -25,7 +25,7 @@ const Input = styled.input`
 const ErrorSpan = styled.span`
   position: relative;
   top: 0px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-size: 12px;
   line-height: 18px;
   color: #f3694c;
