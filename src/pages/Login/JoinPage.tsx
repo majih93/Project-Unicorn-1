@@ -9,24 +9,32 @@ import loginGoogle_logo from "../../assets/icons/loginGoogle_logo.svg";
 import loginGoogle_letter from "../../assets/icons/loginGoogle_letter.svg";
 import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
+import loginPageImage from "../../assets/images/loginImage.svg";
 
 const JoinPageContainer = styled.div`
-  width: 1440px;
-  height: 820px;
   display: flex;
-  background-color: slateblue;
+  height: 100vh;
+  position: relative;
+  margin: 0 auto;
+  @media (max-height: 630px) {
+    height: 630px;
+  }
 `;
 
 const JoinUserInputPart = styled.div`
-  width: 630px;
+  height: 100%;
   background: #ffffff;
-  padding-top: 99px;
+  padding-top: 12.19vh;
   padding-left: 130px;
   padding-right: 100px;
-  padding-bottom: 97px;
-  padding
+  padding-bottom: 11.58vh;
   display: flex;
   flex-direction: column;
+  @media (max-height: 820px) {
+    padding-top: 50px;
+    margin: 0 auto;
+    padding-right: 130px;
+  }
 `;
 
 const GreetingTop = styled.span`
@@ -38,8 +46,6 @@ const GreetingTop = styled.span`
   font-weight: 700;
   color: #0420bf;
   line-height: 35px;
-  // letter-spacing: px;
-  // word-spacing: -1px;
   white-space: nowrap;
 `;
 
@@ -76,6 +82,7 @@ const SnsLogin = styled.span`
   font-size: 12px;
   margin-left: 6px;
   letter-spacing: -0.7px;
+  padding-top: 5px;
 `;
 
 // SNS 로그인 부분
@@ -128,6 +135,23 @@ const AskLogin = styled.div`
   }
 `;
 
+const RightImagePart = styled.div`
+  width: 56.25%;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1440px) {
+    img {
+      width: 810px;
+      height: 820px;
+    }
+  }
+`;
+
 const JoinPage: FC = () => {
   // 회원가입 로직 구현 관련 코드
   // 사용자가 입력하는 이메일, 비밀번호 값 받아오기
@@ -155,12 +179,15 @@ const JoinPage: FC = () => {
 
   return (
     <JoinPageContainer>
+      {/* 우측 유저 입력 부분 */}
       <JoinUserInputPart>
         <UnicornIcon />
+        {/* 상단 소개 문구 */}
         <GreetingTop>
           데이터를 기반으로 한<br />
           프로젝트 지속 가능성 확인
         </GreetingTop>
+
         {/* 회원가입 form */}
         <JoinForm
           onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
@@ -194,11 +221,14 @@ const JoinPage: FC = () => {
             <MainButton buttonType={"생성하기"} />
           </MainButtonContainer>
         </JoinForm>
+        {/* SNS 계정 로그인 */}
+        {/* 중앙 분리선 */}
         <DividingPart>
           <DividingLine />
           <SnsLogin>SNS 계정으로 로그인</SnsLogin>
           <DividingLine />
         </DividingPart>
+        {/* SNS 로그인 버튼  */}
         <SnsContainer>
           <SNSLoginButton>
             <img src={loginNaver} alt="naver" />
@@ -215,11 +245,16 @@ const JoinPage: FC = () => {
             <img src={loginGoogle_letter} alt="g_letter" className="g_letter" />
           </SNSLoginButton>
         </SnsContainer>
+        {/* 가입했으면 로그인으로 */}
         <AskLogin>
           <span>이미 가입하셨나요?</span>
           <Link to="/login">로그인</Link>
         </AskLogin>
       </JoinUserInputPart>
+      {/* 우측 이미지 부분 */}
+      <RightImagePart>
+        <img src={loginPageImage} alt="loginImage" />
+      </RightImagePart>
     </JoinPageContainer>
   );
 };

@@ -1,3 +1,5 @@
+// 개별 이용약관 구성하는 컴포넌트
+
 import React, { useState } from "react";
 import styled from "styled-components";
 import checkCircle from "../../assets/icons/check_빈동그라미.svg";

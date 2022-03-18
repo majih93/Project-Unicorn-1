@@ -1,3 +1,5 @@
+// Ltv 계산 부분 첫 번째 페이지(파일 업로드 페이지)
+
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import Logo2 from "../../assets/icons/logo2.svg";
@@ -22,11 +24,14 @@ const Header = styled.div`
   box-sizing: border-box;
 `;
 
-const LogoContianer = styled.div`
+const LogoContainer = styled.div`
   padding-top: 16px;
   padding-bottom: 21px;
   padding-right: 948px;
   box-sizing: border-box;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const LogoutBtn = styled.button`
@@ -71,9 +76,15 @@ const LtvCalculator = () => {
   return (
     <Base>
       <Header>
-        <LogoContianer>
-          <img src={Logo2} alt="logo" />
-        </LogoContianer>
+        <LogoContainer>
+          <img
+            src={Logo2}
+            alt="logo"
+            onClick={() => {
+              navigate("/");
+            }}
+          />
+        </LogoContainer>
 
         <LogoutBtn
           onClick={() => {

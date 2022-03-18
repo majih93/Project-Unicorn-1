@@ -1,10 +1,14 @@
-import React from "react";
+// 이용약관 페이지
+
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Logo2 from "../../assets/icons/logo2.svg";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import check from "../../assets/icons/check.svg";
+import checkCircle from "../../assets/icons/check_빈동그라미.svg";
 import Term from "../../components/LtvCalculation/Term";
+import TermAgreeButton from "../../components/LtvCalculation/TermAgreeButton";
 
 const Base = styled.div`
   width: 1440px;
@@ -106,8 +110,20 @@ const CheckTermAgreement = () => {
   const navigate = useNavigate();
   const { logout } = useAuth();
 
+  useEffect(() => {
+    const authToken = sessionStorage.getItem("Auth Token");
+
+    if (authToken) {
+      navigate("/term-agree");
+    }
+    if (!authToken) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <Base>
+      {/* 상단 헤더부분 */}
       <Header>
         <LogoContianer>
           <img src={Logo2} alt="logo" />
@@ -121,18 +137,21 @@ const CheckTermAgreement = () => {
           로그아웃
         </LogoutBtn>
       </Header>
+
+      {/* 이용약관 내용 담는 컨테이너 */}
       <TermsContainer>
         <TermTitle>
           유니콘 판별기 이용을 위해 아래 약관에 동의하시겠습니까?
         </TermTitle>
         <Terms>
           <AllTerms>
-            <img src={check} alt="check" />
+            <img src={checkCircle} alt="check" />
             <span>전체 약관에 동의합니다.</span>
           </AllTerms>
           <Term />
         </Terms>
       </TermsContainer>
+      <TermAgreeButton />
     </Base>
   );
 };

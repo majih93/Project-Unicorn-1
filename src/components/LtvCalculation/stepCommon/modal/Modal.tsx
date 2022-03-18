@@ -6,7 +6,7 @@ import Portal from "./Portal";
 
 const Overlay = styled.div`
   position: fixed;
-  width: 1440px;
+  width: 100vw;
   height: 803px;
   margin: 0 auto;
   z-index: 10;

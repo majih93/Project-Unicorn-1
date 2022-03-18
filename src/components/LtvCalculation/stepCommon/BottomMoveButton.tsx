@@ -124,7 +124,7 @@ function BottomMoveButton({ display }: displayProps) {
           <span>이전</span>
         </PrevButton>
         <NextButton onClick={handleClick} color={setColor()}>
-          <span>다음</span>
+          {display.step === "2" ? <span>결과 보기</span> : <span>다음</span>}
         </NextButton>
       </ButtonField>
     </div>
