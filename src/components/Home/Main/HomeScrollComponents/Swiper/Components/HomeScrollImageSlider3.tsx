@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import ImgSliderAnswer from "../../../../assets/images/ImgSlider-Answer.svg";
-import ImgSliderQuestion1 from "../../../../assets/images/ImgSlider-Question1.svg";
-import ImgSliderQuestion2 from "../../../../assets/images/ImgSlider-Question2.svg";
-import ImgSliderQuestion3 from "../../../../assets/images/ImgSlider-Question3.svg";
+import ImgSliderAnswer from "../../../../../../assets/images/ImgSlider-Answer.svg"
+import ImgSliderQuestion3 from "../../../../../../assets/images/ImgSlider-Question3.svg"
+
 
 const Container = styled.div`
   /* border: 1px solid black; */
@@ -107,13 +106,13 @@ const AnswerContainer = styled.div`
 `;
 const AnswerBalloon = styled.div`
   /* border: 1px solid black; */
-  bottom: 0;
+  bottom: 29px;
   left: 150px;
   position: absolute;
   background: #ffffff;
   padding: 24px 32px;
   width: 553px;
-  height: 173px;
+  height: 143px;
   border-radius: 12px;
   filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.05))
     drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.05));
@@ -158,15 +157,15 @@ function HomeScrollImageSlide() {
         </Header>
         <Main>
           <QuestionBalloon>
-            <MainTitle>나기획 Product Manager</MainTitle>
+            <MainTitle>김개발 풀스택 개발자</MainTitle>
             <MainText>
-              하,,, 어떻게 CEO를 제대로 설득할 수 있는거야??
+              우리 스타트업이 얼마나 성장하고 있는지 감이 잘 안와..
               <br />
-              내가 가져간 기획안이 계속 막혀서 답답해...
+              어떤 지표로 성장 가능성을 판단할 수 있을까?
             </MainText>
           </QuestionBalloon>
           <img
-            src={ImgSliderQuestion2}
+            src={ImgSliderQuestion3}
             alt=""
             style={{ top: "0", left: "1058px", position: "absolute" }}
           />
@@ -174,9 +173,9 @@ function HomeScrollImageSlide() {
             <AnswerBalloon>
               <MainTitle style={{ color: "#0420BF" }}>유니콘</MainTitle>
               <MainText style={{ color: "#07145A" }}>
-                명확한 데이터를 통한 인사이트를 기획안에 첨부해보는건 어때?
+                사업의 성장 가능성은 사용자와 직결되어 있어!
                 <br />
-                떡잎 판별기를 사용해서 무엇이 문제인지 파악하고 기획해봐!!
+                떡잎 판별기의 사용 방법을 따라서 가능성을 확인해보는거 어때?
               </MainText>
             </AnswerBalloon>
             <AnswerImg>
