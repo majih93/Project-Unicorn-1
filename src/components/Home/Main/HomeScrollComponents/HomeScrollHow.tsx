@@ -10,7 +10,8 @@ import IconScroll_3 from "../../../../assets/icons/Icon-Scroll-3.svg";
 
 const Base = styled.div`
   border: 1px solid black;
-  width: 1440px;
+  // width: 1440px;
+  width: 100vw;
   height: 2462px;
   margin: 0 auto;
   background: #07145a;
@@ -74,36 +75,35 @@ const HowSpanText = styled.div`
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
-  `;
+`;
 
 const ImgScroll1 = styled.div`
   background-image: url(${ImgScroll_1});
   background-size: cover;
-  width: 732px;
+  width: 900px;
   height: 619px;
-`
+`;
 const ImgScroll2 = styled.div`
   background-image: url(${ImgScroll_2});
   background-size: cover;
-  width: 732px;
+  width: 900px;
   height: 619px;
-`
+`;
 const ImgScroll3 = styled.div`
   background-image: url(${ImgScroll_3});
   background-size: cover;
-  width: 732px;
+  width: 900px;
   height: 619px;
-`
+`;
 
 const Bar = styled.div`
   height: 1800px;
   width: 2px;
   background-color: #f5f5f5;
   position: absolute;
-  top: 680px;
+  top: 700px;
   left: 176px;
-`
-
+`;
 
 function HomeScrollHow() {
   return (
@@ -118,9 +118,26 @@ function HomeScrollHow() {
         </Header>
         <Main>
           <InfoContainer>
-            <ImgScroll1 style={{position: "absolute", left: "708px",top: "259px", overflow:"hidden"}}/>
+            <ImgScroll1
+              style={{
+                position: "absolute",
+                left: "708px",
+                top: "259px",
+                overflow: "hidden",
+              }}
+            />
             <SpanContainer style={{ top: "658px" }}>
-              <img src={IconScroll_1} alt="" style={{position: "absolute",height: "80px",marginTop: "-2%",marginLeft: "-22%", zIndex:"1"}}/>
+              <img
+                src={IconScroll_1}
+                alt=""
+                style={{
+                  position: "absolute",
+                  height: "80px",
+                  marginTop: "-2%",
+                  marginLeft: "-22%",
+                  zIndex: "1",
+                }}
+              />
               <HowSpanTitle>CSV 파일 업로드</HowSpanTitle>
               <HowSpanText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -128,9 +145,26 @@ function HomeScrollHow() {
             </SpanContainer>
           </InfoContainer>
           <InfoContainer>
-          <ImgScroll2 style={{position: "absolute",height: "618.98px",left: "708px",top: "1051px",}}/>
-            <SpanContainer style={{ top: "1433px", }} >
-              <img src={IconScroll_2} alt="" style={{ position: "absolute", height: "80px", marginTop: "-2%", marginLeft: "-22%", zIndex:"1" }} />
+            <ImgScroll2
+              style={{
+                position: "absolute",
+                height: "618.98px",
+                left: "708px",
+                top: "1051px",
+              }}
+            />
+            <SpanContainer style={{ top: "1433px" }}>
+              <img
+                src={IconScroll_2}
+                alt=""
+                style={{
+                  position: "absolute",
+                  height: "80px",
+                  marginTop: "-2%",
+                  marginLeft: "-22%",
+                  zIndex: "1",
+                }}
+              />
               <HowSpanTitle>기본 정보 입력</HowSpanTitle>
               <HowSpanText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -138,16 +172,33 @@ function HomeScrollHow() {
             </SpanContainer>
           </InfoContainer>
           <InfoContainer>
-            <ImgScroll3 style={{ position: "absolute", height: "618.98px", left: "708px", top: "1843px", }}/>
+            <ImgScroll3
+              style={{
+                position: "absolute",
+                height: "618.98px",
+                left: "708px",
+                top: "1843px",
+              }}
+            />
             <SpanContainer style={{ top: "2236px" }}>
-              <img src={IconScroll_3} alt="" style={{ position: "absolute", height: "80px", marginTop: "-2%", marginLeft: "-22%", zIndex:"1" }} />
+              <img
+                src={IconScroll_3}
+                alt=""
+                style={{
+                  position: "absolute",
+                  height: "80px",
+                  marginTop: "-2%",
+                  marginLeft: "-22%",
+                  zIndex: "1",
+                }}
+              />
               <HowSpanTitle>LTV 결과 확인</HowSpanTitle>
               <HowSpanText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
               </HowSpanText>
             </SpanContainer>
           </InfoContainer>
-          <Bar/>
+          <Bar />
         </Main>
       </Base>
     </>

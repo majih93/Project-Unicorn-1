@@ -4,7 +4,7 @@ import LogoFooter from "../../../assets/icons/logo2.svg";
 
 const Container = styled.div`
   /* border: 1px solid black; */
-  width: 1440px;
+  width: 100vw;
   height: 120px;
   margin: 0 auto;
   position: relative;
