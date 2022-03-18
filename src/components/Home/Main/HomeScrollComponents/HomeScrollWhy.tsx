@@ -9,7 +9,6 @@ import IconHome_2 from "../../../../assets/icons/Icon-Home-2.svg";
 import IconHome_3 from "../../../../assets/icons/Icon-Home-3.svg";
 import IconHome_4 from "../../../../assets/icons/Icon-Home-4.svg";
 import IconBoxCheck from "../../../../assets/icons/Icon-BoxCheck.svg";
-import { useAuth } from "../../../../context/loginAuthentication/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Base = styled.div`
