@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import ImgSliderAnswer from "../../../../assets/images/ImgSlider-Answer.svg";
-import ImgSliderQuestion1 from "../../../../assets/images/ImgSlider-Question1.svg";
+import ImgSliderAnswer from "../../../../../../assets/images/ImgSlider-Answer.svg"
+import ImgSliderQuestion1 from "../../../../../../assets/images/ImgSlider-Question1.svg"
+
 
 const Container = styled.div`
   /* border: 1px solid black; */

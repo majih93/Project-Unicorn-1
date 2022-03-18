@@ -5,6 +5,7 @@ import Navigation from "../../components/Home/common/Navigation";
 import HomeScroll from "../../components/Home/Main/HomeScroll";
 import HomeScrollHow from "../../components/Home/Main/HomeScrollComponents/HomeScrollHow";
 import Footer from "../../components/Home/common/Footer";
+import HomeSwiperSlide from "../../components/Home/Main/HomeScrollComponents/HomeScrollImageSlider"
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
       <HomeContents></HomeContents>
       <Navigation></Navigation>
       <HomeScroll />
+      <HomeSwiperSlide/>
       <HomeScrollHow />
       <Footer />
     </>

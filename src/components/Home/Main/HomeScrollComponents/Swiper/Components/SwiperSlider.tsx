@@ -2,13 +2,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 import React from "react";
 
-import "swiper/swiper.scss";
+import "swiper/css";
 
 import HomeScrollSlider1 from "../ImageSliderComponents/HomeScrollImageSlider1";
 import HomeScrollSlider2 from "../ImageSliderComponents/HomeScrollImageSlider2";
 import HomeScrollSlider3 from "../ImageSliderComponents/HomeScrollImageSlider3";
 
-const SwiperSlide: React.FC = () => {
+const SwiperSlider: React.FC = () => {
   return (
     <Swiper
       style={{ height: "376px" }}

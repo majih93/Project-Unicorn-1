@@ -47,7 +47,7 @@
 
 /* 여기서 색깔 바꾸면 됨 */
 .accordion-item.active .accordion-item-content {
-  /* background: red; */
+  background-color: red;
 }
 
 .accordion-item-container {

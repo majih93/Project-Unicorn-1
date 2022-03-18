@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import ImgSliderAnswer from "../../../../assets/images/ImgSlider-Answer.svg";
-import ImgSliderQuestion1 from "../../../../assets/images/ImgSlider-Question1.svg";
-import ImgSliderQuestion2 from "../../../../assets/images/ImgSlider-Question2.svg";
-import ImgSliderQuestion3 from "../../../../assets/images/ImgSlider-Question3.svg";
+import ImgSliderAnswer from "../../../../../../assets/images/ImgSlider-Answer.svg"
+import ImgSliderQuestion3 from "../../../../../../assets/images/ImgSlider-Question3.svg"
+
 
 const Container = styled.div`
   /* border: 1px solid black; */
