@@ -60,6 +60,9 @@ const Description = styled.span`
   font-size: 18px;
   line-height: 24px;
   color: #000000;
+  span {
+    color: #4a73f3;
+  }
 `;
 
 const LtvInsight: React.FC = () => {
@@ -67,30 +70,33 @@ const LtvInsight: React.FC = () => {
     <Container>
       <InsightTitle>LTV Insight</InsightTitle>
       <InsightContainer>
-        <DescriptionTitle>서비스지속조건</DescriptionTitle>
+        <DescriptionTitle>서비스 지속조건</DescriptionTitle>
         <Description>
           사용자 1명을 500원 미만으로 모집해야 이 프로젝트를 지속할 수 있습니다.
           <br />
-          해당 서비스를 지속 운영하여 사용자 10만 명 모집시, 연 순수익/매출은
-          150,000,000원입니다.
+          해당 서비스를 지속 운영하여 사용자 10만 명 모집시,
+          <span>연 순수익/매출은 150,000,000원</span>입니다.
         </Description>
       </InsightContainer>
       <InsightContainer>
-        <DescriptionTitle>회원수증가조건</DescriptionTitle>
+        <DescriptionTitle>회원 수 증가조건</DescriptionTitle>
         <Description>
-          계산된 LTV에 따라 회원 수를 늘리려면 10일 동안 5,000만원의 홍보비를
-          사용하여
-          <br />
-          100,000,000명의 사용자를 지속적으로 유입시켜야 합니다.
+          계산된 LTV에 따라 회원 수를 늘리려면 10일 동안{" "}
+          <span>
+            5,000원의 홍보비를 사용하여
+            <br />
+            100,000,000명
+          </span>
+          의 사용자를 지속적으로 유입시켜야 합니다.
         </Description>
       </InsightContainer>
       <InsightContainer>
-        <DescriptionTitle>회원수유지조건</DescriptionTitle>
+        <DescriptionTitle>회원수 유지조건</DescriptionTitle>
         <Description>
-          계산된 LTV에 따라 회원 수를 늘리려면 10일 동안 5,000만원의 홍보비를
-          사용하여
+          계산된 LTV에 따라 회원 수를 늘리려면 10일 동안{" "}
+          <span>5,000원의 홍보비</span>를 사용하여
           <br />
-          100,000,000명의 사용자를 지속적으로 유입시켜야 합니다.
+          <span>100,000,000명의 사용자</span>를 지속적으로 유입시켜야 합니다.
         </Description>
       </InsightContainer>
       <ContactUs />
