@@ -9,6 +9,7 @@ import check from "../../assets/icons/check.svg";
 import checkCircle from "../../assets/icons/check_빈동그라미.svg";
 import Term from "../../components/LtvCalculation/Term";
 import TermAgreeButton from "../../components/LtvCalculation/TermAgreeButton";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 
 const Base = styled.div`
   width: 1440px;
@@ -107,6 +108,9 @@ const AllTerms = styled.div`
 `;
 
 const CheckTermAgreement = () => {
+  // 타이틀 변경 로직
+  useDocumentTitle("이용약관 동의");
+
   const navigate = useNavigate();
   const { logout } = useAuth();
 

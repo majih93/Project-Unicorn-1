@@ -8,6 +8,7 @@ import LtvStep1 from "../../components/LtvCalculation/step1/LtvStep1";
 
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 
 const Base = styled.div`
   width: 1440px;
@@ -60,6 +61,9 @@ const Main = styled.div`
 `;
 
 const LtvCalculator = () => {
+  // 타이틀 변경 로직
+  useDocumentTitle("유니콘: 파일 업로드");
+
   const { logout } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {

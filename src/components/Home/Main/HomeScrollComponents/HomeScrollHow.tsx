@@ -70,8 +70,8 @@ const HowSpanTitle = styled.div`
   font-size: 20px;
   line-height: 30px;
   display: flex;
-  align-items: center;
-  text-align: center;
+  // align-items: center;
+  // text-align: center;
   color: #ffffff;
 `;
 const HowSpanText = styled.div`
@@ -114,7 +114,7 @@ function HomeScrollHow() {
   const authToken = sessionStorage.getItem("Auth Token");
 
   const goToLtv = () => {
-    authToken ? navigate("/ltvCal") : navigate("/login");
+    authToken ? navigate("/term-agree") : navigate("/login");
   };
   return (
     <>
@@ -122,7 +122,7 @@ function HomeScrollHow() {
         <Header>
           <SpanTitle>어떻게 사용하나요?</SpanTitle>
           <SpanInfo>
-            CSV 파일과 간단한 정보입력으로 인사이트를 얻어보세요!
+            CSV 파일 업로드 및 간단한 정보입력으로 인사이트를 얻어보세요!
           </SpanInfo>
           <Btn onClick={goToLtv}>유니콘 판별기 사용하기</Btn>
         </Header>

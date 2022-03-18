@@ -10,6 +10,7 @@ import loginGoogle_letter from "../../assets/icons/loginGoogle_letter.svg";
 import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import loginPageImage from "../../assets/images/loginImage.svg";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 
 const JoinPageContainer = styled.div`
   display: flex;
@@ -153,6 +154,8 @@ const RightImagePart = styled.div`
 `;
 
 const JoinPage: FC = () => {
+  // 타이틀 변경 로직
+  useDocumentTitle("유니콘: 회원가입");
   // 회원가입 로직 구현 관련 코드
   // 사용자가 입력하는 이메일, 비밀번호 값 받아오기
   const [joinEmail, setJoinEmail] = useState<string>("");

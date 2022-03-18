@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import loginPageImage from "../../assets/images/loginImage.svg";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 const FindPWContainer = styled.div`
   display: flex;
   height: 100vh;
@@ -92,6 +93,9 @@ const RightImagePart = styled.div`
 `;
 
 const FindPW = () => {
+  // 타이틀 변경 로직
+  useDocumentTitle("유니콘: 비밀번호 찾기");
+
   const [findEmail, setFindEmail] = useState("");
   const { findPassword } = useAuth();
 

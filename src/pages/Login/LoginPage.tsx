@@ -11,6 +11,7 @@ import loginGoogle_logo from "../../assets/icons/loginGoogle_logo.svg";
 import loginGoogle_letter from "../../assets/icons/loginGoogle_letter.svg";
 import loginPageImage from "../../assets/images/loginImage.svg";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 
 // 로그인 페이지 전체 컨테이너
 const LoginPageContainer = styled.div`
@@ -196,6 +197,9 @@ const RightImagePart = styled.div`
 `;
 
 const LoginPage = () => {
+  // 타이틀 변경하는 로직
+  useDocumentTitle("유니콘: 로그인");
+
   const navigate = useNavigate();
 
   // 유저 인증상태 확인 후, 인증 상태에 따라 다른 라우팅

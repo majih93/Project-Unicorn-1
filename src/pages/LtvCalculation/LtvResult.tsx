@@ -6,6 +6,7 @@ import LtvStep3 from "../../components/LtvCalculation/step3/LtvStep3";
 
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 
 const Base = styled.div`
   width: 1440px;
@@ -57,6 +58,9 @@ const Main = styled.div`
 `;
 
 const LtvResult = () => {
+  // 타이틀 변경 로직
+  useDocumentTitle("유니콘: 결과확인");
+
   const { logout } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
