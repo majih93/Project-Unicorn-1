@@ -57,8 +57,22 @@ const Title = styled.div`
   }
 `;
 const EmailText = styled.div`
-  padding-left: 10px;
-  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  width: 280px;
+  height: 54px;
+  margin-bottom: 5px;
+  border: none;
+  font-family: "Spoqa Han Sans", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05), 0px 4px 6px rgba(0, 0, 0, 0.05);
 `;
 
 const InputField = styled.div`

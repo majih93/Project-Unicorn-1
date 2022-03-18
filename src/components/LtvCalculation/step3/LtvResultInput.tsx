@@ -11,7 +11,7 @@ const InputContainer = styled.div`
   width: 100%;
   height: 135px;
   padding-top: 15px;
-  background: #ffffff;
+  background: #fafafa;
   box-sizing: border-box;
   span {
     font-family: "Spoqa Han Sans";
