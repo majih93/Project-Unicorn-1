@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import ImgSliderAnswer from "../../../../assets/images/ImgSlider-Answer.svg";
-import ImgSliderQuestion1 from "../../../../assets/images/ImgSlider-Question1.svg";
+import ImgSliderAnswer from "../../../../../../assets/images/ImgSlider-Answer.svg"
+import ImgSliderQuestion2 from "../../../../../../assets/images/ImgSlider-Question2.svg"
+
 
 const Container = styled.div`
   /* border: 1px solid black; */
@@ -156,15 +157,15 @@ function HomeScrollImageSlide() {
         </Header>
         <Main>
           <QuestionBalloon>
-            <MainTitle>유서영 CEO</MainTitle>
+            <MainTitle>나기획 Product Manager</MainTitle>
             <MainText>
-              내 ㅅ중한 사업을 더 이상 감으로 유지하고 싶지 않아요..
+              하,,, 어떻게 CEO를 제대로 설득할 수 있는거야??
               <br />
-              어떻게 하면 확신을 가지고 서비스를 이어갈 수 있을까요..??
+              내가 가져간 기획안이 계속 막혀서 답답해...
             </MainText>
           </QuestionBalloon>
           <img
-            src={ImgSliderQuestion1}
+            src={ImgSliderQuestion2}
             alt=""
             style={{ top: "0", left: "1058px", position: "absolute" }}
           />
@@ -174,9 +175,7 @@ function HomeScrollImageSlide() {
               <MainText style={{ color: "#07145A" }}>
                 명확한 데이터를 통한 인사이트를 기획안에 첨부해보는건 어때?
                 <br />
-                떡잎 판별기만의 특별한 인사이트로 정량적인 판단에서 더 나아가{" "}
-                <br />
-                추가적인 정보도 알아볼 수 있어!!!
+                떡잎 판별기를 사용해서 무엇이 문제인지 파악하고 기획해봐!!
               </MainText>
             </AnswerBalloon>
             <AnswerImg>
