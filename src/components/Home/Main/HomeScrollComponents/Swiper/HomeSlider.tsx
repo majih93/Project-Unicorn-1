@@ -1,15 +1,17 @@
-import { Autoplay, Navigation, Pagination, A11y, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import React from "react";
 import styled from "styled-components";
 
+// Style
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 
-import Who1 from "../../../../assets/images/Who1.svg";
-import Who2 from "../../../../assets/images/Who2.svg";
-import Who3 from "../../../../assets/images/Who3.svg";
+// Images
+import Who1 from "../../../../../assets/images/Who1.svg";
+import Who2 from "../../../../../assets/images/Who2.svg";
+import Who3 from "../../../../../assets/images/Who3.svg";
+import { A11y, Autoplay } from "swiper";
 
 const Image1 = styled.div`
   background-image: url(${Who1});
@@ -33,7 +35,6 @@ const Image3 = styled.div`
 const SwiperSlider: React.FC = () => {
   return (
     <Swiper
-      // modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={0}
       slidesPerView={1}
       pagination={{ clickable: true }}
