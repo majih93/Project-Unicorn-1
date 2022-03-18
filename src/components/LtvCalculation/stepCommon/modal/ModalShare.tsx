@@ -30,8 +30,8 @@ const ShareContainer = styled.div`
 const ModalBody = styled.div`
   height: 196px;
   width: 280px;
-  top: -150px;
-  left: 80px;
+  top: -220px;
+  left: 45px;
   border-radius: 8px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   background: #fff;
