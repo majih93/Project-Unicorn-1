@@ -49,15 +49,18 @@ const FileField = styled.div`
   display: flex;
   height: 21px;
   margin-top: 15px;
+  align-items: center;
+  justify-content: center;
 `;
 
 const FileName = styled.div`
   margin-right: 20px;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 21px;
   color: #424242;
+  margin-top: 12px;
 `;
 
 const FileCancel = styled.div`
@@ -97,7 +100,9 @@ const FileUpload = () => {
       {file !== null && file !== undefined ? (
         <DropZone style={{ border: "2px dashed #4a73f3" }}>
           <FileUploadImage src={Complete} alt="Upload complete" />
-          <FileUploadDesc style={{ height: "20px", backgroundColor: "#fff" }}>
+          <FileUploadDesc
+            style={{ height: "20px", backgroundColor: "#fafafa" }}
+          >
             {/* {URL.createObjectURL(file)} */}
             업로드 완료
             <FileField>

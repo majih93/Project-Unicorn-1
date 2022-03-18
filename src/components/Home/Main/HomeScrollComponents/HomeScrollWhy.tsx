@@ -46,7 +46,7 @@ const SpanContent = styled.span`
 
 const UnicornBtn = styled.div`
   position: absolute;
-  left: 130px;
+  left: 140px;
   background: #4a73f3;
   color: #fff;
   width: 360px;

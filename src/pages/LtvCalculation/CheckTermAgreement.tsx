@@ -6,6 +6,7 @@ import Logo2 from "../../assets/icons/logo2.svg";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import check from "../../assets/icons/check.svg";
+import checkCircle from "../../assets/icons/check_빈동그라미.svg";
 import Term from "../../components/LtvCalculation/Term";
 import TermAgreeButton from "../../components/LtvCalculation/TermAgreeButton";
 
@@ -144,7 +145,7 @@ const CheckTermAgreement = () => {
         </TermTitle>
         <Terms>
           <AllTerms>
-            <img src={check} alt="check" />
+            <img src={checkCircle} alt="check" />
             <span>전체 약관에 동의합니다.</span>
           </AllTerms>
           <Term />
