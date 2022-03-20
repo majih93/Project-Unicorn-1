@@ -1,7 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import ImgSliderAnswer from "../../../../assets/images/ImgSlider-Answer.svg";
-import ImgSliderQuestion1 from "../../../../assets/images/ImgSlider-Question1.svg";
+import ImgSliderAnswer from "../../../../../../assets/images/ImgSlider-Answer.svg";
+import ImgSliderQuestion3 from "../../../../../../assets/images/ImgSlider-Question3.svg";
 
 const Container = styled.div`
   /* border: 1px solid black; */
@@ -43,6 +44,9 @@ const Btn = styled.div`
   padding: 20px 10px;
   font-size: 20px;
   font-weight: 700;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const Main = styled.div`
   /* border: 1px solid black; */
@@ -105,13 +109,13 @@ const AnswerContainer = styled.div`
 `;
 const AnswerBalloon = styled.div`
   /* border: 1px solid black; */
-  bottom: 0;
+  bottom: 29px;
   left: 150px;
   position: absolute;
   background: #ffffff;
   padding: 24px 32px;
   width: 553px;
-  height: 173px;
+  height: 143px;
   border-radius: 12px;
   filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.05))
     drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.05));
@@ -144,6 +148,12 @@ const AnswerImg = styled.div`
 `;
 
 function HomeScrollImageSlide() {
+  const navigate = useNavigate();
+  const authToken = sessionStorage.getItem("Auth Token");
+
+  const goToLtv = () => {
+    authToken ? navigate("/term-agree") : navigate("/login");
+  };
   return (
     <>
       <Container>
@@ -152,19 +162,19 @@ function HomeScrollImageSlide() {
           <SpanInfo>
             내가 이들 중 한 명이라면! 누구나 사용할 수 있습니다!!
           </SpanInfo>
-          <Btn>유니콘 판별기 사용하기</Btn>
+          <Btn onClick={goToLtv}>유니콘 판별기 사용하기</Btn>
         </Header>
         <Main>
           <QuestionBalloon>
-            <MainTitle>유서영 CEO</MainTitle>
+            <MainTitle>김개발 풀스택 개발자</MainTitle>
             <MainText>
-              내 ㅅ중한 사업을 더 이상 감으로 유지하고 싶지 않아요..
+              우리 스타트업이 얼마나 성장하고 있는지 감이 잘 안와..
               <br />
-              어떻게 하면 확신을 가지고 서비스를 이어갈 수 있을까요..??
+              어떤 지표로 성장 가능성을 판단할 수 있을까?
             </MainText>
           </QuestionBalloon>
           <img
-            src={ImgSliderQuestion1}
+            src={ImgSliderQuestion3}
             alt=""
             style={{ top: "0", left: "1058px", position: "absolute" }}
           />
@@ -172,11 +182,9 @@ function HomeScrollImageSlide() {
             <AnswerBalloon>
               <MainTitle style={{ color: "#0420BF" }}>유니콘</MainTitle>
               <MainText style={{ color: "#07145A" }}>
-                명확한 데이터를 통한 인사이트를 기획안에 첨부해보는건 어때?
+                사업의 성장 가능성은 사용자와 직결되어 있어!
                 <br />
-                떡잎 판별기만의 특별한 인사이트로 정량적인 판단에서 더 나아가{" "}
-                <br />
-                추가적인 정보도 알아볼 수 있어!!!
+                떡잎 판별기의 사용 방법을 따라서 가능성을 확인해보는거 어때?
               </MainText>
             </AnswerBalloon>
             <AnswerImg>

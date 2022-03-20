@@ -6,26 +6,35 @@ import UserInputContainer from "../../components/login/loginCommon/UserInputCont
 import { Link, useNavigate } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
-
+import loginPageImage from "../../assets/images/loginImage.svg";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 const FindPWContainer = styled.div`
-  width: 1440px;
-  height: 820px;
   display: flex;
-  background-color: slateblue;
+  height: 100vh;
+  position: relative;
+  margin: 0 auto;
+  @media (max-height: 630px) {
+    height: 630px;
+  }
 `;
 
 const FindPWForm = styled.form``;
 
 const FindPWUserInputPart = styled.div`
-width: 630px;
+  height: 100%;
   background: #ffffff;
-  padding-top: 99px;
+  padding-top: 12.19vh;
   padding-left: 130px;
   padding-right: 100px;
-  padding-bottom: 97px;
-  padding
+  padding-bottom: 11.58vh;
   display: flex;
-  flex-direction: column;`;
+  flex-direction: column;
+  @media (max-height: 820px) {
+    padding-top: 50px;
+    margin: 0 auto;
+    padding-right: 130px;
+  }
+`;
 
 const FindPWTitle = styled.span`
   display: block;
@@ -66,7 +75,27 @@ const AskLogin = styled.div`
   }
 `;
 
+const RightImagePart = styled.div`
+  width: 56.25%;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1440px) {
+    img {
+      width: 810px;
+      height: 820px;
+    }
+  }
+`;
+
 const FindPW = () => {
+  // 타이틀 변경 로직
+  useDocumentTitle("유니콘: 비밀번호 찾기");
+
   const [findEmail, setFindEmail] = useState("");
   const { findPassword } = useAuth();
 
@@ -85,6 +114,7 @@ const FindPW = () => {
 
   return (
     <FindPWContainer>
+      {/* 우측 유저 입력 부분 */}
       <FindPWUserInputPart>
         <UnicornIcon />
         <FindPWTitle>비밀번호 찾기</FindPWTitle>
@@ -108,11 +138,16 @@ const FindPW = () => {
             <MainButton buttonType={"전송하기"} />
           </ButtonContainer>
         </FindPWForm>
+        {/* 비밀번호 찾았다면 로그인으로 */}
         <AskLogin>
           <span>비밀번호를 찾으셨나요?</span>
           <Link to="/login">로그인</Link>
         </AskLogin>
       </FindPWUserInputPart>
+      {/* 우측 이미지 부분 */}
+      <RightImagePart>
+        <img src={loginPageImage} alt="loginImage" />
+      </RightImagePart>
     </FindPWContainer>
   );
 };

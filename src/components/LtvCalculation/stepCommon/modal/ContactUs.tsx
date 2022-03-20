@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Modal from "./Modal";
 
@@ -26,8 +27,8 @@ const BottomBtn = styled.button`
 const ModalBody = styled.div`
   height: 485px;
   width: 473px;
-  top: -150px;
-  left: 0;
+  top: -200px;
+  left: -70px;
   border-radius: 8px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   background: #fff;
@@ -135,10 +136,12 @@ const AskBtn = styled.button`
 `;
 
 const ModalShare = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleOpen = () => {
     setIsOpen(true);
+    // navigate("/");
   };
 
   const handleClose = () => {

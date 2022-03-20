@@ -6,6 +6,7 @@ import LtvStep3 from "../../components/LtvCalculation/step3/LtvStep3";
 
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 
 const Base = styled.div`
   width: 1440px;
@@ -22,11 +23,14 @@ const Header = styled.div`
   box-sizing: border-box;
 `;
 
-const LogoContianer = styled.div`
+const LogoContainer = styled.div`
   padding-top: 16px;
   padding-bottom: 21px;
   padding-right: 948px;
   box-sizing: border-box;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const LogoutBtn = styled.button`
@@ -54,6 +58,9 @@ const Main = styled.div`
 `;
 
 const LtvResult = () => {
+  // 타이틀 변경 로직
+  useDocumentTitle("유니콘: 결과확인");
+
   const { logout } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
@@ -71,9 +78,15 @@ const LtvResult = () => {
   return (
     <Base>
       <Header>
-        <LogoContianer>
-          <img src={Logo} alt="logo" />
-        </LogoContianer>
+        <LogoContainer>
+          <img
+            src={Logo}
+            alt="logo"
+            onClick={() => {
+              navigate("/");
+            }}
+          />
+        </LogoContainer>
         <LogoutBtn
           onClick={() => {
             logout();

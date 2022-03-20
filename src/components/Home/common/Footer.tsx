@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import LogoFooter from "../../../assets/images/Logo_Footer.svg";
+import LogoFooter from "../../../assets/icons/logo2.svg";
 
 const Container = styled.div`
   /* border: 1px solid black; */
-  width: 1440px;
+  width: 100vw;
   height: 120px;
   margin: 0 auto;
   position: relative;
@@ -13,7 +13,7 @@ const Container = styled.div`
 
 const Logo = styled.div`
   /* border: 1px solid black; */
-  top: 50px;
+  top: 40px;
   left: 130px;
   position: absolute;
 `;

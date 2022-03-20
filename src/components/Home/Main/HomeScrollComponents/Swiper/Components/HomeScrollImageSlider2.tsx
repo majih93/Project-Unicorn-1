@@ -1,9 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import ImgSliderAnswer from "../../../../assets/images/ImgSlider-Answer.svg";
-import ImgSliderQuestion1 from "../../../../assets/images/ImgSlider-Question1.svg";
-import ImgSliderQuestion2 from "../../../../assets/images/ImgSlider-Question2.svg";
-import ImgSliderQuestion3 from "../../../../assets/images/ImgSlider-Question3.svg";
+import ImgSliderAnswer from "../../../../../../assets/images/ImgSlider-Answer.svg";
+import ImgSliderQuestion2 from "../../../../../../assets/images/ImgSlider-Question2.svg";
 
 const Container = styled.div`
   /* border: 1px solid black; */
@@ -146,6 +145,12 @@ const AnswerImg = styled.div`
 `;
 
 function HomeScrollImageSlide() {
+  const navigate = useNavigate();
+  const authToken = sessionStorage.getItem("Auth Token");
+
+  const goToLtv = () => {
+    authToken ? navigate("/term-agree") : navigate("/login");
+  };
   return (
     <>
       <Container>
@@ -154,7 +159,7 @@ function HomeScrollImageSlide() {
           <SpanInfo>
             내가 이들 중 한 명이라면! 누구나 사용할 수 있습니다!!
           </SpanInfo>
-          <Btn>유니콘 판별기 사용하기</Btn>
+          <Btn onClick={goToLtv}>유니콘 판별기 사용하기</Btn>
         </Header>
         <Main>
           <QuestionBalloon>

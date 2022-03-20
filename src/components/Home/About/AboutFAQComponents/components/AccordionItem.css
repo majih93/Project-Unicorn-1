@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  background: #fafafa;
+  background-color: #F5F5F5;
   border: 0;
   padding: 39px 25px;
   font-size: 16px;
@@ -39,6 +39,7 @@
   background-size: 100%;
   background-repeat: no-repeat;
   transition: transform 0.2s ease-in-out;
+  background-color: #F5F5F5;
 }
 
 .accordion-item.active .accordion-item-btn:after {
@@ -47,7 +48,7 @@
 
 /* 여기서 색깔 바꾸면 됨 */
 .accordion-item.active .accordion-item-content {
-  /* background: red; */
+  background-color: #F5F5F5;
 }
 
 .accordion-item-container {
@@ -56,6 +57,7 @@
 }
 
 .accordion-item-content {
-  padding: 22px 25px 39px;
+  padding: 30px 25px 39px;
   background: #f5f5f5;
 }
+

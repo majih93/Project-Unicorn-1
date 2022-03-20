@@ -5,6 +5,7 @@ import LeftSection from "../../components/LtvCalculation/stepCommon/LeftSection"
 import LtvStep2 from "../../components/LtvCalculation/step2/LtvStep2";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 
 const Base = styled.div`
   width: 1440px;
@@ -21,11 +22,14 @@ const Header = styled.div`
   box-sizing: border-box;
 `;
 
-const LogoContianer = styled.div`
+const LogoContainer = styled.div`
   padding-top: 16px;
   padding-bottom: 21px;
   padding-right: 948px;
   box-sizing: border-box;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const LogoutBtn = styled.button`
@@ -54,6 +58,9 @@ const Main = styled.div`
 `;
 
 const LtvInput = () => {
+  // 타이틀 변경 로직
+  useDocumentTitle("유니콘: 정보입력");
+
   const { logout } = useAuth();
   const navigate = useNavigate();
 
@@ -75,9 +82,15 @@ const LtvInput = () => {
   return (
     <Base>
       <Header>
-        <LogoContianer>
-          <img src={Logo} alt="logo" />
-        </LogoContianer>
+        <LogoContainer>
+          <img
+            src={Logo}
+            alt="logo"
+            onClick={() => {
+              navigate("/");
+            }}
+          />
+        </LogoContainer>
         <LogoutBtn
           onClick={() => {
             logout();

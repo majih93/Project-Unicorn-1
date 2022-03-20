@@ -133,9 +133,10 @@ const Input = styled.input.attrs({
   box-sizing: border-box;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+  padding: 0 12px;
 `;
 
-const InputLong = styled.input.attrs({
+const InputLong = styled.textarea.attrs({
   type: "input",
   placeholder: "문의 사항을 적으세요."
 })`
@@ -146,6 +147,8 @@ const InputLong = styled.input.attrs({
   box-sizing: border-box;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+  padding: 0 12px;
+  padding-top: 5px;
 `;
 
 const InputBtn = styled.div`
@@ -180,24 +183,26 @@ const AboutContents = () => {
         <ContactUS>Contact Us</ContactUS>
         <ContactTextContainer>
           <Icon>
-            <img src="{IconPhone}" alt="" />
+            <img src={IconPhone} alt="" />
           </Icon>
-          <ContactText>080 - 1234 - 5678</ContactText>
+          <ContactText>070-8065-4506</ContactText>
         </ContactTextContainer>
         <ContactTextContainer>
           <Icon>
-            <img src="" alt="" />
+            <img src={IconMail} alt="" />
           </Icon>
-          <ContactText>1234@1234.com</ContactText>
+          <ContactText>info@1zlabs.com</ContactText>
         </ContactTextContainer>
         <ContactTextContainer>
           <Icon>
-            <img src="" alt="" />
+            <img src={IconBuilding} alt="" />
           </Icon>
           <ContactText>
-            서울 강남구 테헤란로 231
+            주소 서울특별시 강남구 영동대로 602,
             <br />
-            West동 6층, 7층
+            6층 엔034호 (삼성동, 삼성동 미켈란
+            <br />
+            107)
           </ContactText>
         </ContactTextContainer>
       </ContactContainer>

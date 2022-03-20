@@ -51,7 +51,6 @@ const DataInput: React.FC<{ id: string }> = ({ id }) => {
       [id]: e.target.value,
     });
   };
-  console.log(userInput);
 
   return (
     <form>

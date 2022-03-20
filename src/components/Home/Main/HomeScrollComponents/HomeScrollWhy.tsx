@@ -9,7 +9,6 @@ import IconHome_2 from "../../../../assets/icons/Icon-Home-2.svg";
 import IconHome_3 from "../../../../assets/icons/Icon-Home-3.svg";
 import IconHome_4 from "../../../../assets/icons/Icon-Home-4.svg";
 import IconBoxCheck from "../../../../assets/icons/Icon-BoxCheck.svg";
-import { useAuth } from "../../../../context/loginAuthentication/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Base = styled.div`
@@ -47,7 +46,7 @@ const SpanContent = styled.span`
 
 const UnicornBtn = styled.div`
   position: absolute;
-  left: 130px;
+  left: 140px;
   background: #4a73f3;
   color: #fff;
   width: 360px;
@@ -154,7 +153,7 @@ function HomeScrollWhy() {
           onClick={() => {
             // eslint-disable-next-line no-lone-blocks
             {
-              authToken ? navigate("/ltvCal") : navigate("/login");
+              authToken ? navigate("/term-agree") : navigate("/login");
             }
           }}
         >

@@ -36,7 +36,15 @@ const FileUploadDesc = styled.span`
   font-size: 18px;
   line-height: 29px;
   text-align: center;
-  color: #000;
+  color: #c0c0c0;
+`;
+
+const ChooseFromLocalButton = styled.button`
+  width: 238px;
+  height: 47px;
+  background: #4a73f3;
+  border-radius: 10px;
+  color: #fafafa;
 `;
 
 const DragDropInput: FunctionComponent<{ setFile: Dispatch<any> }> = ({
@@ -86,6 +94,7 @@ const DragDropInput: FunctionComponent<{ setFile: Dispatch<any> }> = ({
             <FileUploadDesc>파일을 여기로 드래그하세요</FileUploadDesc>
           </DropZone>
         )}
+        {/* <ChooseFromLocalButton>컴퓨터에서 파일 선택</ChooseFromLocalButton> */}
       </FileInput>
     </div>
   );

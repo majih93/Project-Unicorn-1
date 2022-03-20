@@ -16,7 +16,7 @@ const FlexContiner = styled.div`
   display: flex;
 `;
 
-const PowerBtn = styled.button`
+const PowerBtn = styled.button<{ ltvVersion: string }>`
   margin-top: 65px;
   width: 80px;
   height: 30px;
@@ -30,9 +30,19 @@ const PowerBtn = styled.button`
   line-height: 15px;
   text-align: center;
   color: #fafafa;
+  &:hover {
+    cursor: pointer;
+  }
+  ${({ ltvVersion }) => {
+    if (ltvVersion === "exponential") {
+      return "color: #8c8c8c;border: 1px solid #8c8c8c; background: none;";
+    }
+  }}
 `;
 
-const ExponentialBtn = styled.button`
+const ExponentialBtn = styled.button<{ ltvVersion: string }>`
+  display: flex;
+  justify-content: center;
   margin-top: 65px;
   width: 80px;
   height: 30px;
@@ -42,9 +52,17 @@ const ExponentialBtn = styled.button`
   font-style: normal;
   font-weight: 700;
   font-size: 10px;
-  line-height: 15px;
   text-align: center;
   color: #8c8c8c;
+  padding-top: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+  ${({ ltvVersion }) => {
+    if (ltvVersion === "exponential") {
+      return "background: #f3694c;color: #fafafa;border;border: none; ";
+    }
+  }}
 `;
 
 const LtvChartContainer = styled.div`
@@ -113,11 +131,25 @@ const LtvStep3: React.FC = () => {
     setClicked(clickedIndex);
   };
 
+  // power/exponential 상태 조절 위한 변수
+  const [ltvVersion, setLtvVersion] = useState("power");
+  // 클릭 시 power/exponential 바꿔주는 함수
+  const setPowerVersion = () => {
+    setLtvVersion("power");
+  };
+  const setExponentialVersion = () => {
+    setLtvVersion("exponential");
+  };
+
   return (
     <Container>
       <FlexContiner style={{ width: "170px", justifyContent: "space-between" }}>
-        <PowerBtn>Power</PowerBtn>
-        <ExponentialBtn>Exponential</ExponentialBtn>
+        <PowerBtn ltvVersion={ltvVersion} onClick={setPowerVersion}>
+          Power
+        </PowerBtn>
+        <ExponentialBtn ltvVersion={ltvVersion} onClick={setExponentialVersion}>
+          Exponential
+        </ExponentialBtn>
       </FlexContiner>
       <LtvResultInput />
       <TabContainer>

@@ -11,16 +11,15 @@ import loginGoogle_logo from "../../assets/icons/loginGoogle_logo.svg";
 import loginGoogle_letter from "../../assets/icons/loginGoogle_letter.svg";
 import loginPageImage from "../../assets/images/loginImage.svg";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 
 // 로그인 페이지 전체 컨테이너
 const LoginPageContainer = styled.div`
   display: flex;
-  // background-color: slateblue;
   height: 100vh;
-  // margin-left: 10vw;
   position: relative;
-  // background: slateblue;
-  margin: 0 auto @media (max-height: 630px;) {
+  margin: 0 auto;
+  @media (max-height: 630px) {
     height: 630px;
   }
 `;
@@ -28,25 +27,19 @@ const LoginPageContainer = styled.div`
 // 로그인 페이지 왼쪽 유저 입력부분 컨테이너
 const LoginUserInputPart = styled.div`
   height: 100%;
-  width: 43.25%:
   background: #ffffff;
   padding-top: 12.19vh;
   padding-left: 130px;
   padding-right: 100px;
   padding-bottom: 11.58vh;
-  padding
   display: flex;
   flex-direction: column;
+  @media (max-height: 820px) {
+    padding-top: 50px;
+    margin: 0 auto;
+    padding-right: 130px;
+  }
 `;
-
-// // 로그인 페이지 상단 소개문구 담는 컨테이너
-// const LoginGreetingCotainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   left: 130px;
-//   top: 186px;
-//   margin-top: 69px;
-// `;
 
 //소개문구 윗부분
 const GreetingTop = styled.span`
@@ -72,8 +65,7 @@ const GreetingBottom = styled.span`
   font-size: 18px;
   white-space: nowrap;
   color: rgba(0, 0, 0, 0.6);
-  // letter-spacing: -1px;
-  // word-spacing: -2px;
+
   padding-top: 4px;
 `;
 
@@ -131,6 +123,8 @@ const SnsLogin = styled.span`
   font-size: 12px;
   letter-spacing: -0.7px;
   margin-left: 6px;
+  display: block;
+  padding-top: 5px;
 `;
 
 // SNS 로그인 부분
@@ -184,7 +178,7 @@ const AskJoin = styled.div`
     margin-left: 5px;
   }
 `;
-
+// 우측 이미지 부분
 const RightImagePart = styled.div`
   width: 56.25%;
   height: 100%;
@@ -203,6 +197,9 @@ const RightImagePart = styled.div`
 `;
 
 const LoginPage = () => {
+  // 타이틀 변경하는 로직
+  useDocumentTitle("유니콘: 로그인");
+
   const navigate = useNavigate();
 
   // 유저 인증상태 확인 후, 인증 상태에 따라 다른 라우팅
@@ -231,9 +228,9 @@ const LoginPage = () => {
 
   return (
     <LoginPageContainer>
+      {/* 우측 유저 입력 부분 */}
       <LoginUserInputPart>
         <UnicornIcon />
-
         {/* 상단 소개문구 */}
         <GreetingTop>
           데이터를 기반으로 한<br />
@@ -284,13 +281,15 @@ const LoginPage = () => {
           </KeepLoggedIn>
           <MainButton buttonType="로그인" />
         </LoginForm>
-
         {/* SNS 계정 로그인 */}
+        {/* 중앙 분리선 */}
         <DividingPart>
           <DividingLine />
           <SnsLogin>SNS 계정으로 로그인</SnsLogin>
           <DividingLine />
         </DividingPart>
+
+        {/* SNS 로그인 버튼  */}
         <SnsContainer>
           <SNSLoginButton>
             <img src={loginNaver} alt="naver" />
@@ -322,6 +321,7 @@ const LoginPage = () => {
           <Link to="/join">회원가입</Link>
         </AskJoin>
       </LoginUserInputPart>
+      {/* 우측 이미지 부분 */}
       <RightImagePart>
         <img src={loginPageImage} alt="loginImage" />
       </RightImagePart>
@@ -330,7 +330,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
-// object fit 특성
-
-// 이미지에서 빼버리면

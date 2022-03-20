@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import GrowthBarChart from "./chart/GrowthBarChart";
 import ContactUs from "../stepCommon/modal/ContactUs";
+import { useRecoilState } from "recoil";
+import { userInputState } from "../../../store/inputAtom";
 
 const Container = styled.div`
   position: relative;
@@ -57,7 +59,7 @@ const GrowthDescription = styled.span`
   font-weight: 700;
   font-size: 30px;
   line-height: 44px;
-  color: #000000;
+  color: #0420bf;
   box-sizing: border-box;
 `;
 
@@ -85,18 +87,20 @@ const Line = styled.div`
 `;
 
 const LtvChart: React.FC = () => {
+  // 서비스 이름 가져오기 위해서 recoil로 데이터 불러오괴
+  const inputData = useRecoilState(userInputState);
   return (
     <Container>
       <ChartTitle>Product Growth Result</ChartTitle>
       <GrowthContainer>
         <DescriptionContianer>
           <GrowthTitle>
-            {`현재 1z Labs의 성장 모델은 CAC < LTV * ARPU 입니다.`}
+            {`현재 ${inputData[0].service_name}의 성장 모델은 CAC < LTV * ARPU 입니다.`}
           </GrowthTitle>
           <div style={{ marginTop: "31px" }} />
-          <GrowthTitle>사용자를 1턴명 늘렸을 경우, 매출은</GrowthTitle>
-          <GrowthDescription>{`1,000,000,000`}</GrowthDescription>
-          <GrowthTitle>만원 증가합니다.</GrowthTitle>
+          <GrowthTitle>사용자를 1000명 늘렸을 경우, 매출은</GrowthTitle>
+          <GrowthDescription>{`1,000,000,000￦`}</GrowthDescription>
+          <GrowthTitle>증가합니다.</GrowthTitle>
         </DescriptionContianer>
         <ChartContiner>
           <GrowthBarChart />

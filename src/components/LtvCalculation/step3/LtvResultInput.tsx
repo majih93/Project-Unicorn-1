@@ -11,7 +11,7 @@ const InputContainer = styled.div`
   width: 100%;
   height: 135px;
   padding-top: 15px;
-  background: #ffffff;
+  background: #fafafa;
   box-sizing: border-box;
   span {
     font-family: "Spoqa Han Sans";
@@ -109,8 +109,8 @@ const LtvResultInput: React.FC = () => {
           descripton2={
             "계산된 LTV에 따라 회원 수를 늘리려면 15일동안 15,000원의 홍보비를 사용하여 15,000명의 사용자를 지속적으로 유입시켜야 합니다."
           }
-          top={"-390px"}
-          left={"310px"}
+          top={"-380px"}
+          left={"320px"}
         />
       </span>
       <InitialSet onClick={initialClick}>

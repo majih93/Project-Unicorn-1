@@ -11,7 +11,7 @@ const Button = styled.button`
   &:active {
     opacity: 0.8;
   }
-  background: white;
+  background: #fafafa;
 `;
 
 const ModalTitle = styled.div`
@@ -78,7 +78,7 @@ const ModalShow: FunctionComponent<ModalType> = ({
       </Button>
       {type === "double" ? (
         <Modal isOpen={isOpen} onClose={handleClose} selector="1266px">
-          <ModalBody style={{ top: top, left: left, height: "150px" }}>
+          <ModalBody style={{ top: top, left: left, height: "160px" }}>
             <ModalTitle>{modalTitle1}</ModalTitle>
             <ModalDesc>{descripton1}</ModalDesc>
             <div style={{ height: "3px" }}>

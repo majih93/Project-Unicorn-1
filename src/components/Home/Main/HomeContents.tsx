@@ -5,10 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 const Base = styled.div`
   background: #4a73f3;
-  width: 1440px;
+  width: 100vw;
   height: 670px;
   margin: 0 auto;
   position: relative;
+  @media (max-width: 1300px) {
+    width: 1440px;
+  }
 `;
 
 const Container = styled.div`
@@ -102,7 +105,7 @@ const HomeContents = (props: any) => {
           onClick={() => {
             // eslint-disable-next-line no-lone-blocks
             {
-              authToken ? navigate("/ltvCal") : navigate("/login");
+              authToken ? navigate("/term-agree") : navigate("/login");
             }
           }}
         >

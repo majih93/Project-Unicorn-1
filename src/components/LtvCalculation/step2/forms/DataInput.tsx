@@ -20,6 +20,7 @@ const Input = styled.input`
   color: #000000;
   box-sizing: border-box;
   cursor: pointer;
+  border-radius: 10px;
 `;
 
 const ErrorSpan = styled.span`

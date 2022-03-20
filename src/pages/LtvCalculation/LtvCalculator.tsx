@@ -1,3 +1,5 @@
+// Ltv 계산 부분 첫 번째 페이지(파일 업로드 페이지)
+
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import Logo2 from "../../assets/icons/logo2.svg";
@@ -6,6 +8,7 @@ import LtvStep1 from "../../components/LtvCalculation/step1/LtvStep1";
 
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 
 const Base = styled.div`
   width: 1440px;
@@ -22,11 +25,14 @@ const Header = styled.div`
   box-sizing: border-box;
 `;
 
-const LogoContianer = styled.div`
+const LogoContainer = styled.div`
   padding-top: 16px;
   padding-bottom: 21px;
   padding-right: 948px;
   box-sizing: border-box;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const LogoutBtn = styled.button`
@@ -55,6 +61,9 @@ const Main = styled.div`
 `;
 
 const LtvCalculator = () => {
+  // 타이틀 변경 로직
+  useDocumentTitle("유니콘: 파일 업로드");
+
   const { logout } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
@@ -71,9 +80,15 @@ const LtvCalculator = () => {
   return (
     <Base>
       <Header>
-        <LogoContianer>
-          <img src={Logo2} alt="logo" />
-        </LogoContianer>
+        <LogoContainer>
+          <img
+            src={Logo2}
+            alt="logo"
+            onClick={() => {
+              navigate("/");
+            }}
+          />
+        </LogoContainer>
 
         <LogoutBtn
           onClick={() => {
