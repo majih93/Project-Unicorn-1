@@ -6,6 +6,7 @@ import UserInputContainer from "../../components/login/loginCommon/UserInputCont
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import loginPageImage from "../../assets/images/loginImage.svg";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 
 const FindPWContainer = styled.div`
   display: flex;
@@ -101,6 +102,8 @@ function useQuery() {
 }
 
 const ResetPassword = () => {
+  // 타이틀 변경 로직
+  useDocumentTitle("유니콘: 비밀번호 재설정");
   // navigate
   const navigate = useNavigate();
 

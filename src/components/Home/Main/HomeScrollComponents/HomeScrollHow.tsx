@@ -70,8 +70,8 @@ const HowSpanTitle = styled.div`
   font-size: 20px;
   line-height: 30px;
   display: flex;
-  align-items: center;
-  text-align: center;
+  // align-items: center;
+  // text-align: center;
   color: #ffffff;
 `;
 const HowSpanText = styled.div`
@@ -114,7 +114,7 @@ function HomeScrollHow() {
   const authToken = sessionStorage.getItem("Auth Token");
 
   const goToLtv = () => {
-    authToken ? navigate("/ltvCal") : navigate("/login");
+    authToken ? navigate("/term-agree") : navigate("/login");
   };
   return (
     <>
@@ -122,7 +122,7 @@ function HomeScrollHow() {
         <Header>
           <SpanTitle>어떻게 사용하나요?</SpanTitle>
           <SpanInfo>
-            CSV 파일과 간단한 정보입력으로 인사이트를 얻어보세요!
+            CSV 파일 업로드 및 간단한 정보입력으로 인사이트를 얻어보세요!
           </SpanInfo>
           <Btn onClick={goToLtv}>유니콘 판별기 사용하기</Btn>
         </Header>
@@ -144,13 +144,14 @@ function HomeScrollHow() {
                   position: "absolute",
                   height: "80px",
                   marginTop: "-2%",
-                  marginLeft: "-22%",
+                  marginLeft: "-27%",
                   zIndex: "1",
                 }}
               />
               <HowSpanTitle>CSV 파일 업로드</HowSpanTitle>
               <HowSpanText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit */}
+                사용자 데이터를 담은 CSV 파일을 업로드 해주세요.
               </HowSpanText>
             </SpanContainer>
           </InfoContainer>
@@ -170,15 +171,13 @@ function HomeScrollHow() {
                 style={{
                   position: "absolute",
                   height: "80px",
-                  marginTop: "-2%",
-                  marginLeft: "-22%",
+                  marginTop: "-3%",
+                  marginLeft: "-36%",
                   zIndex: "1",
                 }}
               />
               <HowSpanTitle>기본 정보 입력</HowSpanTitle>
-              <HowSpanText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
-              </HowSpanText>
+              <HowSpanText>서비스 명, URL등 정보를 입력해주세요.</HowSpanText>
             </SpanContainer>
           </InfoContainer>
           <InfoContainer>
@@ -198,13 +197,13 @@ function HomeScrollHow() {
                   position: "absolute",
                   height: "80px",
                   marginTop: "-2%",
-                  marginLeft: "-22%",
+                  marginLeft: "-30%",
                   zIndex: "1",
                 }}
               />
               <HowSpanTitle>LTV 결과 확인</HowSpanTitle>
               <HowSpanText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                결과를 확인하고, 성장의 발판으로 삼아보세요.
               </HowSpanText>
             </SpanContainer>
           </InfoContainer>

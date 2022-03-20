@@ -13,6 +13,10 @@ import Who2 from "../../../../../assets/images/Who2.svg";
 import Who3 from "../../../../../assets/images/Who3.svg";
 import { A11y, Autoplay } from "swiper";
 
+const Base = styled.div`
+  background: #f5f5f5;
+`;
+
 const Image1 = styled.div`
   background-image: url(${Who1});
   width: 1440px;
@@ -32,26 +36,28 @@ const Image3 = styled.div`
   margin: 0 auto;
 `;
 
-const SwiperSlider: React.FC = () => {
+const HomeSlider: React.FC = () => {
   return (
-    <Swiper
-      spaceBetween={0}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
-    >
-      <SwiperSlide>
-        <Image1 />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image2 />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image3 />
-      </SwiperSlide>
-    </Swiper>
+    <Base>
+      <Swiper
+        spaceBetween={0}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
+      >
+        <SwiperSlide>
+          <Image1 />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image2 />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image3 />
+        </SwiperSlide>
+      </Swiper>
+    </Base>
   );
 };
 
-export default SwiperSlider;
+export default HomeSlider;

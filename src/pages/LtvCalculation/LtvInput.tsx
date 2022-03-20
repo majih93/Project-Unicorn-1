@@ -5,6 +5,7 @@ import LeftSection from "../../components/LtvCalculation/stepCommon/LeftSection"
 import LtvStep2 from "../../components/LtvCalculation/step2/LtvStep2";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
+import useDocumentTitle from "../../utils/useDocumentTitle";
 
 const Base = styled.div`
   width: 1440px;
@@ -57,6 +58,9 @@ const Main = styled.div`
 `;
 
 const LtvInput = () => {
+  // 타이틀 변경 로직
+  useDocumentTitle("유니콘: 정보입력");
+
   const { logout } = useAuth();
   const navigate = useNavigate();
 

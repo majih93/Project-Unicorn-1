@@ -153,7 +153,7 @@ function HomeScrollWhy() {
           onClick={() => {
             // eslint-disable-next-line no-lone-blocks
             {
-              authToken ? navigate("/ltvCal") : navigate("/login");
+              authToken ? navigate("/term-agree") : navigate("/login");
             }
           }}
         >
