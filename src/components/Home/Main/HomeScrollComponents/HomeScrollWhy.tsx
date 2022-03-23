@@ -85,6 +85,9 @@ const ContentWrap = styled.div`
   &:nth-child(2n) {
     margin-top: 70px;
   }
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const Top = styled.div`
