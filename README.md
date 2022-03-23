@@ -13,7 +13,7 @@
 
 ## 기술 스택
 
-- ![title](https://img.shields.io/badge/-React-61DAFB?&logo=html5&logoColor=white)
+- ![title](https://img.shields.io/badge/-React-61DAFB?&logo=react&logoColor=white)
 
 ## 프로젝트 구조
 
