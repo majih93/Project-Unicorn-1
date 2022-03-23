@@ -5,7 +5,6 @@ import styled from "styled-components";
 import Logo2 from "../../assets/icons/logo2.svg";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
-import check from "../../assets/icons/check.svg";
 import checkCircle from "../../assets/icons/check_빈동그라미.svg";
 import Term from "../../components/LtvCalculation/Term";
 import TermAgreeButton from "../../components/LtvCalculation/TermAgreeButton";

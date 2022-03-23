@@ -10,10 +10,10 @@
 
 - ltv 계산기
 
-
 ## 기술 스택
 
 - ![title](https://img.shields.io/badge/-React-61DAFB?&logo=react&logoColor=white)
+- ![title](https://img.shields.io/badge/-Typescript-3178C6?&logo=Typescript&logoColor=white)
 - ![title](https://img.shields.io/badge/-styled_components-DB7093?&logo=styled-components&logoColor=white)
 
 ## 프로젝트 구조
