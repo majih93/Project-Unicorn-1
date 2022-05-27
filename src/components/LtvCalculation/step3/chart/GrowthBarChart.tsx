@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import {
   Chart as ChartJS,
@@ -10,11 +9,6 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-
-const Container = styled.div`
-  width: 500px;
-  height: 290px;
-`;
 
 ChartJS.register(
   CategoryScale,
@@ -59,3 +53,8 @@ const GrowthBarChart = () => {
   );
 };
 export default GrowthBarChart;
+
+const Container = styled.div`
+  width: 500px;
+  height: 290px;
+`;

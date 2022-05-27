@@ -1,7 +1,57 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import styled from "styled-components";
+
 import Modal from "./Modal";
+
+const ModalShare = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <>
+      <BottomBtnContainer>
+        <BottomBtn onClick={handleOpen}>다봤어요!!</BottomBtn>
+      </BottomBtnContainer>
+      <Modal isOpen={isOpen} onClose={handleClose} selector="1266px">
+        <ModalBody>
+          <div style={{ height: "35px" }} />
+          <form>
+            <InputContainer>
+              <FormTitle>이메일</FormTitle>
+              <Input placeholder="기업 메일 또는 개인 메일을 적으세요." />
+            </InputContainer>
+            <InputContainer>
+              <FormTitle>기업명</FormTitle>
+              <Input placeholder="기업 명 또는 개인 성함을 적으세요." />
+            </InputContainer>
+            <InputContainer>
+              <FormTitle>내용</FormTitle>
+              <Textarea placeholder="문의내용을 적으세요" />
+            </InputContainer>
+          </form>
+          <AskBtnContainer>
+            <AskBtn>문의하기</AskBtn>
+          </AskBtnContainer>
+          <FloatContainer>
+            <ModalTitle>Contact 1z Labs</ModalTitle>
+            <ModalDesc>
+              추가적인 컨설팅이 필요할 시 1z Labs로 연락하세요!
+            </ModalDesc>
+          </FloatContainer>
+        </ModalBody>
+      </Modal>
+    </>
+  );
+};
+
+export default ModalShare;
 
 const BottomBtnContainer = styled.div`
   position: absolute;
@@ -93,8 +143,8 @@ const Input = styled.input`
   box-sizing: border-box;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+
   &::placeholder {
-    // padding-left: 8px;
   }
   padding-left: 10px;
 `;
@@ -134,55 +184,3 @@ const AskBtn = styled.button`
   border: none;
   cursor: pointer;
 `;
-
-const ModalShare = () => {
-  const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const handleOpen = () => {
-    setIsOpen(true);
-    // navigate("/");
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
-  return (
-    <>
-      <BottomBtnContainer>
-        <BottomBtn onClick={handleOpen}>다봤어요!!</BottomBtn>
-      </BottomBtnContainer>
-      <Modal isOpen={isOpen} onClose={handleClose} selector="1266px">
-        <ModalBody>
-          <div style={{ height: "35px" }} />
-          <form>
-            <InputContainer>
-              <FormTitle>이메일</FormTitle>
-              <Input placeholder="기업 메일 또는 개인 메일을 적으세요." />
-            </InputContainer>
-            <InputContainer>
-              <FormTitle>기업명</FormTitle>
-              <Input placeholder="기업 명 또는 개인 성함을 적으세요." />
-            </InputContainer>
-            <InputContainer>
-              <FormTitle>내용</FormTitle>
-              <Textarea placeholder="문의내용을 적으세요" />
-            </InputContainer>
-          </form>
-          <AskBtnContainer>
-            <AskBtn>문의하기</AskBtn>
-          </AskBtnContainer>
-          <FloatContainer>
-            <ModalTitle>Contact 1z Labs</ModalTitle>
-            <ModalDesc>
-              추가적인 컨설팅이 필요할 시 1z Labs로 연락하세요!
-            </ModalDesc>
-          </FloatContainer>
-        </ModalBody>
-      </Modal>
-    </>
-  );
-};
-
-export default ModalShare;

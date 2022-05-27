@@ -5,6 +5,54 @@ type tabProps = {
   readonly isActive?: boolean;
 };
 
+const FileDescription: React.FC = () => {
+  const [displayDesc, setDisplayDesc] = useState([
+    {
+      step: "1",
+      title: "Firebase",
+      desc: "Firebase는 앱을 빌드하고 실행하는 데 도움이 됩니다. Google에서 제공합니다. Firebase를 팀에서 즐겨 사용하는 도구에 쉽게 통합할 수 있습니다. Google에서 제공합니다. Customize Your App. Boost App Engagement. Release Apps Confidently. 15+ Products & Solutions.",
+    },
+    {
+      step: "2",
+      title: "Google Analytics",
+      desc: "구글 애널리틱스는 현재 구글 마케팅 플랫폼 브랜드 내의 플랫폼으로서, 웹사이트 트래픽을 추적하고 보고하는 구글이 제공하는 웹 애널리틱스 서비스이다. 구글은 2005년 11월 Urchin을 인수한 이후 이 서비스를 런칭했다",
+    },
+    {
+      step: "3",
+      title: "직접 계산하기",
+      desc: "CSV 파일이 추출될 수 있도록 버튼을 눌러준다.",
+    },
+  ]);
+
+  const [clicked, setClicked] = useState(0);
+
+  const clickBtnHandler = (e: any, clickedIndex: number) => {
+    setClicked(clickedIndex);
+  };
+
+  return (
+    <Container>
+      <DescTitle>CSV 파일은 어떻게 구성해야 할까요?</DescTitle>
+      <TopicContainer>
+        {displayDesc.map((display, index) => (
+          <Topic
+            key={index}
+            isActive={index === clicked}
+            onClick={(e) => clickBtnHandler(e, index)}
+          >
+            {displayDesc[index].title}
+          </Topic>
+        ))}
+      </TopicContainer>
+      <div>
+        <Card>{displayDesc[clicked].desc}</Card>
+      </div>
+    </Container>
+  );
+};
+
+export default FileDescription;
+
 const Container = styled.div`
   position: relative;
 `;
@@ -61,51 +109,3 @@ const Card = styled.div`
   line-height: 21px;
   color: #07145a;
 `;
-
-const FileDescription: React.FC = () => {
-  const [displayDesc, setDisplayDesc] = useState([
-    {
-      step: "1",
-      title: "Firebase",
-      desc: "Firebase는 앱을 빌드하고 실행하는 데 도움이 됩니다. Google에서 제공합니다. Firebase를 팀에서 즐겨 사용하는 도구에 쉽게 통합할 수 있습니다. Google에서 제공합니다. Customize Your App. Boost App Engagement. Release Apps Confidently. 15+ Products & Solutions.",
-    },
-    {
-      step: "2",
-      title: "Google Analytics",
-      desc: "구글 애널리틱스는 현재 구글 마케팅 플랫폼 브랜드 내의 플랫폼으로서, 웹사이트 트래픽을 추적하고 보고하는 구글이 제공하는 웹 애널리틱스 서비스이다. 구글은 2005년 11월 Urchin을 인수한 이후 이 서비스를 런칭했다",
-    },
-    {
-      step: "3",
-      title: "직접 계산하기",
-      desc: "CSV 파일이 추출될 수 있도록 버튼을 눌러준다.",
-    },
-  ]);
-
-  const [clicked, setClicked] = useState(0);
-
-  const clickBtnHandler = (e: any, clickedIndex: number) => {
-    setClicked(clickedIndex);
-  };
-
-  return (
-    <Container>
-      <DescTitle>CSV 파일은 어떻게 구성해야 할까요?</DescTitle>
-      <TopicContainer>
-        {displayDesc.map((display, index) => (
-          <Topic
-            key={index}
-            isActive={index === clicked}
-            onClick={(e) => clickBtnHandler(e, index)}
-          >
-            {displayDesc[index].title}
-          </Topic>
-        ))}
-      </TopicContainer>
-      <div>
-        <Card>{displayDesc[clicked].desc}</Card>
-      </div>
-    </Container>
-  );
-};
-
-export default FileDescription;

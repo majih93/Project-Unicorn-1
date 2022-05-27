@@ -1,7 +1,32 @@
-import React, { useState } from "react";
 import { useRecoilState } from "recoil";
-import { resultInputState } from "../../../store/inputAtom";
 import styled from "styled-components";
+
+import { resultInputState } from "../../../store/inputAtom";
+
+const DataInput: React.FC<{ id: string }> = ({ id }) => {
+  const [userInput, setUserInput] = useRecoilState(resultInputState);
+
+  let placeholderT = "";
+
+  if (id === "arpu") placeholderT = "0원";
+  else if (id === "cac") placeholderT = "0원";
+  else placeholderT = "0명";
+
+  const onChange = (e: any) => {
+    setUserInput({
+      ...userInput,
+      [id]: e.target.value,
+    });
+  };
+
+  return (
+    <form>
+      <Input type="text" onChange={onChange} placeholder={placeholderT} />
+    </form>
+  );
+};
+
+export default DataInput;
 
 const Input = styled.input`
   width: 220px;
@@ -28,35 +53,3 @@ const Input = styled.input`
     opacity: 0.4;
   }
 `;
-
-const DataInput: React.FC<{ id: string }> = ({ id }) => {
-  const [userInput, setUserInput] = useRecoilState(resultInputState);
-
-  let placeholderT = "";
-
-  if (id === "arpu") placeholderT = "0원";
-  else if (id === "cac") placeholderT = "0원";
-  else placeholderT = "0명";
-
-  const onSubmit = (data: any) => {
-    setUserInput({
-      ...userInput,
-      [id]: data.data,
-    });
-  };
-
-  const onChange = (e: any) => {
-    setUserInput({
-      ...userInput,
-      [id]: e.target.value,
-    });
-  };
-
-  return (
-    <form>
-      <Input type="text" onChange={onChange} placeholder={placeholderT} />
-    </form>
-  );
-};
-
-export default DataInput;

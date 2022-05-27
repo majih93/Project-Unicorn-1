@@ -1,7 +1,33 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import GrowthBarChart2 from "./chart/GrowthBarChart 2";
+
 import ContactUs from "../stepCommon/modal/ContactUs";
+
+const LtvChart: React.FC = () => {
+  return (
+    <Container>
+      <ChartTitle>Product Growth Result</ChartTitle>
+      <GrowthContainer>
+        <DescriptionContianer>
+          <GrowthTitle>
+            {`현재 1z Labs의 성장 모델은 CAC > LTV * ARPU 입니다.`}
+          </GrowthTitle>
+          <div style={{ marginTop: "31px" }} />
+          <GrowthTitle>사용자를 1턴명 늘렸을 경우, 매출은</GrowthTitle>
+          <GrowthDescription>{`1,000,000,000`}</GrowthDescription>
+          <GrowthTitle>만원 증가합니다.</GrowthTitle>
+        </DescriptionContianer>
+        <ChartContiner>
+          <GrowthBarChart2 />
+        </ChartContiner>
+        <Line />
+      </GrowthContainer>
+      <ContactUs />
+    </Container>
+  );
+};
+
+export default LtvChart;
 
 const Container = styled.div`
   position: relative;
@@ -83,29 +109,3 @@ const Line = styled.div`
   top: 20px;
   border-left: 2px solid #f5f5f5;
 `;
-
-const LtvChart: React.FC = () => {
-  return (
-    <Container>
-      <ChartTitle>Product Growth Result</ChartTitle>
-      <GrowthContainer>
-        <DescriptionContianer>
-          <GrowthTitle>
-            {`현재 1z Labs의 성장 모델은 CAC > LTV * ARPU 입니다.`}
-          </GrowthTitle>
-          <div style={{ marginTop: "31px" }} />
-          <GrowthTitle>사용자를 1턴명 늘렸을 경우, 매출은</GrowthTitle>
-          <GrowthDescription>{`1,000,000,000`}</GrowthDescription>
-          <GrowthTitle>만원 증가합니다.</GrowthTitle>
-        </DescriptionContianer>
-        <ChartContiner>
-          <GrowthBarChart2 />
-        </ChartContiner>
-        <Line />
-      </GrowthContainer>
-      <ContactUs />
-    </Container>
-  );
-};
-
-export default LtvChart;

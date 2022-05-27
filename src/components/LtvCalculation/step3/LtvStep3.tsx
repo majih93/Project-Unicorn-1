@@ -1,10 +1,88 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
+
 import LtvResultInput from "./LtvResultInput";
 import ModalShare from "../stepCommon/modal/ModalShare";
 import LtvChart from "./LtvChart";
 import LtvGrowthPlus from "./LtvGrowthPlus";
 import LtvGrowthMinus from "./LtvGrowthMinus";
+
+type tabProps = {
+  readonly isActive?: boolean;
+};
+
+const LtvStep3: React.FC = () => {
+  const [clicked, setClicked] = useState(0);
+  const [input, setInput] = useState({ arpu: "", cac: "", 회원수: "" });
+  const result = 1;
+
+  const displayDesc = ["LTV 결과", "Growth 결과"];
+
+  const handleChange = (e: any) => {
+    console.log(e.target.value);
+    setInput({ ...input, arpu: e.target.value });
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(input);
+  };
+
+  const clickBtnHandler = (e: any, clickedIndex: number) => {
+    setClicked(clickedIndex);
+  };
+
+  // power/exponential 상태 조절 위한 변수
+  const [ltvVersion, setLtvVersion] = useState("power");
+  // 클릭 시 power/exponential 바꿔주는 함수
+  const setPowerVersion = () => {
+    setLtvVersion("power");
+  };
+  const setExponentialVersion = () => {
+    setLtvVersion("exponential");
+  };
+
+  return (
+    <Container>
+      <FlexContiner style={{ width: "170px", justifyContent: "space-between" }}>
+        <PowerBtn ltvVersion={ltvVersion} onClick={setPowerVersion}>
+          Power
+        </PowerBtn>
+        <ExponentialBtn ltvVersion={ltvVersion} onClick={setExponentialVersion}>
+          Exponential
+        </ExponentialBtn>
+      </FlexContiner>
+      <LtvResultInput />
+      <TabContainer>
+        {displayDesc.map((display, index) => (
+          <TabBtn
+            key={index}
+            isActive={index === clicked}
+            onClick={(e) => clickBtnHandler(e, index)}
+          >
+            <span>{displayDesc[index]}</span>
+          </TabBtn>
+        ))}
+      </TabContainer>
+      {clicked === 0 ? (
+        <LtvChartContainer>
+          <LtvChart />
+        </LtvChartContainer>
+      ) : result > 0 ? (
+        <LtvGrowthPlus />
+      ) : (
+        <div>
+          <LtvGrowthMinus />
+        </div>
+      )}
+      <ShareBtn>
+        <ModalShare />
+      </ShareBtn>
+    </Container>
+  );
+};
+
+export default LtvStep3;
 
 const Container = styled.div`
   position: relative;
@@ -105,80 +183,3 @@ const ShareBtn = styled.div`
   margin-left: -5px;
   background: white;
 `;
-
-type tabProps = {
-  readonly isActive?: boolean;
-};
-
-const LtvStep3: React.FC = () => {
-  const [clicked, setClicked] = useState(0);
-  const [input, setInput] = useState({ arpu: "", cac: "", 회원수: "" });
-  const result = 1;
-
-  const displayDesc = ["LTV 결과", "Growth 결과"];
-
-  const handleChange = (e: any) => {
-    console.log(e.target.value);
-    setInput({ ...input, arpu: e.target.value });
-  };
-
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    console.log(input);
-  };
-
-  const clickBtnHandler = (e: any, clickedIndex: number) => {
-    setClicked(clickedIndex);
-  };
-
-  // power/exponential 상태 조절 위한 변수
-  const [ltvVersion, setLtvVersion] = useState("power");
-  // 클릭 시 power/exponential 바꿔주는 함수
-  const setPowerVersion = () => {
-    setLtvVersion("power");
-  };
-  const setExponentialVersion = () => {
-    setLtvVersion("exponential");
-  };
-
-  return (
-    <Container>
-      <FlexContiner style={{ width: "170px", justifyContent: "space-between" }}>
-        <PowerBtn ltvVersion={ltvVersion} onClick={setPowerVersion}>
-          Power
-        </PowerBtn>
-        <ExponentialBtn ltvVersion={ltvVersion} onClick={setExponentialVersion}>
-          Exponential
-        </ExponentialBtn>
-      </FlexContiner>
-      <LtvResultInput />
-      <TabContainer>
-        {displayDesc.map((display, index) => (
-          <TabBtn
-            key={index}
-            isActive={index === clicked}
-            onClick={(e) => clickBtnHandler(e, index)}
-          >
-            <span>{displayDesc[index]}</span>
-          </TabBtn>
-        ))}
-      </TabContainer>
-      {clicked === 0 ? (
-        <LtvChartContainer>
-          <LtvChart />
-        </LtvChartContainer>
-      ) : result > 0 ? (
-        <LtvGrowthPlus />
-      ) : (
-        <div>
-          <LtvGrowthMinus />
-        </div>
-      )}
-      <ShareBtn>
-        <ModalShare />
-      </ShareBtn>
-    </Container>
-  );
-};
-
-export default LtvStep3;

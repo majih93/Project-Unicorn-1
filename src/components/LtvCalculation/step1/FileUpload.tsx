@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import Rocket from "../../../assets/images/FileUploadImage.svg";
@@ -6,6 +6,60 @@ import Complete from "../../../assets/icons/stepComplete.png";
 import Cancel from "../../../assets/icons/fileUploadCancel.svg";
 import DragDropInput from "./DragDropInput";
 import { StepBtnState } from "../../../store/StepBtnAtom";
+
+const FileUpload = () => {
+  const [file, setFile] = useState<File | null>(null);
+  const [displayState, setDone] = useRecoilState(StepBtnState);
+
+  useEffect(() => {
+    if (file !== null && file !== undefined) {
+      setDone(
+        displayState?.map((display) => {
+          if (display.step === "1") {
+            return {
+              ...display,
+              done: true,
+            };
+          }
+          return display;
+        })
+      );
+      console.log(displayState);
+    }
+  }, [file]);
+
+  const fileUploadCancel = () => {
+    window.location.replace("/ltvCal/");
+  };
+
+  return (
+    <Container>
+      <DragDropInput setFile={setFile} />
+      {file !== null && file !== undefined ? (
+        <DropZone style={{ border: "2px dashed #4a73f3" }}>
+          <FileUploadImage src={Complete} alt="Upload complete" />
+          <FileUploadDesc
+            style={{ height: "20px", backgroundColor: "#fafafa" }}
+          >
+            업로드 완료
+            <FileField>
+              <FileName>{file.name}</FileName>
+              <FileCancel>
+                <img src={Cancel} alt="Cancel" onClick={fileUploadCancel} />
+              </FileCancel>
+            </FileField>
+          </FileUploadDesc>
+        </DropZone>
+      ) : (
+        <>
+          <FileUploadImage src={Rocket} alt="Rocket launch" />
+        </>
+      )}
+    </Container>
+  );
+};
+
+export default FileUpload;
 
 const Container = styled.div`
   position: relative;
@@ -68,58 +122,3 @@ const FileCancel = styled.div`
   height: 15px;
   cursor: pointer;
 `;
-
-const FileUpload = () => {
-  const [file, setFile] = useState<File | null>(null);
-  const [displayState, setDone] = useRecoilState(StepBtnState);
-
-  useEffect(() => {
-    if (file !== null && file !== undefined) {
-      setDone(
-        displayState?.map((display) => {
-          if (display.step === "1") {
-            return {
-              ...display,
-              done: true,
-            };
-          }
-          return display;
-        })
-      );
-      console.log(displayState);
-    }
-  }, [file]);
-
-  const fileUploadCancel = () => {
-    window.location.replace("/ltvCal/");
-  };
-
-  return (
-    <Container>
-      <DragDropInput setFile={setFile} />
-      {file !== null && file !== undefined ? (
-        <DropZone style={{ border: "2px dashed #4a73f3" }}>
-          <FileUploadImage src={Complete} alt="Upload complete" />
-          <FileUploadDesc
-            style={{ height: "20px", backgroundColor: "#fafafa" }}
-          >
-            {/* {URL.createObjectURL(file)} */}
-            업로드 완료
-            <FileField>
-              <FileName>{file.name}</FileName>
-              <FileCancel>
-                <img src={Cancel} alt="Cancel" onClick={fileUploadCancel} />
-              </FileCancel>
-            </FileField>
-          </FileUploadDesc>
-        </DropZone>
-      ) : (
-        <>
-          <FileUploadImage src={Rocket} alt="Rocket launch" />
-        </>
-      )}
-    </Container>
-  );
-};
-
-export default FileUpload;

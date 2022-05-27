@@ -1,11 +1,64 @@
-import React, { useState, useEffect } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
+import { useState } from "react";
 import styled from "styled-components";
+
 import { userInputState } from "../../../../store/inputAtom";
 
 interface BtnProps {
   readonly isActive?: boolean;
 }
+
+const OsEnvButton = () => {
+  const [clicked, setClicked] = useState([false, false, false]);
+  const [clickedName, setClickedName] = useState("");
+  const [userInput, setUserInput] = useRecoilState(userInputState);
+
+  const btnList = ["Android", "IOS", "Web"];
+
+  const clickBtnHandler = (e: any, clickedIndex: number) => {
+    const newClicked = clicked.map((c, index) => {
+      return index === clickedIndex ? !c : false;
+    });
+    setClicked(newClicked);
+
+    setUserInput({
+      ...userInput,
+      OS: e.target.value,
+    });
+    setClickedName(e.target.value);
+  };
+
+  return (
+    <OsBtnContainer>
+      {clicked.map((c, index) =>
+        clicked[index] ? (
+          <OsEnvBtn
+            key={index}
+            isActive
+            value={btnList[index]}
+            onClick={(e) => {
+              clickBtnHandler(e, index);
+            }}
+          >
+            {btnList[index]}
+          </OsEnvBtn>
+        ) : (
+          <OsEnvBtn
+            key={index}
+            value={btnList[index]}
+            onClick={(e) => {
+              clickBtnHandler(e, index);
+            }}
+          >
+            {btnList[index]}
+          </OsEnvBtn>
+        )
+      )}
+    </OsBtnContainer>
+  );
+};
+
+export default OsEnvButton;
 
 const OsBtnContainer = styled.div`
   display: flex;
@@ -30,57 +83,3 @@ const OsEnvBtn = styled.button<BtnProps>`
   background: ${(props) => (props.isActive ? "#4A73F3" : "#fff")};
   color: ${(props) => (props.isActive ? "#fff" : "#4A73F3")};
 `;
-
-const OsEnvButton = () => {
-  const [clicked, setClicked] = useState([false, false, false]);
-  const [clickedName, setClickedName] = useState("");
-  const [userInput, setUserInput] = useRecoilState(userInputState);
-
-  const btnList = ["Android", "IOS", "Web"];
-
-  const clickBtnHandler = (e: any, clickedIndex: number) => {
-    const newClicked = clicked.map((c, index) => {
-      return index === clickedIndex ? !c : false;
-    });
-    setClicked(newClicked);
-
-    setUserInput({
-      ...userInput,
-      OS: e.target.value,
-    });
-    setClickedName(e.target.value);
-  };
-
-  return (
-    <>
-      <OsBtnContainer>
-        {clicked.map((c, index) =>
-          clicked[index] ? (
-            <OsEnvBtn
-              key={index}
-              isActive
-              value={btnList[index]}
-              onClick={(e) => {
-                clickBtnHandler(e, index);
-              }}
-            >
-              {btnList[index]}
-            </OsEnvBtn>
-          ) : (
-            <OsEnvBtn
-              key={index}
-              value={btnList[index]}
-              onClick={(e) => {
-                clickBtnHandler(e, index);
-              }}
-            >
-              {btnList[index]}
-            </OsEnvBtn>
-          )
-        )}
-      </OsBtnContainer>
-    </>
-  );
-};
-
-export default OsEnvButton;

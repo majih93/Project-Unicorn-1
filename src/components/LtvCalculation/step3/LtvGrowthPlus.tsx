@@ -1,9 +1,39 @@
 import React from "react";
-import styled from "styled-components";
-import GrowthBarChart from "./chart/GrowthBarChart";
-import ContactUs from "../stepCommon/modal/ContactUs";
 import { useRecoilState } from "recoil";
+import styled from "styled-components";
+
+import GrowthBarChart from "./chart/GrowthBarChart";
 import { userInputState } from "../../../store/inputAtom";
+
+import ContactUs from "../stepCommon/modal/ContactUs";
+
+const LtvChart: React.FC = () => {
+  const inputData = useRecoilState(userInputState);
+
+  return (
+    <Container>
+      <ChartTitle>Product Growth Result</ChartTitle>
+      <GrowthContainer>
+        <DescriptionContianer>
+          <GrowthTitle>
+            {`현재 ${inputData[0].service_name}의 성장 모델은 CAC < LTV * ARPU 입니다.`}
+          </GrowthTitle>
+          <div style={{ marginTop: "31px" }} />
+          <GrowthTitle>사용자를 1000명 늘렸을 경우, 매출은</GrowthTitle>
+          <GrowthDescription>{`1,000,000,000￦`}</GrowthDescription>
+          <GrowthTitle>증가합니다.</GrowthTitle>
+        </DescriptionContianer>
+        <ChartContiner>
+          <GrowthBarChart />
+        </ChartContiner>
+        <Line />
+      </GrowthContainer>
+      <ContactUs />
+    </Container>
+  );
+};
+
+export default LtvChart;
 
 const Container = styled.div`
   position: relative;
@@ -85,31 +115,3 @@ const Line = styled.div`
   top: 20px;
   border-left: 2px solid #f5f5f5;
 `;
-
-const LtvChart: React.FC = () => {
-  // 서비스 이름 가져오기 위해서 recoil로 데이터 불러오괴
-  const inputData = useRecoilState(userInputState);
-  return (
-    <Container>
-      <ChartTitle>Product Growth Result</ChartTitle>
-      <GrowthContainer>
-        <DescriptionContianer>
-          <GrowthTitle>
-            {`현재 ${inputData[0].service_name}의 성장 모델은 CAC < LTV * ARPU 입니다.`}
-          </GrowthTitle>
-          <div style={{ marginTop: "31px" }} />
-          <GrowthTitle>사용자를 1000명 늘렸을 경우, 매출은</GrowthTitle>
-          <GrowthDescription>{`1,000,000,000￦`}</GrowthDescription>
-          <GrowthTitle>증가합니다.</GrowthTitle>
-        </DescriptionContianer>
-        <ChartContiner>
-          <GrowthBarChart />
-        </ChartContiner>
-        <Line />
-      </GrowthContainer>
-      <ContactUs />
-    </Container>
-  );
-};
-
-export default LtvChart;

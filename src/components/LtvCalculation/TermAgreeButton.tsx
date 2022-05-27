@@ -1,10 +1,21 @@
-// 이용약관 하단 동의 및 사용 버튼 컴포넌트
-
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-// 버튼 컨테이너
+const TermAgreeButton = () => {
+  const navigate = useNavigate();
+
+  return (
+    <ButtonContainer>
+      <GoBackButton onClick={() => navigate("/")}>사용 안할래요</GoBackButton>
+      <UseCalButton onClick={() => navigate("/ltvCal")}>
+        사용 할래요
+      </UseCalButton>
+    </ButtonContainer>
+  );
+};
+
+export default TermAgreeButton;
+
 const ButtonContainer = styled.div`
   margin-top: 30px;
   display: flex;
@@ -39,22 +50,8 @@ const UseCalButton = styled.button`
   font-size: 16px;
   line-height: 24px;
   margin-left: 10px;
+
   &:hover {
     cursor: pointer;
   }
 `;
-
-const TermAgreeButton = () => {
-  const navigate = useNavigate();
-
-  return (
-    <ButtonContainer>
-      <GoBackButton onClick={() => navigate("/")}>사용 안할래요</GoBackButton>
-      <UseCalButton onClick={() => navigate("/ltvCal")}>
-        사용 할래요
-      </UseCalButton>
-    </ButtonContainer>
-  );
-};
-
-export default TermAgreeButton;

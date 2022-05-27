@@ -1,10 +1,68 @@
-import React, { useState } from "react";
 import styled from "styled-components";
-import ModalShow from "../stepCommon/modal/ModalShow";
 import { useRecoilState } from "recoil";
+
 import { resultInputState } from "../../../store/inputAtom";
+
+import ModalShow from "../stepCommon/modal/ModalShow";
 import DataInput from "./DataInput2";
 import Set from "../../../assets/icons/set.svg";
+
+const LtvResultInput: React.FC = () => {
+  const [resultState, setResultState] = useRecoilState(resultInputState);
+
+  const initialClick = () => {
+    setResultState({ arpu: 0, cac: 0, users: 0 });
+    window.location.replace("/ltvCal/result");
+  };
+
+  return (
+    <InputContainer>
+      <span>
+        우리 회사의 사용자 1명당 매출(ARPU) , 고객획득비용(CAC) , 회원수를
+        입력하세요.
+        <ModalShow
+          type="double"
+          modalTitle1={"ARPU 란?"}
+          descripton1={
+            "계산된 LTV에 따라 회원 수를 늘리려면 15일동안 15,000원의 홍보비를 사용하여 15,000명의 사용자를 지속적으로 유입시켜야 합니다."
+          }
+          modalTitle2={"CAC 란?"}
+          descripton2={
+            "계산된 LTV에 따라 회원 수를 늘리려면 15일동안 15,000원의 홍보비를 사용하여 15,000명의 사용자를 지속적으로 유입시켜야 합니다."
+          }
+          top={"-380px"}
+          left={"320px"}
+        />
+      </span>
+      <InitialSet onClick={initialClick}>
+        <span>{`초기화` + " "}</span>
+        <img src={Set} alt="set initial" />
+      </InitialSet>
+
+      <InputField>
+        <InputBox>
+          <InputTitle>ARPU</InputTitle>
+          <InputDesc>일 사용자 1명당 매출</InputDesc>
+          <DataInput id="arpu" />
+        </InputBox>
+        <InputBox>
+          <InputTitle>CAC</InputTitle>
+          <InputDesc>고객 획득 비용</InputDesc>
+          <DataInput id="cac" />
+        </InputBox>
+        <InputBox>
+          <InputTitle>Users</InputTitle>
+          <InputDesc>회원 수</InputDesc>
+          <DataInput id="users" />
+        </InputBox>
+
+        <Button type="submit" value="입력" />
+      </InputField>
+    </InputContainer>
+  );
+};
+
+export default LtvResultInput;
 
 const InputContainer = styled.div`
   position: relative;
@@ -85,60 +143,3 @@ const Button = styled.input`
     outline: none;
   }
 `;
-
-const LtvResultInput: React.FC = () => {
-  const [resultState, setResultState] = useRecoilState(resultInputState);
-
-  const initialClick = () => {
-    setResultState({ arpu: 0, cac: 0, users: 0 });
-    window.location.replace("/ltvCal/result");
-  };
-
-  return (
-    <InputContainer>
-      <span>
-        우리 회사의 사용자 1명당 매출(ARPU) , 고객획득비용(CAC) , 회원수를
-        입력하세요.
-        <ModalShow
-          type="double"
-          modalTitle1={"ARPU 란?"}
-          descripton1={
-            "계산된 LTV에 따라 회원 수를 늘리려면 15일동안 15,000원의 홍보비를 사용하여 15,000명의 사용자를 지속적으로 유입시켜야 합니다."
-          }
-          modalTitle2={"CAC 란?"}
-          descripton2={
-            "계산된 LTV에 따라 회원 수를 늘리려면 15일동안 15,000원의 홍보비를 사용하여 15,000명의 사용자를 지속적으로 유입시켜야 합니다."
-          }
-          top={"-380px"}
-          left={"320px"}
-        />
-      </span>
-      <InitialSet onClick={initialClick}>
-        <span>{`초기화` + " "}</span>
-        <img src={Set} alt="set initial" />
-      </InitialSet>
-
-      <InputField>
-        <InputBox>
-          <InputTitle>ARPU</InputTitle>
-          <InputDesc>일 사용자 1명당 매출</InputDesc>
-          <DataInput id="arpu" />
-        </InputBox>
-        <InputBox>
-          <InputTitle>CAC</InputTitle>
-          <InputDesc>고객 획득 비용</InputDesc>
-          <DataInput id="cac" />
-        </InputBox>
-        <InputBox>
-          <InputTitle>Users</InputTitle>
-          <InputDesc>회원 수</InputDesc>
-          <DataInput id="users" />
-        </InputBox>
-
-        <Button type="submit" value="입력" />
-      </InputField>
-    </InputContainer>
-  );
-};
-
-export default LtvResultInput;
