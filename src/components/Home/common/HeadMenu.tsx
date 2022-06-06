@@ -1,15 +1,14 @@
-import React, { Component } from "react";
-import { ReactDOM } from "react";
-import LogoImg from "../../../assets/images/Logo.svg";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
 import { useAuth } from "../../../context/loginAuthentication/AuthContext";
+
+import LogoImg from "../../../assets/images/Logo.svg";
 
 const HeadMenu = (props: any) => {
   const navigate = useNavigate();
   const authToken = sessionStorage.getItem("Auth Token");
   const { logout } = useAuth();
-  console.log(authToken);
 
   return (
     <Container>
@@ -45,7 +44,6 @@ const HeadMenu = (props: any) => {
 };
 
 const Container = styled.div`
-  /* border: 1px solid black; */
   width: 1440px;
   height: 56px;
   margin: 0 auto;
@@ -62,7 +60,7 @@ const HeaderImg = styled.img.attrs({
   display: block;
   margin: auto 0;
   padding: 130px;
-  /* height: 18.23px; */
+
   &:hover {
     cursor: pointer;
   }
@@ -84,6 +82,7 @@ const Menu = styled.div`
 const AboutBtn = styled.div`
   color: #999;
   font-size: 14px;
+
   &:hover {
     cursor: pointer;
   }
@@ -100,6 +99,7 @@ const LoginBtn = styled.div`
   align-items: center;
   justify-content: center;
   letter-spacing: 1px;
+
   &:hover {
     cursor: pointer;
   }
@@ -116,6 +116,7 @@ const JoinBtn = styled.div`
   align-items: center;
   justify-content: center;
   letter-spacing: 1px;
+
   &:hover {
     cursor: pointer;
   }

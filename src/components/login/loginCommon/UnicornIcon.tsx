@@ -1,13 +1,5 @@
-// 유니콘 메인 아이콘 재활용 가능한 컴포넌트
-
-import React from "react";
-import styled from "styled-components";
 import Logo2 from "../../../assets/icons/logo2.svg";
-
-const UnicornIconContainer = styled.div`
-  width: 100%;
-  // height: 18px;
-`;
+import styled from "styled-components";
 
 const UnicornIcon = () => {
   return (
@@ -18,3 +10,7 @@ const UnicornIcon = () => {
 };
 
 export default UnicornIcon;
+
+const UnicornIconContainer = styled.div`
+  width: 100%;
+`;

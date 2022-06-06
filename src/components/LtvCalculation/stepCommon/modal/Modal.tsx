@@ -1,38 +1,9 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import styled from "styled-components";
-import "./modal.css";
 import { CSSTransition } from "react-transition-group";
+
 import Portal from "./Portal";
-
-const Overlay = styled.div`
-  position: fixed;
-  width: 100vw;
-  height: 803px;
-  margin: 0 auto;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Dim = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-`;
-
-const Container = styled.div`
-  width: 350px;
-  position: relative;
-`;
+import "./modal.css";
 
 interface Props {
   isOpen: boolean;
@@ -70,3 +41,33 @@ const Modal: React.FC<Props> = ({ children, selector, isOpen, onClose }) => {
 };
 
 export default Modal;
+
+const Overlay = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 803px;
+  margin: 0 auto;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Dim = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
+
+const Container = styled.div`
+  width: 350px;
+  position: relative;
+`;

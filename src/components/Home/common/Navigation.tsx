@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const Navigation = (props: any) => {
   const navigate = useNavigate();
@@ -20,8 +20,9 @@ const Navigation = (props: any) => {
   );
 };
 
+export default Navigation;
+
 const Base = styled.div`
-  /* border: 1px solid black; */
   width: 1440px;
   height: 72px;
   margin: 0 auto;
@@ -29,7 +30,6 @@ const Base = styled.div`
 `;
 
 const Container = styled.div`
-  /* border: 1px solid black; */
   width: 80%;
   height: 100%;
   position: absolute;
@@ -59,9 +59,8 @@ const JoinBtn = styled.div`
   font-weight: 700;
   font-family: "Spoqa Han Sans", sans-serif;
   letter-spacing: 1px;
+
   &:hover {
     cursor: pointer;
   }
 `;
-
-export default Navigation;

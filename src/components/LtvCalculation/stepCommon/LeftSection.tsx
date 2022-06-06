@@ -1,15 +1,9 @@
-import styled from "styled-components";
 import { useRecoilValue } from "recoil";
-import { StepBtnState } from "../../../store/StepBtnAtom";
-import LeftSectionItem from "./LeftSectionItem";
+import styled from "styled-components";
 
-const Container = styled.div`
-  width: 330px;
-  height: 746px;
-  padding-left: 130px;
-  padding-top: 67px;
-  box-sizing: border-box;
-`;
+import { StepBtnState } from "../../../store/StepBtnAtom";
+
+import LeftSectionItem from "./LeftSectionItem";
 
 function LeftSection() {
   const displayState = useRecoilValue(StepBtnState);
@@ -24,3 +18,11 @@ function LeftSection() {
 }
 
 export default LeftSection;
+
+const Container = styled.div`
+  width: 330px;
+  height: 746px;
+  padding-left: 130px;
+  padding-top: 67px;
+  box-sizing: border-box;
+`;

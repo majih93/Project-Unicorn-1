@@ -1,5 +1,6 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+
 import ImgHome_1 from "../../../../assets/images/Home-Img-1.svg";
 import ImgHome_2 from "../../../../assets/images/Home-Img-2.svg";
 import ImgHome_3 from "../../../../assets/images/Home-Img-3.svg";
@@ -9,7 +10,6 @@ import IconHome_2 from "../../../../assets/icons/Icon-Home-2.svg";
 import IconHome_3 from "../../../../assets/icons/Icon-Home-3.svg";
 import IconHome_4 from "../../../../assets/icons/Icon-Home-4.svg";
 import IconBoxCheck from "../../../../assets/icons/Icon-BoxCheck.svg";
-import { useNavigate } from "react-router-dom";
 
 const Base = styled.div`
   /* border: 1px solid black; */

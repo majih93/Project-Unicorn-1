@@ -1,46 +1,8 @@
-import React, { FunctionComponent, useState } from "react";
+import { FunctionComponent, useState } from "react";
 import styled from "styled-components";
+
 import Modal from "./Modal";
 import Info from "../../../../assets/icons/info.svg";
-
-const Button = styled.button`
-  width: 14px;
-  height: 14px;
-  border: none;
-  font-size: 16px;
-  &:active {
-    opacity: 0.8;
-  }
-  background: #fafafa;
-`;
-
-const ModalTitle = styled.div`
-  font-family: "Spoqa Han Sans", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 21px;
-  color: #000000;
-`;
-
-const ModalDesc = styled.div`
-  font-family: "Spoqa Han Sans", sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  color: #000000;
-`;
-
-const ModalBody = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  background: #fff;
-  position: relative;
-  padding-block: 12px;
-  padding-inline: 24px;
-`;
 
 type ModalType = {
   type: string;
@@ -100,3 +62,42 @@ const ModalShow: FunctionComponent<ModalType> = ({
 };
 
 export default ModalShow;
+
+const Button = styled.button`
+  width: 14px;
+  height: 14px;
+  border: none;
+  font-size: 16px;
+  &:active {
+    opacity: 0.8;
+  }
+  background: #fafafa;
+`;
+
+const ModalTitle = styled.div`
+  font-family: "Spoqa Han Sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+`;
+
+const ModalDesc = styled.div`
+  font-family: "Spoqa Han Sans", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000000;
+`;
+
+const ModalBody = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+  position: relative;
+  padding-block: 12px;
+  padding-inline: 24px;
+`;

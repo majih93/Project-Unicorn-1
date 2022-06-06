@@ -1,7 +1,59 @@
-import React from "react";
-import imgHome from "../../../assets/images/Home_img.png";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+import imgHome from "../../../assets/images/Home_img.png";
+
+const HomeContents = (props: any) => {
+  const navigate = useNavigate();
+  const authToken = sessionStorage.getItem("Auth Token");
+  return (
+    <Base>
+      <Container>
+        <SpanA>당신의 유니콘은 어디쯤입니까?</SpanA>
+        <SpanB>
+          내 사업이 잘 되고 있는지 확인하고 싶다면, 유니콘 판별기를
+          사용해보세요.
+        </SpanB>
+        <Btn
+          onClick={() => {
+            // eslint-disable-next-line no-lone-blocks
+            {
+              authToken ? navigate("/term-agree") : navigate("/login");
+            }
+          }}
+        >
+          유니콘 판별기 사용하기
+        </Btn>
+        <SubInfo>
+          <div>
+            <SpanC1>53+million</SpanC1>
+            <SpanC2>Company</SpanC2>
+          </div>
+          <div>
+            <SpanC1>53+million</SpanC1>
+            <SpanC2>Company</SpanC2>
+          </div>
+          <div>
+            <SpanC1>53+million</SpanC1>
+            <SpanC2>Company</SpanC2>
+          </div>
+        </SubInfo>
+        <MainImg>
+          <img
+            src={imgHome}
+            alt="Main"
+            style={{
+              height: "670px",
+              width: "685px",
+            }}
+          />
+        </MainImg>
+      </Container>
+    </Base>
+  );
+};
+
+export default HomeContents;
 
 const Base = styled.div`
   background: #4a73f3;
@@ -89,55 +141,3 @@ const SpanC2 = styled.div`
   line-height: 29.6px;
   font-size: 20px;
 `;
-
-const HomeContents = (props: any) => {
-  const navigate = useNavigate();
-  const authToken = sessionStorage.getItem("Auth Token");
-  return (
-    <Base>
-      <Container>
-        <SpanA>당신의 유니콘은 어디쯤입니까?</SpanA>
-        <SpanB>
-          내 사업이 잘 되고 있는지 확인하고 싶다면, 유니콘 판별기를
-          사용해보세요.
-        </SpanB>
-        <Btn
-          onClick={() => {
-            // eslint-disable-next-line no-lone-blocks
-            {
-              authToken ? navigate("/term-agree") : navigate("/login");
-            }
-          }}
-        >
-          유니콘 판별기 사용하기
-        </Btn>
-        <SubInfo>
-          <div>
-            <SpanC1>53+million</SpanC1>
-            <SpanC2>Company</SpanC2>
-          </div>
-          <div>
-            <SpanC1>53+million</SpanC1>
-            <SpanC2>Company</SpanC2>
-          </div>
-          <div>
-            <SpanC1>53+million</SpanC1>
-            <SpanC2>Company</SpanC2>
-          </div>
-        </SubInfo>
-        <MainImg>
-          <img
-            src={imgHome}
-            alt="Main"
-            style={{
-              height: "670px",
-              width: "685px",
-            }}
-          />
-        </MainImg>
-      </Container>
-    </Base>
-  );
-};
-
-export default HomeContents;

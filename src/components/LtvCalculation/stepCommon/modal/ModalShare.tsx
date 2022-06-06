@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
+
 import Modal from "./Modal";
 import Share from "../../../../assets/icons/shareBtn.svg";
 import Google from "../../../../assets/icons/Share_Google.svg";
@@ -14,50 +15,6 @@ import Twitter from "../../../../assets/icons/Share_Twitter.svg";
 import Twitter_T from "../../../../assets/icons/Share_Twitter_text.svg";
 import URL from "../../../../assets/icons/Share_URL.svg";
 import URL_T from "../../../../assets/icons/Share_URL_text.svg";
-
-const Button = styled.button`
-  border: none;
-  &:active {
-    opacity: 0.8;
-  }
-  background: #fafafa;
-`;
-
-const ShareContainer = styled.div`
-  cursor: pointer;
-`;
-
-const ModalBody = styled.div`
-  height: 196px;
-  width: 280px;
-  top: -220px;
-  left: 45px;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  background: #fff;
-  position: relative;
-  padding-block: 12px;
-  padding-inline: 24px;
-`;
-
-const ShareTitle = styled.div`
-  width: 236px;
-  height: 21px;
-  margin: 15px auto;
-  font-family: "Spoqa Han Sans", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 21px;
-  text-align: center;
-  color: #000000;
-`;
-
-const FlexContainer = styled.div`
-  display: flex;
-  width: 200px;
-  margin: 15px auto;
-  justify-content: space-between;
-`;
 
 const ModalShare = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -143,3 +100,47 @@ const ModalShare = () => {
 };
 
 export default ModalShare;
+
+const Button = styled.button`
+  border: none;
+  &:active {
+    opacity: 0.8;
+  }
+  background: #fafafa;
+`;
+
+const ShareContainer = styled.div`
+  cursor: pointer;
+`;
+
+const ModalBody = styled.div`
+  height: 196px;
+  width: 280px;
+  top: -220px;
+  left: 45px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+  position: relative;
+  padding-block: 12px;
+  padding-inline: 24px;
+`;
+
+const ShareTitle = styled.div`
+  width: 236px;
+  height: 21px;
+  margin: 15px auto;
+  font-family: "Spoqa Han Sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #000000;
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+  width: 200px;
+  margin: 15px auto;
+  justify-content: space-between;
+`;

@@ -1,37 +1,11 @@
-import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
+
 import {
   userInputState,
   isShowError,
   whichIsError,
 } from "../../../../store/inputAtom";
-
-const Select = styled.select`
-  width: 275px;
-  height: 54px;
-  margin-left: 10px;
-  border: none;
-  font-family: "Spoqa Han Sans", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
-  color: #000000;
-  cursor: pointer;
-  &:focus {
-    outline: none;
-  }
-`;
-
-const ErrorSpan = styled.span`
-  position: relative;
-  top: 0px;
-  font-family: "Spoqa Han Sans", sans-serif;
-  font-size: 12px;
-  line-height: 18px;
-  color: #f3694c;
-  margin-left: 5px;
-`;
 
 const CategorySelect: React.FC = () => {
   const [userInput, setUserInput] = useRecoilState(userInputState);
@@ -82,3 +56,29 @@ const CategorySelect: React.FC = () => {
 };
 
 export default CategorySelect;
+
+const Select = styled.select`
+  width: 275px;
+  height: 54px;
+  margin-left: 10px;
+  border: none;
+  font-family: "Spoqa Han Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #000000;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+`;
+
+const ErrorSpan = styled.span`
+  position: relative;
+  top: 0px;
+  font-family: "Spoqa Han Sans", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #f3694c;
+  margin-left: 5px;
+`;

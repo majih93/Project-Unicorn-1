@@ -4,7 +4,6 @@ import MainButton from "../../components/login/loginCommon/MainButton";
 import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
 import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
 import { Link, useNavigate } from "react-router-dom";
-import LoginPage from "./LoginPage";
 import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import loginPageImage from "../../assets/images/loginImage.svg";
 import useDocumentTitle from "../../utils/useDocumentTitle";

@@ -1,11 +1,37 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import { useEffect } from "react";
 import { useRecoilValue } from "recoil";
+import styled from "styled-components";
+
+import { StepBtnState } from "../../../store/StepBtnAtom";
+import { useFirestore } from "../../../context/firestore/FirestoreContext";
+
 import FileDescription from "./FileDescription";
 import FileUpload from "./FileUpload";
 import BottomMoveButton from "../stepCommon/BottomMoveButton";
-import { StepBtnState } from "../../../store/StepBtnAtom";
-import { useFirestore } from "../../../context/firestore/FirestoreContext";
+
+const LtvStep1: React.FC = () => {
+  const displayState = useRecoilValue(StepBtnState);
+  const display = displayState[0];
+  const { setFileName } = useFirestore();
+
+  useEffect(() => {
+    setFileName("");
+  }, []);
+
+  return (
+    <Container>
+      <FileUploadContainer>
+        <FileUpload />
+      </FileUploadContainer>
+      <FileDescription />
+      <LocationButton>
+        <BottomMoveButton display={display} />
+      </LocationButton>
+    </Container>
+  );
+};
+
+export default LtvStep1;
 
 const Container = styled.div`
   position: relative;
@@ -26,27 +52,3 @@ const FileUploadContainer = styled.div`
   margin-left: 115px;
   margin-right: 115px;
 `;
-
-const LtvStep1: React.FC = () => {
-  const displayState = useRecoilValue(StepBtnState);
-  const display = displayState[0];
-  const { setFileName } = useFirestore();
-
-  // 이전에 세팅된 파일 이름이 있으면, 파일 이름 reset
-  useEffect(() => {
-    setFileName("");
-  }, []);
-  return (
-    <Container>
-      <FileUploadContainer>
-        <FileUpload />
-      </FileUploadContainer>
-      <FileDescription />
-      <LocationButton>
-        <BottomMoveButton display={display} />
-      </LocationButton>
-    </Container>
-  );
-};
-
-export default LtvStep1;
