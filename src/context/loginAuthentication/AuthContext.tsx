@@ -1,6 +1,6 @@
-// 로그인 구현하는 context 파일
 import { createContext, useState, useContext, useEffect } from "react";
 import { auth } from "../../utils/firebase-config";
+
 import {
   confirmPasswordReset,
   createUserWithEmailAndPassword,

@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+
+import { useAuth } from "../../context/loginAuthentication/AuthContext";
+import useDocumentTitle from "../../utils/useDocumentTitle";
+
 import MainButton from "../../components/login/loginCommon/MainButton";
 import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
 import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
@@ -10,8 +13,141 @@ import loginKakao from "../../assets/icons/Login_Kakao.svg";
 import loginGoogle_logo from "../../assets/icons/loginGoogle_logo.svg";
 import loginGoogle_letter from "../../assets/icons/loginGoogle_letter.svg";
 import loginPageImage from "../../assets/images/loginImage.svg";
-import { useAuth } from "../../context/loginAuthentication/AuthContext";
-import useDocumentTitle from "../../utils/useDocumentTitle";
+
+const LoginPage = () => {
+  // 타이틀 변경하는 로직
+  useDocumentTitle("유니콘: 로그인");
+
+  const navigate = useNavigate();
+
+  // 유저 인증상태 확인 후, 인증 상태에 따라 다른 라우팅
+  // 로그인 요청 시에, firebase에서 돌아오는 응답 중 response._tokenResponse.refreshToken을 sessionStorage에 "Auth Token"으로 setItem 후
+  // 라우팅 시에 Auth Token 존재 여부를 확인해서 라우팅 다르게
+  useEffect(() => {
+    const authToken = sessionStorage.getItem("Auth Token");
+
+    if (authToken === null) {
+      navigate("/login");
+    }
+    if (authToken) {
+      navigate("/");
+    }
+  }, [navigate]);
+
+  // 로그인 함수 가져오기
+  const { login, signInWithGoogle } = useAuth();
+
+  // 로그인 관련 상태 변수
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  // 에러 메세지 보여주기 위한 에러 변수
+  const [error, setError] = useState("");
+
+  return (
+    <LoginPageContainer>
+      {/* 우측 유저 입력 부분 */}
+      <LoginUserInputPart>
+        <UnicornIcon />
+        {/* 상단 소개문구 */}
+        <GreetingTop>
+          데이터를 기반으로 한<br />
+          프로젝트 지속 가능성 확인
+        </GreetingTop>
+        <GreetingBottom>
+          안녕하세요! 로그인을 위해 계정 정보를 입력해주세요.
+        </GreetingBottom>
+
+        {/* 로그인 FORM */}
+        <LoginForm
+          onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            // 로그인 구현 로직
+            login(loginEmail, loginPassword)
+              .then((response: any) => {
+                sessionStorage.setItem(
+                  "Auth Token",
+                  response._tokenResponse.refreshToken
+                );
+                navigate("/");
+              })
+              .catch((e: any) => {
+                setError("this");
+              });
+          }}
+        >
+          <UserInputContainer
+            inputType="이메일"
+            type={"email"}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setLoginEmail(e.target.value)
+            }
+          />
+          <UserInputContainer
+            inputType="비밀번호"
+            type={"password"}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setLoginPassword(e.target.value)
+            }
+          />
+          <KeepLoggedIn>
+            <label>
+              <input type="checkbox" />
+              로그인 유지
+            </label>
+            <Link to="/findpw">비밀번호 찾기</Link>
+          </KeepLoggedIn>
+          <MainButton buttonType="로그인" />
+        </LoginForm>
+        {/* SNS 계정 로그인 */}
+        {/* 중앙 분리선 */}
+        <DividingPart>
+          <DividingLine />
+          <SnsLogin>SNS 계정으로 로그인</SnsLogin>
+          <DividingLine />
+        </DividingPart>
+
+        {/* SNS 로그인 버튼  */}
+        <SnsContainer>
+          <SNSLoginButton>
+            <img src={loginNaver} alt="naver" />
+          </SNSLoginButton>
+          <SNSLoginButton>
+            <img src={loginKakao} alt="kakao" />
+          </SNSLoginButton>
+          <SNSLoginButton
+            onClick={() =>
+              signInWithGoogle()
+                .then((response: any) => {
+                  sessionStorage.setItem(
+                    "Auth Token",
+                    response._tokenResponse.refreshToken
+                  );
+                  navigate("/");
+                })
+                .catch((error: any) => console.log(error.message))
+            }
+          >
+            <img src={loginGoogle_logo} alt="g_logo" />
+            <img src={loginGoogle_letter} alt="g_letter" className="g_letter" />
+          </SNSLoginButton>
+        </SnsContainer>
+
+        {/* 처음이면 회원가입 */}
+        <AskJoin>
+          <span>유니콘이 처음이신가요?</span>
+          <Link to="/join">회원가입</Link>
+        </AskJoin>
+      </LoginUserInputPart>
+      {/* 우측 이미지 부분 */}
+      <RightImagePart>
+        <img src={loginPageImage} alt="loginImage" />
+      </RightImagePart>
+    </LoginPageContainer>
+  );
+};
+
+export default LoginPage;
 
 // 로그인 페이지 전체 컨테이너
 const LoginPageContainer = styled.div`
@@ -129,7 +265,7 @@ const SnsLogin = styled.span`
 
 // SNS 로그인 부분
 const SnsContainer = styled.div`
-  width: 100%
+  width: 100%;
   height: 40px;
   display: flex;
   justify-content: space-between;
@@ -195,138 +331,3 @@ const RightImagePart = styled.div`
     }
   }
 `;
-
-const LoginPage = () => {
-  // 타이틀 변경하는 로직
-  useDocumentTitle("유니콘: 로그인");
-
-  const navigate = useNavigate();
-
-  // 유저 인증상태 확인 후, 인증 상태에 따라 다른 라우팅
-  // 로그인 요청 시에, firebase에서 돌아오는 응답 중 response._tokenResponse.refreshToken을 sessionStorage에 "Auth Token"으로 setItem 후
-  // 라우팅 시에 Auth Token 존재 여부를 확인해서 라우팅 다르게
-  useEffect(() => {
-    const authToken = sessionStorage.getItem("Auth Token");
-
-    if (authToken === null) {
-      navigate("/login");
-    }
-    if (authToken) {
-      navigate("/");
-    }
-  }, []);
-
-  // 로그인 함수 가져오기
-  const { login, signInWithGoogle } = useAuth();
-
-  // 로그인 관련 상태 변수
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-
-  // 에러 메세지 보여주기 위한 에러 변수
-  const [error, setError] = useState("");
-
-  return (
-    <LoginPageContainer>
-      {/* 우측 유저 입력 부분 */}
-      <LoginUserInputPart>
-        <UnicornIcon />
-        {/* 상단 소개문구 */}
-        <GreetingTop>
-          데이터를 기반으로 한<br />
-          프로젝트 지속 가능성 확인
-        </GreetingTop>
-        <GreetingBottom>
-          안녕하세요! 로그인을 위해 계정 정보를 입력해주세요.
-        </GreetingBottom>
-
-        {/* 로그인 FORM */}
-        <LoginForm
-          onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-            // 로그인 구현 로직
-            login(loginEmail, loginPassword)
-              .then((response: any) => {
-                sessionStorage.setItem(
-                  "Auth Token",
-                  response._tokenResponse.refreshToken
-                );
-                navigate("/");
-              })
-              .catch((e: any) => {
-                setError("this");
-              });
-          }}
-        >
-          <UserInputContainer
-            inputType="이메일"
-            type={"email"}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setLoginEmail(e.target.value)
-            }
-          />
-          <UserInputContainer
-            inputType="비밀번호"
-            type={"password"}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setLoginPassword(e.target.value)
-            }
-          />
-          <KeepLoggedIn>
-            <label>
-              <input type="checkbox" />
-              로그인 유지
-            </label>
-            <Link to="/findpw">비밀번호 찾기</Link>
-          </KeepLoggedIn>
-          <MainButton buttonType="로그인" />
-        </LoginForm>
-        {/* SNS 계정 로그인 */}
-        {/* 중앙 분리선 */}
-        <DividingPart>
-          <DividingLine />
-          <SnsLogin>SNS 계정으로 로그인</SnsLogin>
-          <DividingLine />
-        </DividingPart>
-
-        {/* SNS 로그인 버튼  */}
-        <SnsContainer>
-          <SNSLoginButton>
-            <img src={loginNaver} alt="naver" />
-          </SNSLoginButton>
-          <SNSLoginButton>
-            <img src={loginKakao} alt="kakao" />
-          </SNSLoginButton>
-          <SNSLoginButton
-            onClick={() =>
-              signInWithGoogle()
-                .then((response: any) => {
-                  sessionStorage.setItem(
-                    "Auth Token",
-                    response._tokenResponse.refreshToken
-                  );
-                  navigate("/");
-                })
-                .catch((error: any) => console.log(error.message))
-            }
-          >
-            <img src={loginGoogle_logo} alt="g_logo" />
-            <img src={loginGoogle_letter} alt="g_letter" className="g_letter" />
-          </SNSLoginButton>
-        </SnsContainer>
-
-        {/* 처음이면 회원가입 */}
-        <AskJoin>
-          <span>유니콘이 처음이신가요?</span>
-          <Link to="/join">회원가입</Link>
-        </AskJoin>
-      </LoginUserInputPart>
-      {/* 우측 이미지 부분 */}
-      <RightImagePart>
-        <img src={loginPageImage} alt="loginImage" />
-      </RightImagePart>
-    </LoginPageContainer>
-  );
-};
-
-export default LoginPage;

@@ -7,11 +7,12 @@ import showArrow from "../../assets/icons/showArrow.svg";
 
 const Term = () => {
   const [isAgreed, setIsAgreed] = useState(false);
+  const [showDetail, setShowDetail] = useState(false);
+
   const agreedClickHandler = () => {
     isAgreed ? setIsAgreed(false) : setIsAgreed(true);
   };
 
-  const [showDetail, setShowDetail] = useState(false);
   const clickShowDetail = () => {
     showDetail ? setShowDetail(false) : setShowDetail(true);
   };

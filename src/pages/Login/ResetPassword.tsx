@@ -1,12 +1,75 @@
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import styled from "styled-components";
+import useDocumentTitle from "../../utils/useDocumentTitle";
+
+import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import MainButton from "../../components/login/loginCommon/MainButton";
 import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
 import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import loginPageImage from "../../assets/images/loginImage.svg";
-import useDocumentTitle from "../../utils/useDocumentTitle";
+
+// 비밀번호 재설정 페이지 설정할 때 가져와야하는 값에 접근하는 함수?
+// hooks 폴더에 넣어서 글로벌하게 사용해도 됨
+// query parameter를 받기 위해서 useLocation 훅을 사용
+function useQuery() {
+  const location = useLocation();
+  return new URLSearchParams(location.search);
+}
+
+const ResetPassword = () => {
+  useDocumentTitle("유니콘: 비밀번호 재설정");
+
+  const navigate = useNavigate();
+
+  const { resetPassword } = useAuth();
+
+  const query = useQuery();
+
+  const [newPassword, setNewPassword] = useState("");
+
+  return (
+    <FindPWContainer>
+      {/* 우측 유저 입력 부분 */}
+      <FindPWUserInputPart>
+        <UnicornIcon />
+        {/* 상단 소개문구 */}
+        <FindPWTitle>비밀번호 변경하기</FindPWTitle>
+        <FindPWInfo>변경할 비밀번호를 입력하세요.</FindPWInfo>
+
+        {/* 비밀번호 변경 FORM */}
+        <ResetPasswordForm
+          onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            resetPassword(query.get("oobCode"), newPassword)
+              .then((response: any) => {
+                navigate("/login");
+              })
+              .catch((error: any) => console.log(error.message));
+          }}
+        >
+          <UserInputContainer
+            inputType={"새로운 비밀번호 입력"}
+            type={"password"}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setNewPassword(e.target.value);
+            }}
+          />
+          <ButtonContainer>
+            <MainButton buttonType={"변경하기"} />
+          </ButtonContainer>
+        </ResetPasswordForm>
+      </FindPWUserInputPart>
+      {/* 우측 이미지 부분 */}
+      <RightImagePart>
+        <img src={loginPageImage} alt="loginImage" />
+      </RightImagePart>
+    </FindPWContainer>
+  );
+};
+
+export default ResetPassword;
 
 const FindPWContainer = styled.div`
   display: flex;
@@ -92,68 +155,3 @@ const RightImagePart = styled.div`
     }
   }
 `;
-
-// 비밀번호 재설정 페이지 설정할 때 가져와야하는 값에 접근하는 함수?
-// hooks 폴더에 넣어서 글로벌하게 사용해도 됨
-// query parameter를 받기 위해서 useLocation 훅을 사용
-function useQuery() {
-  const location = useLocation();
-  return new URLSearchParams(location.search);
-}
-
-const ResetPassword = () => {
-  // 타이틀 변경 로직
-  useDocumentTitle("유니콘: 비밀번호 재설정");
-  // navigate
-  const navigate = useNavigate();
-
-  const { resetPassword } = useAuth();
-  const query = useQuery();
-  console.log(query.get("mode"));
-  console.log(query.get("oobCode"));
-  console.log(query.get("continueUrl"));
-
-  const [newPassword, setNewPassword] = useState("");
-
-  return (
-    <FindPWContainer>
-      {/* 우측 유저 입력 부분 */}
-      <FindPWUserInputPart>
-        <UnicornIcon />
-        {/* 상단 소개문구 */}
-        <FindPWTitle>비밀번호 변경하기</FindPWTitle>
-        <FindPWInfo>변경할 비밀번호를 입력하세요.</FindPWInfo>
-
-        {/* 비밀번호 변경 FORM */}
-        <ResetPasswordForm
-          onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-            resetPassword(query.get("oobCode"), newPassword)
-              .then((response: any) => {
-                console.log(response);
-                navigate("/login");
-              })
-              .catch((error: any) => console.log(error.message));
-          }}
-        >
-          <UserInputContainer
-            inputType={"새로운 비밀번호 입력"}
-            type={"password"}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setNewPassword(e.target.value);
-            }}
-          />
-          <ButtonContainer>
-            <MainButton buttonType={"변경하기"} />
-          </ButtonContainer>
-        </ResetPasswordForm>
-      </FindPWUserInputPart>
-      {/* 우측 이미지 부분 */}
-      <RightImagePart>
-        <img src={loginPageImage} alt="loginImage" />
-      </RightImagePart>
-    </FindPWContainer>
-  );
-};
-
-export default ResetPassword;

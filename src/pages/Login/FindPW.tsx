@@ -1,12 +1,76 @@
 import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import styled from "styled-components";
+import useDocumentTitle from "../../utils/useDocumentTitle";
+
 import MainButton from "../../components/login/loginCommon/MainButton";
 import UnicornIcon from "../../components/login/loginCommon/UnicornIcon";
 import UserInputContainer from "../../components/login/loginCommon/UserInputContainer";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/loginAuthentication/AuthContext";
 import loginPageImage from "../../assets/images/loginImage.svg";
-import useDocumentTitle from "../../utils/useDocumentTitle";
+
+const FindPW = () => {
+  useDocumentTitle("유니콘: 비밀번호 찾기");
+
+  const [findEmail, setFindEmail] = useState("");
+  const { findPassword } = useAuth();
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const authToken = sessionStorage.getItem("Auth Token");
+    console.log(authToken);
+
+    if (authToken === null) {
+      navigate("/findpw");
+    }
+    if (authToken) {
+      navigate("/home");
+    }
+  }, []);
+
+  return (
+    <FindPWContainer>
+      {/* 우측 유저 입력 부분 */}
+      <FindPWUserInputPart>
+        <UnicornIcon />
+        <FindPWTitle>비밀번호 찾기</FindPWTitle>
+        <FindPWInfo>이메일 입력 시, 비밀번호 변경 URL이 전송됩니다.</FindPWInfo>
+        <FindPWForm
+          onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            findPassword(findEmail)
+              .then((response: any) => console.log(response))
+              .catch((error: any) => console.log(error.message));
+          }}
+        >
+          <UserInputContainer
+            inputType={"이메일 주소 입력"}
+            type={"email"}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setFindEmail(e.target.value);
+            }}
+          />
+          <ButtonContainer>
+            <MainButton buttonType={"전송하기"} />
+          </ButtonContainer>
+        </FindPWForm>
+        {/* 비밀번호 찾았다면 로그인으로 */}
+        <AskLogin>
+          <span>비밀번호를 찾으셨나요?</span>
+          <Link to="/login">로그인</Link>
+        </AskLogin>
+      </FindPWUserInputPart>
+      {/* 우측 이미지 부분 */}
+      <RightImagePart>
+        <img src={loginPageImage} alt="loginImage" />
+      </RightImagePart>
+    </FindPWContainer>
+  );
+};
+
+export default FindPW;
+
 const FindPWContainer = styled.div`
   display: flex;
   height: 100vh;
@@ -90,65 +154,3 @@ const RightImagePart = styled.div`
     }
   }
 `;
-
-const FindPW = () => {
-  // 타이틀 변경 로직
-  useDocumentTitle("유니콘: 비밀번호 찾기");
-
-  const [findEmail, setFindEmail] = useState("");
-  const { findPassword } = useAuth();
-
-  const navigate = useNavigate();
-  useEffect(() => {
-    const authToken = sessionStorage.getItem("Auth Token");
-    console.log(authToken);
-
-    if (authToken === null) {
-      navigate("/findpw");
-    }
-    if (authToken) {
-      navigate("/home");
-    }
-  }, []);
-
-  return (
-    <FindPWContainer>
-      {/* 우측 유저 입력 부분 */}
-      <FindPWUserInputPart>
-        <UnicornIcon />
-        <FindPWTitle>비밀번호 찾기</FindPWTitle>
-        <FindPWInfo>이메일 입력 시, 비밀번호 변경 URL이 전송됩니다.</FindPWInfo>
-        <FindPWForm
-          onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-            findPassword(findEmail)
-              .then((response: any) => console.log(response))
-              .catch((error: any) => console.log(error.message));
-          }}
-        >
-          <UserInputContainer
-            inputType={"이메일 주소 입력"}
-            type={"email"}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setFindEmail(e.target.value);
-            }}
-          />
-          <ButtonContainer>
-            <MainButton buttonType={"전송하기"} />
-          </ButtonContainer>
-        </FindPWForm>
-        {/* 비밀번호 찾았다면 로그인으로 */}
-        <AskLogin>
-          <span>비밀번호를 찾으셨나요?</span>
-          <Link to="/login">로그인</Link>
-        </AskLogin>
-      </FindPWUserInputPart>
-      {/* 우측 이미지 부분 */}
-      <RightImagePart>
-        <img src={loginPageImage} alt="loginImage" />
-      </RightImagePart>
-    </FindPWContainer>
-  );
-};
-
-export default FindPW;

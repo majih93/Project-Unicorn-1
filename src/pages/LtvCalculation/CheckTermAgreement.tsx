@@ -1,6 +1,6 @@
 // 이용약관 페이지
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import Logo2 from "../../assets/icons/logo2.svg";
 import { useNavigate } from "react-router-dom";
